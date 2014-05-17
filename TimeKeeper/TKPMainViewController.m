@@ -7,6 +7,9 @@
 //
 
 #import "TKPMainViewController.h"
+#import "TKPCategoryTableViewCell.h"
+
+static NSString *const kCellIdentifier = @"categoryCellIdentifier";
 
 @interface TKPMainViewController ()
 
@@ -20,10 +23,24 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Table View methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TKPCategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier
+                                                                     forIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //handle selection
 }
 
 @end
