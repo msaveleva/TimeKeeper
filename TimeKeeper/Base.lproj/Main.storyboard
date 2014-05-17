@@ -9,8 +9,8 @@
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="TKPMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VAX-hM-3yB"/>
-                        <viewControllerLayoutGuide type="bottom" id="yqf-Xo-ZpH"/>
+                        <viewControllerLayoutGuide type="top" id="sge-ZP-FgL"/>
+                        <viewControllerLayoutGuide type="bottom" id="9bF-Zb-4H5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -20,17 +20,23 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BfD-JD-v4f" customClass="TKPHeaderView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BfD-JD-v4f" customClass="TKPHeaderView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="0.95923580766669481" blue="0.60246691631652693" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="BAO-s5-g8e"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yd5-mE-VjY" customClass="TKPTimeView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yd5-mE-VjY" customClass="TKPTimeView">
                                 <rect key="frame" x="0.0" y="493" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.55793433612760501" green="1" blue="0.60151306300701313" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Thm-Wp-5Dd"/>
+                                </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mn7-T2-TyO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mn7-T2-TyO">
                                 <rect key="frame" x="0.0" y="80" width="320" height="413"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,6 +57,18 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BfD-JD-v4f" secondAttribute="trailing" id="75t-4D-Nzz"/>
+                            <constraint firstItem="9bF-Zb-4H5" firstAttribute="top" secondItem="yd5-mE-VjY" secondAttribute="bottom" id="BDj-d9-IEQ"/>
+                            <constraint firstItem="BfD-JD-v4f" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="QxL-0G-qJc"/>
+                            <constraint firstAttribute="trailing" secondItem="mn7-T2-TyO" secondAttribute="trailing" id="UDN-2k-Jev"/>
+                            <constraint firstAttribute="trailing" secondItem="yd5-mE-VjY" secondAttribute="trailing" id="W49-Qg-egf"/>
+                            <constraint firstItem="BfD-JD-v4f" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="fB5-mp-bR1"/>
+                            <constraint firstItem="mn7-T2-TyO" firstAttribute="top" secondItem="BfD-JD-v4f" secondAttribute="bottom" id="fXA-dX-0A9"/>
+                            <constraint firstItem="yd5-mE-VjY" firstAttribute="top" secondItem="mn7-T2-TyO" secondAttribute="bottom" id="hSm-Xq-97S"/>
+                            <constraint firstItem="mn7-T2-TyO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="qRR-ed-87x"/>
+                            <constraint firstItem="yd5-mE-VjY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="qYT-Pt-14Q"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
