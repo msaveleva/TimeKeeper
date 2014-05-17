@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Maria Saveleva. All rights reserved.
 //
 
-#import "TKPViewController.h"
+#import "TKPMainViewController.h"
 
-@interface TKPViewController ()
+@interface TKPMainViewController ()
 
 @end
 
-@implementation TKPViewController
+@implementation TKPMainViewController
 
 - (void)viewDidLoad
 {

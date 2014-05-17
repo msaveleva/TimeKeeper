@@ -1,5 +1,5 @@
 //
-//  TKPViewController.h
+//  TKPEditViewController.h
 //  TimeKeeper
 //
 //  Created by Maria Saveleva on 17/05/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TKPViewController : UIViewController
+@interface TKPEditViewController : UIViewController
 
 @end
