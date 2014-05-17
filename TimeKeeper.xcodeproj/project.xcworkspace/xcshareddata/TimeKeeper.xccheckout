@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>07584855-E6D5-4DA6-A36A-D12118D00100</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TimeKeeper</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F20DD10E-C74B-4827-97DB-99722B0EADCF</key>
+		<string>https://github.com/msaveleva/TimeKeeper.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TimeKeeper.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F20DD10E-C74B-4827-97DB-99722B0EADCF</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/msaveleva/TimeKeeper.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F20DD10E-C74B-4827-97DB-99722B0EADCF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F20DD10E-C74B-4827-97DB-99722B0EADCF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TimeKeeper</string>
+		</dict>
+	</array>
+</dict>
+</plist>
