@@ -23,6 +23,8 @@
 		3F85E8BA19279AF200275E9A /* TimeKeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8B919279AF200275E9A /* TimeKeeperTests.m */; };
 		3F85E8C51927A31400275E9A /* TKPEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8C41927A31400275E9A /* TKPEditViewController.m */; };
 		3F85E8CB1927A37A00275E9A /* TKPTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8CA1927A37A00275E9A /* TKPTimeView.m */; };
+		3F85E8CE1927A3E600275E9A /* TKPHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8CD1927A3E600275E9A /* TKPHeaderView.m */; };
+		3F85E8D21927AD0600275E9A /* TKPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8D11927AD0600275E9A /* TKPCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,10 @@
 		3F85E8C41927A31400275E9A /* TKPEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPEditViewController.m; sourceTree = "<group>"; };
 		3F85E8C91927A37A00275E9A /* TKPTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPTimeView.h; sourceTree = "<group>"; };
 		3F85E8CA1927A37A00275E9A /* TKPTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPTimeView.m; sourceTree = "<group>"; };
+		3F85E8CC1927A3E600275E9A /* TKPHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPHeaderView.h; sourceTree = "<group>"; };
+		3F85E8CD1927A3E600275E9A /* TKPHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPHeaderView.m; sourceTree = "<group>"; };
+		3F85E8D01927AD0600275E9A /* TKPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPCategory.h; sourceTree = "<group>"; };
+		3F85E8D11927AD0600275E9A /* TKPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPCategory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,7 @@
 		3F85E89419279AF200275E9A /* TimeKeeper */ = {
 			isa = PBXGroup;
 			children = (
+				3F85E8CF1927ACF300275E9A /* Model */,
 				3F85E8C81927A35A00275E9A /* IBs */,
 				3F85E8C71927A35500275E9A /* Views */,
 				3F85E8C61927A34F00275E9A /* ViewControllers */,
@@ -174,6 +181,8 @@
 			children = (
 				3F85E8C91927A37A00275E9A /* TKPTimeView.h */,
 				3F85E8CA1927A37A00275E9A /* TKPTimeView.m */,
+				3F85E8CC1927A3E600275E9A /* TKPHeaderView.h */,
+				3F85E8CD1927A3E600275E9A /* TKPHeaderView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -184,6 +193,15 @@
 				3F85E8A019279AF200275E9A /* Main.storyboard */,
 			);
 			name = IBs;
+			sourceTree = "<group>";
+		};
+		3F85E8CF1927ACF300275E9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F85E8D01927AD0600275E9A /* TKPCategory.h */,
+				3F85E8D11927AD0600275E9A /* TKPCategory.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +302,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F85E8D21927AD0600275E9A /* TKPCategory.m in Sources */,
 				3F85E89F19279AF200275E9A /* TKPAppDelegate.m in Sources */,
+				3F85E8CE1927A3E600275E9A /* TKPHeaderView.m in Sources */,
 				3F85E8A519279AF200275E9A /* TKPMainViewController.m in Sources */,
 				3F85E8CB1927A37A00275E9A /* TKPTimeView.m in Sources */,
 				3F85E8C51927A31400275E9A /* TKPEditViewController.m in Sources */,
