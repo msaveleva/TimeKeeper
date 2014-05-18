@@ -28,17 +28,4 @@
     return self;
 }
 
-- (instancetype)setUpTimeView
-{
-    TKPTimeView *timeView =
-        [[[NSBundle mainBundle] loadNibNamed:@"TKPTimeView" owner:self options:nil] lastObject];
-    
-    if ([timeView isKindOfClass:[self class]]) {
-        return timeView;
-    } else {
-        NSLog(@"An error has occured creating timeView!");
-        return nil;
-    }
-}
-
 @end

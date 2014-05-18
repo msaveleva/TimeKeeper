@@ -10,15 +10,59 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-aG-ahe">
-                    <rect key="frame" x="137" y="21" width="46" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-aG-ahe">
+                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button">
+                    <color key="backgroundColor" red="0.7568628191947937" green="0.93333339691162109" blue="0.70588237047195435" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="eXN-Bt-bav"/>
+                        <constraint firstAttribute="width" constant="75" id="l4Z-g0-Yjz"/>
+                    </constraints>
+                    <state key="normal" title="Clock">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh9-8k-JKM">
+                    <rect key="frame" x="245" y="0.0" width="75" height="75"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.71764707565307617" green="0.92941182851791382" blue="0.67450982332229614" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="80b-O3-MLq"/>
+                        <constraint firstAttribute="width" constant="75" id="Yjy-0f-4ZM"/>
+                    </constraints>
+                    <state key="normal" title="Pause">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJX-bi-gWo">
+                    <rect key="frame" x="75" y="0.0" width="15" height="75"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="3wF-Ou-VwD"/>
+                        <constraint firstAttribute="width" constant="15" id="cay-2X-cyz"/>
+                    </constraints>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8WF-e9-jSr">
+                    <rect key="frame" x="90" y="0.0" width="155" height="75"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.60000002384185791" green="0.91372555494308472" blue="0.54117649793624878" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="CHh-9S-XGp"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="DJX-bi-gWo" firstAttribute="leading" secondItem="lJM-aG-ahe" secondAttribute="trailing" id="DmO-WF-Uph"/>
+                <constraint firstItem="eh9-8k-JKM" firstAttribute="leading" secondItem="8WF-e9-jSr" secondAttribute="trailing" id="IHt-T9-vwf"/>
+                <constraint firstItem="8WF-e9-jSr" firstAttribute="leading" secondItem="DJX-bi-gWo" secondAttribute="trailing" id="X86-s5-5Ta"/>
+                <constraint firstAttribute="centerY" secondItem="eh9-8k-JKM" secondAttribute="centerY" id="bXQ-b4-HOf"/>
+                <constraint firstAttribute="centerY" secondItem="8WF-e9-jSr" secondAttribute="centerY" id="dP9-fc-IHh"/>
+                <constraint firstAttribute="trailing" secondItem="eh9-8k-JKM" secondAttribute="trailing" id="f8A-L6-58A"/>
+                <constraint firstAttribute="centerY" secondItem="lJM-aG-ahe" secondAttribute="centerY" id="fOg-Km-buC"/>
+                <constraint firstAttribute="centerY" secondItem="DJX-bi-gWo" secondAttribute="centerY" id="n4B-SB-mYa"/>
+                <constraint firstItem="lJM-aG-ahe" firstAttribute="leading" secondItem="0Q5-yJ-kN2" secondAttribute="leading" id="xvN-wk-wKD"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
