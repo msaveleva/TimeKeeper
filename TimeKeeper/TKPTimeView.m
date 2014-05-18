@@ -24,6 +24,8 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self addSubview:[[[NSBundle mainBundle] loadNibNamed:@"TKPTimeView" owner:self options:nil] lastObject]];
+        
+        //hide scrollView
         self.timerScrollViewConstraint.constant = 0;
     }
     return self;

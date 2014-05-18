@@ -18,41 +18,59 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen" translatesAutoresizingMaskIntoConstraints="NO" id="fKj-E4-5W9">
+                    <rect key="frame" x="0.0" y="-493" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-aG-ahe">
-                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                    <rect key="frame" x="0.0" y="0.0" width="64" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.7568628191947937" green="0.93333339691162109" blue="0.70588237047195435" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="eXN-Bt-bav"/>
-                        <constraint firstAttribute="width" constant="75" id="l4Z-g0-Yjz"/>
+                        <constraint firstAttribute="width" constant="64" id="l4Z-g0-Yjz"/>
                     </constraints>
                     <state key="normal" title="Clock">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh9-8k-JKM">
-                    <rect key="frame" x="245" y="0.0" width="75" height="75"/>
+                    <rect key="frame" x="256" y="0.0" width="64" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.71764707565307617" green="0.92941182851791382" blue="0.67450982332229614" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="80b-O3-MLq"/>
-                        <constraint firstAttribute="width" constant="75" id="Yjy-0f-4ZM"/>
+                        <constraint firstAttribute="width" constant="64" id="Yjy-0f-4ZM"/>
                     </constraints>
                     <state key="normal" title="Pause">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJX-bi-gWo">
-                    <rect key="frame" x="75" y="0.0" width="15" height="75"/>
+                    <rect key="frame" x="64" y="0.0" width="0.0" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="3wF-Ou-VwD"/>
-                        <constraint firstAttribute="width" constant="15" id="cay-2X-cyz"/>
+                        <constraint firstAttribute="width" id="cay-2X-cyz"/>
                     </constraints>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8WF-e9-jSr">
-                    <rect key="frame" x="90" y="0.0" width="155" height="75"/>
+                    <rect key="frame" x="64" y="0.0" width="192" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:07:23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4C-6D-VHU">
+                            <rect key="frame" x="14" y="28" width="170" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meditation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ww-WK-2gq">
+                            <rect key="frame" x="15" y="4" width="74" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" red="0.60000002384185791" green="0.91372555494308472" blue="0.54117649793624878" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="CHh-9S-XGp"/>
@@ -74,4 +92,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="Screen" width="160" height="285"/>
+    </resources>
 </document>
