@@ -41,7 +41,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCellIdentifier" rowHeight="75" id="xSK-UI-xny">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCellIdentifier" rowHeight="75" id="xSK-UI-xny" customClass="TKPCategoryTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xSK-UI-xny" id="K5D-Cq-eSF">
@@ -68,6 +68,11 @@
                                                 </view>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryColorView" destination="8ai-CF-VES" id="iCg-7B-iJR"/>
+                                            <outlet property="categoryNameLabel" destination="6Q6-aQ-Fjd" id="uOI-Fo-0Bi"/>
+                                            <outlet property="categoryTypeLabel" destination="SsU-Vt-3cb" id="2c3-TE-Y1H"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

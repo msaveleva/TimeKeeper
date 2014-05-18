@@ -10,4 +10,8 @@
 
 @interface TKPCategoryTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *categoryNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryTypeLabel;
+@property (weak, nonatomic) IBOutlet UIView *categoryColorView;
+
 @end
