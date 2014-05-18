@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F5A83E919286DE50029D3AE /* TKPTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5A83E819286DE50029D3AE /* TKPTimeView.xib */; };
 		3F85E88F19279AF200275E9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F85E88E19279AF200275E9A /* Foundation.framework */; };
 		3F85E89119279AF200275E9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F85E89019279AF200275E9A /* CoreGraphics.framework */; };
 		3F85E89319279AF200275E9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F85E89219279AF200275E9A /* UIKit.framework */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F5A83E819286DE50029D3AE /* TKPTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPTimeView.xib; sourceTree = "<group>"; };
 		3F85E88B19279AF200275E9A /* TimeKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F85E88E19279AF200275E9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F85E89019279AF200275E9A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,6 +187,7 @@
 			children = (
 				3F85E8C91927A37A00275E9A /* TKPTimeView.h */,
 				3F85E8CA1927A37A00275E9A /* TKPTimeView.m */,
+				3F5A83E819286DE50029D3AE /* TKPTimeView.xib */,
 				3F85E8CC1927A3E600275E9A /* TKPHeaderView.h */,
 				3F85E8CD1927A3E600275E9A /* TKPHeaderView.m */,
 			);
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F85E8A719279AF200275E9A /* Images.xcassets in Resources */,
+				3F5A83E919286DE50029D3AE /* TKPTimeView.xib in Resources */,
 				3F85E89919279AF200275E9A /* InfoPlist.strings in Resources */,
 				3F85E8A219279AF200275E9A /* Main.storyboard in Resources */,
 			);

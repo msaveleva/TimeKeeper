@@ -10,4 +10,6 @@
 
 @interface TKPTimeView : UIView
 
+- (instancetype)setUpTimeView;
+
 @end

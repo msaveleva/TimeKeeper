@@ -19,13 +19,26 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    // Drawing code
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self addSubview:[[[NSBundle mainBundle] loadNibNamed:@"TKPTimeView" owner:self options:nil] lastObject]];
+    }
+    return self;
 }
-*/
+
+- (instancetype)setUpTimeView
+{
+    TKPTimeView *timeView =
+        [[[NSBundle mainBundle] loadNibNamed:@"TKPTimeView" owner:self options:nil] lastObject];
+    
+    if ([timeView isKindOfClass:[self class]]) {
+        return timeView;
+    } else {
+        NSLog(@"An error has occured creating timeView!");
+        return nil;
+    }
+}
 
 @end
