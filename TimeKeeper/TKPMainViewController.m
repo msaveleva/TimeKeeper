@@ -8,10 +8,16 @@
 
 #import "TKPMainViewController.h"
 #import "TKPCategoryTableViewCell.h"
+#import "TKPHeaderView.h"
+#import "TKPTimeView.h"
 
 static NSString *const kCellIdentifier = @"categoryCellIdentifier";
 
 @interface TKPMainViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableView *categoriesTableView;
+@property (weak, nonatomic) IBOutlet TKPHeaderView *headerView;
+@property (weak, nonatomic) IBOutlet TKPTimeView *timeView;
 
 @end
 
@@ -20,14 +26,19 @@ static NSString *const kCellIdentifier = @"categoryCellIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    //remove header and footer
+    self.categoriesTableView.tableHeaderView =
+        [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.categoriesTableView.bounds.size.width, 1.0f)];
+    self.categoriesTableView.tableFooterView =
+        [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.categoriesTableView.bounds.size.width, 1.0f)];
 }
 
 #pragma mark - Table View methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -39,6 +50,7 @@ static NSString *const kCellIdentifier = @"categoryCellIdentifier";
 {
     TKPCategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier
                                                                      forIndexPath:indexPath];
+    cell.categoryNameLabel.text = @"Some category name";
     
     return cell;
 }

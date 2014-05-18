@@ -36,13 +36,13 @@
                                     <constraint firstAttribute="height" constant="75" id="Thm-Wp-5Dd"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mn7-T2-TyO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="mn7-T2-TyO">
                                 <rect key="frame" x="0.0" y="80" width="320" height="413"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCellIdentifier" rowHeight="75" id="xSK-UI-xny" customClass="TKPCategoryTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="75"/>
+                                        <rect key="frame" x="0.0" y="55" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xSK-UI-xny" id="K5D-Cq-eSF">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
@@ -95,6 +95,11 @@
                             <constraint firstItem="yd5-mE-VjY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="qYT-Pt-14Q"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categoriesTableView" destination="mn7-T2-TyO" id="eeV-wb-IBh"/>
+                        <outlet property="headerView" destination="BfD-JD-v4f" id="jp7-qp-ZIz"/>
+                        <outlet property="timeView" destination="yd5-mE-VjY" id="Svp-uF-dGH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
