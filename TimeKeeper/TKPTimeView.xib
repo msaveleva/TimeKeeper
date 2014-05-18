@@ -4,7 +4,15 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TKPTimeView"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TKPTimeView">
+            <connections>
+                <outlet property="clockButton" destination="lJM-aG-ahe" id="Ffb-HH-7G7"/>
+                <outlet property="pauseButton" destination="eh9-8k-JKM" id="Uff-kB-go5"/>
+                <outlet property="timerScrollView" destination="DJX-bi-gWo" id="du5-Do-XoQ"/>
+                <outlet property="timerScrollViewConstraint" destination="cay-2X-cyz" id="fnP-NS-PzU"/>
+                <outlet property="timerView" destination="8WF-e9-jSr" id="dIf-my-egc"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="0Q5-yJ-kN2">
             <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
