@@ -8,6 +8,12 @@
 
 #import "TKPCategoryTableViewCell.h"
 
+@interface TKPCategoryTableViewCell ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftContentViewContraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightContentViewContraint;
+
+@end
+
 @implementation TKPCategoryTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
