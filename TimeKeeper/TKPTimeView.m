@@ -19,13 +19,16 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    // Drawing code
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self addSubview:[[[NSBundle mainBundle] loadNibNamed:@"TKPTimeView" owner:self options:nil] lastObject]];
+        
+        //hide scrollView
+        self.timerScrollViewConstraint.constant = 0;
+    }
+    return self;
 }
-*/
 
 @end
