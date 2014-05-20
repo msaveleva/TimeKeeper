@@ -83,9 +83,9 @@
                 <outlet property="categoryNameLabel" destination="rP0-Hc-JF4" id="39J-Rh-RcT"/>
                 <outlet property="categoryTypeLabel" destination="374-pm-2aM" id="Dgi-2G-ZRo"/>
                 <outlet property="editButton" destination="Cbd-YW-7vu" id="DL2-i3-U92"/>
-                <outlet property="leftContentViewContraint" destination="for-Gp-onV" id="R4Z-LS-e2n"/>
+                <outlet property="leftContentViewConstraint" destination="for-Gp-onV" id="j21-68-vYu"/>
                 <outlet property="removeButton" destination="02h-t3-WZK" id="pv2-0v-1Ta"/>
-                <outlet property="rightContentViewContraint" destination="nzl-wB-GN5" id="Ntk-6E-9fI"/>
+                <outlet property="rightContentViewConstraint" destination="nzl-wB-GN5" id="X2A-g3-Isz"/>
             </connections>
         </tableViewCell>
     </objects>
