@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C56D4ED192B85B500102E7B /* TKPCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */; };
 		3F09C41719287FC800D08E16 /* TKPHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F09C41619287FC800D08E16 /* TKPHeaderView.xib */; };
 		3F5A83E919286DE50029D3AE /* TKPTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5A83E819286DE50029D3AE /* TKPTimeView.xib */; };
 		3F85E88F19279AF200275E9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F85E88E19279AF200275E9A /* Foundation.framework */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		3F09C41619287FC800D08E16 /* TKPHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPHeaderView.xib; sourceTree = "<group>"; };
 		3F5A83E819286DE50029D3AE /* TKPTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPTimeView.xib; sourceTree = "<group>"; };
 		3F85E88B19279AF200275E9A /* TimeKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +221,7 @@
 			children = (
 				3F85E8D41927B39C00275E9A /* TKPCategoryTableViewCell.h */,
 				3F85E8D51927B39C00275E9A /* TKPCategoryTableViewCell.m */,
+				1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F85E8A719279AF200275E9A /* Images.xcassets in Resources */,
+				1C56D4ED192B85B500102E7B /* TKPCategoryTableViewCell.xib in Resources */,
 				3F5A83E919286DE50029D3AE /* TKPTimeView.xib in Resources */,
 				3F09C41719287FC800D08E16 /* TKPHeaderView.xib in Resources */,
 				3F85E89919279AF200275E9A /* InfoPlist.strings in Resources */,

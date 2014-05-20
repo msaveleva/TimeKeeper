@@ -11,7 +11,8 @@
 #import "TKPHeaderView.h"
 #import "TKPTimeView.h"
 
-static NSString *const kCellIdentifier = @"categoryCellIdentifier";
+//static NSString *const kCellIdentifier = @"categoryCellIdentifier";
+static NSString *const kCellIdentifier = @"categoryCell";
 
 @interface TKPMainViewController ()
 
@@ -32,6 +33,10 @@ static NSString *const kCellIdentifier = @"categoryCellIdentifier";
         [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.categoriesTableView.bounds.size.width, 1.0f)];
     self.categoriesTableView.tableFooterView =
         [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.categoriesTableView.bounds.size.width, 1.0f)];
+    
+    //register custom cell
+    UINib *nib = [UINib nibWithNibName:@"TKPCategoryTableViewCell" bundle:nil];
+    [self.categoriesTableView registerNib:nib forCellReuseIdentifier:kCellIdentifier];
 }
 
 #pragma mark - Table View methods
