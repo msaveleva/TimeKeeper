@@ -35,9 +35,10 @@ static CGFloat kAnimationSpeed = 0.3f;
 
 - (void)awakeFromNib
 {
-    // Initialization code
     self.isEditing = NO;
     self.isRemoving = NO;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     self.leftContentViewConstraint.constant = kMinMargin;
     self.rightContentViewConstraint.constant = kMinMargin;
     [self layoutIfNeeded];
@@ -74,6 +75,13 @@ static CGFloat kAnimationSpeed = 0.3f;
         } completion:^(BOOL isFinished){
             self.isRemoving = YES;
         }];
+    } else {
+        [UIView animateWithDuration:kAnimationSpeed animations:^{
+            self.leftContentViewConstraint.constant = kMinMargin;
+            [self layoutIfNeeded];
+        } completion:^(BOOL isFinished){
+            self.isEditing = NO;
+        }];
     }
 }
 
@@ -86,8 +94,14 @@ static CGFloat kAnimationSpeed = 0.3f;
         } completion:^(BOOL isFinished){
             self.isEditing = YES;
         }];
+    } else {
+        [UIView animateWithDuration:kAnimationSpeed animations:^{
+            self.rightContentViewConstraint.constant = kMinMargin;
+            [self layoutIfNeeded];
+        } completion:^(BOOL isFinished){
+            self.isRemoving = NO;
+        }];
     }
-    
 }
 
 @end
