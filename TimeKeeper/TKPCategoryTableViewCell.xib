@@ -54,10 +54,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="LTa-2P-IIG" firstAttribute="centerY" secondItem="zLa-pU-n0X" secondAttribute="centerY" id="Ge4-HR-Ne0"/>
-                    <constraint firstItem="LTa-2P-IIG" firstAttribute="top" secondItem="zLa-pU-n0X" secondAttribute="top" id="Tvl-yj-Hho"/>
-                    <constraint firstItem="LTa-2P-IIG" firstAttribute="leading" secondItem="zLa-pU-n0X" secondAttribute="leading" id="Yq4-ek-Xe0"/>
-                    <constraint firstAttribute="trailing" secondItem="LTa-2P-IIG" secondAttribute="trailing" id="g6H-fc-mGl"/>
+                    <constraint firstItem="LTa-2P-IIG" firstAttribute="top" secondItem="zLa-pU-n0X" secondAttribute="top" id="G0I-Tg-iJQ"/>
+                    <constraint firstItem="LTa-2P-IIG" firstAttribute="leading" secondItem="zLa-pU-n0X" secondAttribute="leading" id="for-Gp-onV"/>
+                    <constraint firstAttribute="bottom" secondItem="LTa-2P-IIG" secondAttribute="bottom" constant="-1" id="fu3-8T-kIC"/>
+                    <constraint firstAttribute="trailing" secondItem="LTa-2P-IIG" secondAttribute="trailing" id="nzl-wB-GN5"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
