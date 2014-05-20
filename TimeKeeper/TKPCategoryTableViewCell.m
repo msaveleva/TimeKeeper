@@ -8,6 +8,9 @@
 
 #import "TKPCategoryTableViewCell.h"
 
+static CGFloat const kMaxMargin = 64.0f;
+static CGFloat const kMinMargin = 0.0f;
+
 @interface TKPCategoryTableViewCell ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftContentViewContraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightContentViewContraint;
@@ -28,6 +31,9 @@
 - (void)awakeFromNib
 {
     // Initialization code
+    self.leftContentViewContraint.constant = kMinMargin;
+    self.rightContentViewContraint.constant = kMinMargin;
+    [self layoutIfNeeded];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
