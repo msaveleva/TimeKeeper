@@ -8,8 +8,8 @@
             <connections>
                 <outlet property="clockButton" destination="lJM-aG-ahe" id="Ffb-HH-7G7"/>
                 <outlet property="pauseButton" destination="eh9-8k-JKM" id="Uff-kB-go5"/>
-                <outlet property="timerScrollView" destination="DJX-bi-gWo" id="du5-Do-XoQ"/>
-                <outlet property="timerScrollViewConstraint" destination="cay-2X-cyz" id="fnP-NS-PzU"/>
+                <outlet property="timerAndButtonView" destination="5jS-B0-efN" id="aOZ-3j-VIn"/>
+                <outlet property="timerScrollView" destination="E27-bv-OWl" id="7NX-kw-dFB"/>
                 <outlet property="timerView" destination="8WF-e9-jSr" id="dIf-my-egc"/>
             </connections>
         </placeholder>
@@ -22,83 +22,60 @@
                     <rect key="frame" x="0.0" y="-493" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-aG-ahe">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E27-bv-OWl" customClass="TKPTimeScrollView">
+                    <rect key="frame" x="64" y="0.0" width="256" height="75"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-aG-ahe">
                     <rect key="frame" x="0.0" y="0.0" width="64" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.7568628191947937" green="0.93333339691162109" blue="0.70588237047195435" alpha="1" colorSpace="deviceRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="75" id="eXN-Bt-bav"/>
-                        <constraint firstAttribute="width" constant="64" id="l4Z-g0-Yjz"/>
-                    </constraints>
                     <state key="normal" image="Alarm">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="setAlarm:" destination="-1" eventType="touchUpInside" id="Tda-r3-vCj"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh9-8k-JKM">
-                    <rect key="frame" x="256" y="0.0" width="64" height="75"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.71764707565307617" green="0.92941182851791382" blue="0.67450982332229614" alpha="1" colorSpace="deviceRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="75" id="80b-O3-MLq"/>
-                        <constraint firstAttribute="width" constant="64" id="Yjy-0f-4ZM"/>
-                    </constraints>
-                    <state key="normal" image="PauseWhite">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJX-bi-gWo">
-                    <rect key="frame" x="64" y="0.0" width="0.0" height="75"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="75" id="3wF-Ou-VwD"/>
-                        <constraint firstAttribute="width" id="cay-2X-cyz"/>
-                    </constraints>
-                </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8WF-e9-jSr">
-                    <rect key="frame" x="64" y="0.0" width="192" height="75"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5jS-B0-efN">
+                    <rect key="frame" x="64" y="0.0" width="256" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:07:23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4C-6D-VHU">
-                            <rect key="frame" x="14" y="28" width="165" height="35"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh9-8k-JKM">
+                            <rect key="frame" x="192" y="0.0" width="64" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="35" id="eJo-hp-XR2"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="43"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meditation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ww-WK-2gq">
-                            <rect key="frame" x="15" y="4" width="64" height="21"/>
+                            <color key="backgroundColor" red="0.71764707565307617" green="0.92941182851791382" blue="0.67450982332229614" alpha="1" colorSpace="deviceRGB"/>
+                            <state key="normal" image="PauseWhite">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8WF-e9-jSr">
+                            <rect key="frame" x="0.0" y="0.0" width="192" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="21" id="FNi-59-fcG"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:07:23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4C-6D-VHU">
+                                    <rect key="frame" x="14" y="28" width="165" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meditation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ww-WK-2gq">
+                                    <rect key="frame" x="15" y="4" width="64" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.60000002384185791" green="0.91372555494308472" blue="0.54117649793624878" alpha="1" colorSpace="deviceRGB"/>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.60000002384185791" green="0.91372555494308472" blue="0.54117649793624878" alpha="1" colorSpace="deviceRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="75" id="CHh-9S-XGp"/>
-                        <constraint firstItem="F4C-6D-VHU" firstAttribute="leading" secondItem="8ww-WK-2gq" secondAttribute="leading" constant="-1" id="FWD-FX-dPf"/>
-                        <constraint firstItem="8ww-WK-2gq" firstAttribute="top" secondItem="8WF-e9-jSr" secondAttribute="top" constant="4" id="HS2-ep-rdy"/>
-                        <constraint firstItem="8ww-WK-2gq" firstAttribute="leading" secondItem="8WF-e9-jSr" secondAttribute="leading" constant="15" id="bjq-YA-L1b"/>
-                        <constraint firstItem="F4C-6D-VHU" firstAttribute="top" secondItem="8ww-WK-2gq" secondAttribute="bottom" constant="3" id="iFw-FE-Cdv"/>
-                    </constraints>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="DJX-bi-gWo" firstAttribute="leading" secondItem="lJM-aG-ahe" secondAttribute="trailing" id="DmO-WF-Uph"/>
-                <constraint firstItem="eh9-8k-JKM" firstAttribute="leading" secondItem="8WF-e9-jSr" secondAttribute="trailing" id="IHt-T9-vwf"/>
-                <constraint firstItem="8WF-e9-jSr" firstAttribute="leading" secondItem="DJX-bi-gWo" secondAttribute="trailing" id="X86-s5-5Ta"/>
-                <constraint firstAttribute="centerY" secondItem="eh9-8k-JKM" secondAttribute="centerY" id="bXQ-b4-HOf"/>
-                <constraint firstAttribute="centerY" secondItem="8WF-e9-jSr" secondAttribute="centerY" id="dP9-fc-IHh"/>
-                <constraint firstAttribute="trailing" secondItem="eh9-8k-JKM" secondAttribute="trailing" id="f8A-L6-58A"/>
-                <constraint firstAttribute="centerY" secondItem="lJM-aG-ahe" secondAttribute="centerY" id="fOg-Km-buC"/>
-                <constraint firstAttribute="centerY" secondItem="DJX-bi-gWo" secondAttribute="centerY" id="n4B-SB-mYa"/>
-                <constraint firstItem="lJM-aG-ahe" firstAttribute="leading" secondItem="0Q5-yJ-kN2" secondAttribute="leading" id="xvN-wk-wKD"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>

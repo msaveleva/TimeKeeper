@@ -11,12 +11,13 @@
 
 static CGFloat const kMaxMargin = 64.0f;
 static CGFloat const kMinMargin = 0.0f;
-static CGFloat kAnimationSpeed = 0.3f;
+static CGFloat const kAnimationSpeed = 0.3f;
 
 @interface TKPCategoryTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftContentViewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightContentViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pauseButtonWidthConstraint;
 
 @property (strong, nonatomic) UISwipeGestureRecognizer *leftSwipeGesture;
 @property (strong, nonatomic) UISwipeGestureRecognizer *rightSwipeGesture;
@@ -39,6 +40,8 @@ static CGFloat kAnimationSpeed = 0.3f;
     self.isEditing = NO;
     self.isRemoving = NO;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.pauseButton.hidden = YES;
+    self.pauseButtonWidthConstraint.constant = 0.0f;
     
     //set colors
     self.editButton.backgroundColor = [UIColor editButtonCellColor];
@@ -108,6 +111,42 @@ static CGFloat kAnimationSpeed = 0.3f;
             self.isRemoving = NO;
         }];
     }
+}
+
+#pragma mark - Pause button
+
+- (void)hidePauseButton
+{
+    if (!self.pauseButton.isHidden) {
+        [UIView animateWithDuration:kAnimationSpeed animations:^{
+            self.pauseButton.hidden = YES;
+            self.pauseButtonWidthConstraint.constant = 0.0f;
+            [self layoutIfNeeded];
+        } completion:^(BOOL isFinished){
+            //some completion
+        }];
+    }
+}
+
+- (void)showPauseButton
+{
+    if (self.pauseButton.isHidden) {
+        [UIView animateWithDuration:kAnimationSpeed animations:^{
+            self.pauseButton.hidden = NO;
+            self.pauseButtonWidthConstraint.constant = kMaxMargin;
+            [self layoutIfNeeded];
+        } completion:^(BOOL isFinished){
+            //some completion
+        }];
+    }
+}
+
+#pragma mark - Edit and remove actions
+
+- (IBAction)editCategory:(id)sender {
+}
+
+- (IBAction)removeCategory:(id)sender {
 }
 
 @end

@@ -8,6 +8,16 @@
 
 #import "TKPTimeView.h"
 #import "UIColor+CustomColors.h"
+#import "TKPTimeScrollView.h"
+
+static CGFloat const kAnimationSpeed = 0.3f;
+static CGFloat const kTimerAndButtonView = 256.0f;
+
+@interface TKPTimeView ()
+
+@property (nonatomic) BOOL isSettingAlarm;
+
+@end
 
 @implementation TKPTimeView
 
@@ -33,9 +43,36 @@
         self.pauseButton.backgroundColor = [UIColor timeViewButtonsColor];
         
         //hide scrollView
-        self.timerScrollViewConstraint.constant = 0;
+        self.isSettingAlarm = NO;
+        
     }
     return self;
+}
+
+- (IBAction)setAlarm:(id)sender {
+    if (!self.isSettingAlarm) {
+        [UIView animateWithDuration:kAnimationSpeed animations:^{
+            self.timerAndButtonView.frame =
+                UIEdgeInsetsInsetRect(self.timerAndButtonView.frame, UIEdgeInsetsMake(0.0f,
+                                                                                      kTimerAndButtonView,
+                                                                                      0.0f,
+                                                                                      0.0f));
+            [self layoutIfNeeded];
+        } completion:^(BOOL isFinished){
+            self.isSettingAlarm = YES;
+        }];
+    } else {
+        [UIView animateWithDuration:kAnimationSpeed animations:^{
+            self.timerAndButtonView.frame =
+            UIEdgeInsetsInsetRect(self.timerAndButtonView.frame, UIEdgeInsetsMake(0.0f,
+                                                                                  -kTimerAndButtonView,
+                                                                                  0.0f,
+                                                                                  0.0f));
+            [self layoutIfNeeded];
+        } completion:^(BOOL isFinished){
+            self.isSettingAlarm = NO;
+        }];
+    }
 }
 
 @end
