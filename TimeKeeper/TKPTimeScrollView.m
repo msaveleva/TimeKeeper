@@ -8,6 +8,7 @@
 
 #import "TKPTimeScrollView.h"
 #import "UIColor+CustomColors.h"
+#import "UIFont+CustomFonts.h"
 
 static CGSize const kTimeButtonSize = { 68.0f, 53.0f };
 
@@ -59,9 +60,10 @@ static CGSize const kTimeButtonSize = { 68.0f, 53.0f };
         CGFloat leftMargin = 0.0f;
         for (NSNumber *number in self.timeIntervals) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            button.backgroundColor = [UIColor yellowColor];
             button.frame = CGRectMake(leftMargin, 0.0f, kTimeButtonSize.width, kTimeButtonSize.height);
             [button setTitle:[NSString stringWithFormat:@"%@", number] forState:UIControlStateNormal];
+            button.titleLabel.font = [UIFont mediumSystemFontOfSize:42.0f];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [self.scrollViewContentView addSubview:button];
             leftMargin += kTimeButtonSize.width;
         }
