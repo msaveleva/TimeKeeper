@@ -11,7 +11,7 @@
 
 static CGFloat const kMaxMargin = 64.0f;
 static CGFloat const kMinMargin = 0.0f;
-static CGFloat kAnimationSpeed = 0.3f;
+static CGFloat const kAnimationSpeed = 0.3f;
 
 @interface TKPCategoryTableViewCell ()
 
