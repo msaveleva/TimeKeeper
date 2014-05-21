@@ -9,6 +9,16 @@
 #import "TKPTimeScrollView.h"
 #import "UIColor+CustomColors.h"
 
+static CGFloat const kScrollViewTopMargin = 23.0f;
+static CGSize const kTimeButtonSize = { 68.0f, 53.0f };
+
+@interface TKPTimeScrollView ()
+
+@property (nonatomic, strong) UIView *scrollViewContentView;
+@property (nonatomic, strong) NSArray *timeIntervals;
+
+@end
+
 @implementation TKPTimeScrollView
 
 - (id)initWithFrame:(CGRect)frame
@@ -28,8 +38,34 @@
         
         //set colors
         self.timeIntervalView.backgroundColor = [UIColor timeViewBackgroundColor];
+        
+        //set timeIntervals
+        self.timeIntervals = @[@05, @10, @15, @30, @45, @60];
+        [self setupContentView];
     }
     return self;
+}
+
+- (void)setupContentView
+{
+    if (!self.scrollViewContentView) {
+        self.scrollViewContentView =
+            [[UIView alloc] initWithFrame:CGRectMake(0.0f,
+                                                    kScrollViewTopMargin,
+                                                    kTimeButtonSize.width * [self.timeIntervals count],
+                                                    self.timeIntervalView.frame.size.height - kScrollViewTopMargin)];
+        [self.timeIntervalScrollView addSubview:self.scrollViewContentView];
+        self.timeIntervalScrollView.contentSize = self.scrollViewContentView.frame.size;
+        
+        CGFloat leftMargin = 0.0f;
+        for (NSNumber *number in self.timeIntervals) {
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            button.frame = CGRectMake(leftMargin, 0.0f, kTimeButtonSize.width, kTimeButtonSize.height);
+            [button setTitle:[NSString stringWithFormat:@"%@", number] forState:UIControlStateNormal];
+            [self.scrollViewContentView addSubview:button];
+            leftMargin += kTimeButtonSize.width;
+        }
+    }
 }
 
 @end
