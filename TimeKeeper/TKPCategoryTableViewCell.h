@@ -22,4 +22,7 @@
 @property (nonatomic) BOOL isEditing;
 @property (nonatomic) BOOL isRemoving;
 
+- (void)hidePauseButton;
+- (void)showPauseButton;
+
 @end

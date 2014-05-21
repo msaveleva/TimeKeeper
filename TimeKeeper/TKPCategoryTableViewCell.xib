@@ -21,6 +21,9 @@
                             <color key="titleColor" red="0.99300010235031477" green="0.96514463668475226" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="editCategory:" destination="Tnk-zu-h9M" eventType="touchUpInside" id="gga-Va-gma"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02h-t3-WZK">
                         <rect key="frame" x="256" y="0.0" width="64" height="75"/>
@@ -30,6 +33,9 @@
                             <color key="titleColor" red="0.99300010240000003" green="0.96514463669999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="removeCategory:" destination="Tnk-zu-h9M" eventType="touchUpInside" id="wFT-xo-GwJ"/>
+                        </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LTa-2P-IIG">
                         <rect key="frame" x="64" y="0.0" width="256" height="74"/>
