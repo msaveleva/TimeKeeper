@@ -10,4 +10,6 @@
 
 @interface TKPHeaderView : UIView
 
+@property (strong, nonatomic) IBOutlet UIView *contentView;
+
 @end

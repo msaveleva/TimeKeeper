@@ -7,6 +7,7 @@
 //
 
 #import "TKPHeaderView.h"
+#import "UIColor+CustomColors.h"
 
 @implementation TKPHeaderView
 
@@ -24,6 +25,9 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self addSubview:[[[NSBundle mainBundle] loadNibNamed:@"TKPHeaderView" owner:self options:nil] lastObject]];
+        
+        //set colors
+        self.contentView.backgroundColor = [UIColor headerViewBackground];
     }
     return self;
 }

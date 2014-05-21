@@ -12,5 +12,6 @@
 
 + (UIColor *)timeViewBackgroundColor;
 + (UIColor *)timeViewButtonsColor;
++ (UIColor *)headerViewBackground;
 
 @end

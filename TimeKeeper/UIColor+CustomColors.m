@@ -22,4 +22,10 @@
     return [UIColor colorWithRed:0x49/255. green:0xa6/255. blue:0x75/255. alpha:1];
 }
 
++ (UIColor *)headerViewBackground
+{
+    //f0e8e5
+    return [UIColor colorWithRed:0xf0/255. green:0xe8/255. blue:0xe5/255. alpha:1];
+}
+
 @end
