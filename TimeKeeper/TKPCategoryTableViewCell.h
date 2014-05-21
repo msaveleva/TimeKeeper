@@ -12,7 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *categoryNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryTypeLabel;
-@property (weak, nonatomic) IBOutlet UIView *categoryColorView;
+@property (weak, nonatomic) IBOutlet UIImageView *categoryIndicatorImageView;
+@property (weak, nonatomic) IBOutlet UIView *categoryLabelsContentView;
 
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *removeButton;
