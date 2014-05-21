@@ -43,6 +43,7 @@ static CGFloat kAnimationSpeed = 0.3f;
     //set colors
     self.editButton.backgroundColor = [UIColor editButtonCellColor];
     self.removeButton.backgroundColor = [UIColor removeButtonCellColor];
+    self.categoryLabelsContentView.backgroundColor = [UIColor categoryCellBackgroundColor];
     
     self.leftContentViewConstraint.constant = kMinMargin;
     self.rightContentViewConstraint.constant = kMinMargin;

@@ -40,4 +40,10 @@
     return [UIColor colorWithRed:0xe7/255. green:0x5e/255. blue:0x4c/255. alpha:1];
 }
 
++ (UIColor *)categoryCellBackgroundColor
+{
+    //f8f0ed
+    return [UIColor colorWithRed:0xf8/255. green:0xf0/255. blue:0xed/255. alpha:1];
+}
+
 @end

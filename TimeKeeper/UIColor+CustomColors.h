@@ -15,5 +15,6 @@
 + (UIColor *)headerViewBackground;
 + (UIColor *)editButtonCellColor;
 + (UIColor *)removeButtonCellColor;
++ (UIColor *)categoryCellBackgroundColor;
 
 @end
