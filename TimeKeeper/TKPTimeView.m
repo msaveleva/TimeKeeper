@@ -7,6 +7,7 @@
 //
 
 #import "TKPTimeView.h"
+#import "UIColor+CustomColors.h"
 
 @implementation TKPTimeView
 
@@ -24,6 +25,12 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self addSubview:[[[NSBundle mainBundle] loadNibNamed:@"TKPTimeView" owner:self options:nil] lastObject]];
+        
+        //set colors
+        self.timerScrollView.backgroundColor = [UIColor timeViewBackgroundColor];
+        self.timerView.backgroundColor = [UIColor timeViewBackgroundColor];
+        self.clockButton.backgroundColor = [UIColor timeViewButtonsColor];
+        self.pauseButton.backgroundColor = [UIColor timeViewButtonsColor];
         
         //hide scrollView
         self.timerScrollViewConstraint.constant = 0;

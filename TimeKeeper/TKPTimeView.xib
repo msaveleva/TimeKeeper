@@ -22,7 +22,7 @@
                     <rect key="frame" x="0.0" y="-493" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-aG-ahe">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-aG-ahe">
                     <rect key="frame" x="0.0" y="0.0" width="64" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.7568628191947937" green="0.93333339691162109" blue="0.70588237047195435" alpha="1" colorSpace="deviceRGB"/>
@@ -30,11 +30,11 @@
                         <constraint firstAttribute="height" constant="75" id="eXN-Bt-bav"/>
                         <constraint firstAttribute="width" constant="64" id="l4Z-g0-Yjz"/>
                     </constraints>
-                    <state key="normal" title="Clock">
+                    <state key="normal" image="Alarm">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh9-8k-JKM">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh9-8k-JKM">
                     <rect key="frame" x="256" y="0.0" width="64" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.71764707565307617" green="0.92941182851791382" blue="0.67450982332229614" alpha="1" colorSpace="deviceRGB"/>
@@ -42,20 +42,20 @@
                         <constraint firstAttribute="height" constant="75" id="80b-O3-MLq"/>
                         <constraint firstAttribute="width" constant="64" id="Yjy-0f-4ZM"/>
                     </constraints>
-                    <state key="normal" title="Pause">
+                    <state key="normal" image="PauseWhite">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJX-bi-gWo">
-                    <rect key="frame" x="64" y="0.0" width="0.0" height="75"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DJX-bi-gWo">
+                    <rect key="frame" x="72" y="0.0" width="0.0" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="3wF-Ou-VwD"/>
                         <constraint firstAttribute="width" id="cay-2X-cyz"/>
                     </constraints>
                 </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8WF-e9-jSr">
-                    <rect key="frame" x="64" y="0.0" width="192" height="75"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8WF-e9-jSr">
+                    <rect key="frame" x="72" y="0.0" width="184" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:07:23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4C-6D-VHU">
@@ -103,6 +103,8 @@
         </view>
     </objects>
     <resources>
+        <image name="Alarm" width="25" height="25"/>
+        <image name="PauseWhite" width="27" height="27"/>
         <image name="Screen" width="160" height="285"/>
     </resources>
 </document>
