@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *timerScrollView;
 @property (weak, nonatomic) IBOutlet UIView *timerView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *timerScrollViewConstraint;
+@property (weak, nonatomic) IBOutlet UIView *timerAndButtonView;
 
 @end

@@ -10,8 +10,7 @@
 #import "UIColor+CustomColors.h"
 
 static CGFloat const kAnimationSpeed = 0.3f;
-static CGFloat const kMinScrollViewWidth = 0.0f;
-static CGFloat const kMaxScrollViewWidth = 256.0f;
+static CGFloat const kTimerAndButtonView = 256.0f;
 
 @interface TKPTimeView ()
 
@@ -43,8 +42,8 @@ static CGFloat const kMaxScrollViewWidth = 256.0f;
         self.pauseButton.backgroundColor = [UIColor timeViewButtonsColor];
         
         //hide scrollView
-        self.timerScrollViewConstraint.constant = 0;
         self.isSettingAlarm = NO;
+        
     }
     return self;
 }
@@ -52,14 +51,22 @@ static CGFloat const kMaxScrollViewWidth = 256.0f;
 - (IBAction)setAlarm:(id)sender {
     if (!self.isSettingAlarm) {
         [UIView animateWithDuration:kAnimationSpeed animations:^{
-            self.timerScrollViewConstraint.constant = kMaxScrollViewWidth;
+            self.timerAndButtonView.frame =
+                UIEdgeInsetsInsetRect(self.timerAndButtonView.frame, UIEdgeInsetsMake(0.0f,
+                                                                                      kTimerAndButtonView,
+                                                                                      0.0f,
+                                                                                      0.0f));
             [self layoutIfNeeded];
         } completion:^(BOOL isFinished){
             self.isSettingAlarm = YES;
         }];
     } else {
         [UIView animateWithDuration:kAnimationSpeed animations:^{
-            self.timerScrollViewConstraint.constant = kMinScrollViewWidth;
+            self.timerAndButtonView.frame =
+            UIEdgeInsetsInsetRect(self.timerAndButtonView.frame, UIEdgeInsetsMake(0.0f,
+                                                                                  -kTimerAndButtonView,
+                                                                                  0.0f,
+                                                                                  0.0f));
             [self layoutIfNeeded];
         } completion:^(BOOL isFinished){
             self.isSettingAlarm = NO;

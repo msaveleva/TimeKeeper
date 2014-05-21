@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="clockButton" destination="lJM-aG-ahe" id="Ffb-HH-7G7"/>
                 <outlet property="pauseButton" destination="eh9-8k-JKM" id="Uff-kB-go5"/>
+                <outlet property="timerAndButtonView" destination="5jS-B0-efN" id="aOZ-3j-VIn"/>
                 <outlet property="timerScrollView" destination="DJX-bi-gWo" id="du5-Do-XoQ"/>
                 <outlet property="timerView" destination="8WF-e9-jSr" id="dIf-my-egc"/>
             </connections>
