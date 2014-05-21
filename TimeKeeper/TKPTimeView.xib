@@ -9,7 +9,7 @@
                 <outlet property="clockButton" destination="lJM-aG-ahe" id="Ffb-HH-7G7"/>
                 <outlet property="pauseButton" destination="eh9-8k-JKM" id="Uff-kB-go5"/>
                 <outlet property="timerAndButtonView" destination="5jS-B0-efN" id="aOZ-3j-VIn"/>
-                <outlet property="timerScrollView" destination="DJX-bi-gWo" id="du5-Do-XoQ"/>
+                <outlet property="timerScrollView" destination="E27-bv-OWl" id="7NX-kw-dFB"/>
                 <outlet property="timerView" destination="8WF-e9-jSr" id="dIf-my-egc"/>
             </connections>
         </placeholder>
@@ -22,22 +22,15 @@
                     <rect key="frame" x="0.0" y="-493" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJX-bi-gWo">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E27-bv-OWl" customClass="TKPTimeScrollView">
                     <rect key="frame" x="64" y="0.0" width="256" height="75"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="256" id="Og3-ZL-ELS"/>
-                        <constraint firstAttribute="height" constant="75" id="a8h-ER-gEk"/>
-                    </constraints>
-                </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-aG-ahe">
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-aG-ahe">
                     <rect key="frame" x="0.0" y="0.0" width="64" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.7568628191947937" green="0.93333339691162109" blue="0.70588237047195435" alpha="1" colorSpace="deviceRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="75" id="qp8-Es-EV7"/>
-                        <constraint firstAttribute="width" constant="64" id="tHR-g1-6FM"/>
-                    </constraints>
                     <state key="normal" image="Alarm">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -81,13 +74,6 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="lJM-aG-ahe" firstAttribute="leading" secondItem="0Q5-yJ-kN2" secondAttribute="leading" id="0nP-zb-Gvl"/>
-                <constraint firstItem="DJX-bi-gWo" firstAttribute="leading" secondItem="lJM-aG-ahe" secondAttribute="trailing" id="G1m-vD-fEA"/>
-                <constraint firstAttribute="centerY" secondItem="lJM-aG-ahe" secondAttribute="centerY" id="ImR-lg-GP0"/>
-                <constraint firstAttribute="centerY" secondItem="DJX-bi-gWo" secondAttribute="centerY" id="n8b-x0-Lnf"/>
-                <constraint firstAttribute="trailing" secondItem="DJX-bi-gWo" secondAttribute="trailing" id="yKm-es-JCv"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>

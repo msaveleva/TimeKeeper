@@ -8,6 +8,7 @@
 
 #import "TKPTimeView.h"
 #import "UIColor+CustomColors.h"
+#import "TKPTimeScrollView.h"
 
 static CGFloat const kAnimationSpeed = 0.3f;
 static CGFloat const kTimerAndButtonView = 256.0f;
