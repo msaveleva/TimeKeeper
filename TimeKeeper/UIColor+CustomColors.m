@@ -28,4 +28,16 @@
     return [UIColor colorWithRed:0xf0/255. green:0xe8/255. blue:0xe5/255. alpha:1];
 }
 
++ (UIColor *)editButtonCellColor
+{
+    //47b2bf
+    return [UIColor colorWithRed:0x47/255. green:0xb2/255. blue:0xbf/255. alpha:1];
+}
+
++ (UIColor *)removeButtonCellColor
+{
+    //e75e4c
+    return [UIColor colorWithRed:0xe7/255. green:0x5e/255. blue:0x4c/255. alpha:1];
+}
+
 @end

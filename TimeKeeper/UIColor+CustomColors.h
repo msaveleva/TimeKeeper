@@ -13,5 +13,7 @@
 + (UIColor *)timeViewBackgroundColor;
 + (UIColor *)timeViewButtonsColor;
 + (UIColor *)headerViewBackground;
++ (UIColor *)editButtonCellColor;
++ (UIColor *)removeButtonCellColor;
 
 @end

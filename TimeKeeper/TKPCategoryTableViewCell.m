@@ -7,6 +7,7 @@
 //
 
 #import "TKPCategoryTableViewCell.h"
+#import "UIColor+CustomColors.h"
 
 static CGFloat const kMaxMargin = 64.0f;
 static CGFloat const kMinMargin = 0.0f;
@@ -38,6 +39,10 @@ static CGFloat kAnimationSpeed = 0.3f;
     self.isEditing = NO;
     self.isRemoving = NO;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    //set colors
+    self.editButton.backgroundColor = [UIColor editButtonCellColor];
+    self.removeButton.backgroundColor = [UIColor removeButtonCellColor];
     
     self.leftContentViewConstraint.constant = kMinMargin;
     self.rightContentViewConstraint.constant = kMinMargin;

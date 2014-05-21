@@ -13,20 +13,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbd-YW-7vu">
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbd-YW-7vu">
                         <rect key="frame" x="0.0" y="0.0" width="64" height="75"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.47089723865469157" green="0.82131875639491314" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal" title="Button">
+                        <state key="normal" image="Edit">
                             <color key="titleColor" red="0.99300010235031477" green="0.96514463668475226" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02h-t3-WZK">
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02h-t3-WZK">
                         <rect key="frame" x="256" y="0.0" width="64" height="75"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="0.44734134865231867" blue="0.39419613915633955" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal" title="Button">
+                        <state key="normal" image="Trashcan">
                             <color key="titleColor" red="0.99300010240000003" green="0.96514463669999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -89,4 +89,8 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Edit" width="22" height="22"/>
+        <image name="Trashcan" width="22" height="22"/>
+    </resources>
 </document>
