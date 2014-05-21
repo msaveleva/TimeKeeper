@@ -40,7 +40,7 @@ static CGSize const kTimeButtonSize = { 68.0f, 53.0f };
         self.timeIntervalView.backgroundColor = [UIColor timeViewBackgroundColor];
         
         //set timeIntervals
-        self.timeIntervals = @[@05, @10, @15, @30, @45, @60];
+        self.timeIntervals = @[@"05", @"10", @"15", @"30", @"45", @"60"];
         [self setupContentView];
     }
     return self;
@@ -58,10 +58,10 @@ static CGSize const kTimeButtonSize = { 68.0f, 53.0f };
         self.timeIntervalScrollView.contentSize = self.scrollViewContentView.frame.size;
         
         CGFloat leftMargin = 0.0f;
-        for (NSNumber *number in self.timeIntervals) {
+        for (NSString *title in self.timeIntervals) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             button.frame = CGRectMake(leftMargin, 0.0f, kTimeButtonSize.width, kTimeButtonSize.height);
-            [button setTitle:[NSString stringWithFormat:@"%@", number] forState:UIControlStateNormal];
+            [button setTitle:title forState:UIControlStateNormal];
             button.titleLabel.font = [UIFont mediumSystemFontOfSize:42.0f];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [self.scrollViewContentView addSubview:button];
