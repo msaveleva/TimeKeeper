@@ -17,6 +17,7 @@ static CGFloat const kAnimationSpeed = 0.3f;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftContentViewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightContentViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pauseButtonWidthConstraint;
 
 @property (strong, nonatomic) UISwipeGestureRecognizer *leftSwipeGesture;
 @property (strong, nonatomic) UISwipeGestureRecognizer *rightSwipeGesture;
@@ -39,6 +40,12 @@ static CGFloat const kAnimationSpeed = 0.3f;
     self.isEditing = NO;
     self.isRemoving = NO;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    //TODO: make method for hide and show pause button
+    self.pauseButton.alpha = 0.0f;
+    if (self.pauseButton.alpha == 0.0f) {
+        self.pauseButtonWidthConstraint.constant = 0.0f;
+    }
     
     //set colors
     self.editButton.backgroundColor = [UIColor editButtonCellColor];

@@ -105,6 +105,8 @@
                 <outlet property="categoryTypeLabel" destination="374-pm-2aM" id="Dgi-2G-ZRo"/>
                 <outlet property="editButton" destination="Cbd-YW-7vu" id="DL2-i3-U92"/>
                 <outlet property="leftContentViewConstraint" destination="for-Gp-onV" id="j21-68-vYu"/>
+                <outlet property="pauseButton" destination="uKJ-RN-UNQ" id="ZmI-vK-2W5"/>
+                <outlet property="pauseButtonWidthConstraint" destination="Q0I-Ra-7ot" id="6W5-x5-p5x"/>
                 <outlet property="removeButton" destination="02h-t3-WZK" id="pv2-0v-1Ta"/>
                 <outlet property="rightContentViewConstraint" destination="nzl-wB-GN5" id="X2A-g3-Isz"/>
             </connections>

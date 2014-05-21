@@ -17,6 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *removeButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 
 @property (nonatomic) BOOL isEditing;
 @property (nonatomic) BOOL isRemoving;
