@@ -9,13 +9,12 @@
                 <outlet property="clockButton" destination="lJM-aG-ahe" id="Ffb-HH-7G7"/>
                 <outlet property="pauseButton" destination="eh9-8k-JKM" id="Uff-kB-go5"/>
                 <outlet property="timerScrollView" destination="DJX-bi-gWo" id="du5-Do-XoQ"/>
-                <outlet property="timerScrollViewConstraint" destination="3yJ-1b-qtG" id="1H7-Hr-kkI"/>
                 <outlet property="timerView" destination="8WF-e9-jSr" id="dIf-my-egc"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="0Q5-yJ-kN2">
-            <rect key="frame" x="0.0" y="0.0" width="517" height="75"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen" translatesAutoresizingMaskIntoConstraints="NO" id="fKj-E4-5W9">
@@ -23,10 +22,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJX-bi-gWo">
-                    <rect key="frame" x="64" y="0.0" width="207" height="75"/>
+                    <rect key="frame" x="64" y="0.0" width="256" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="207" id="3yJ-1b-qtG"/>
+                        <constraint firstAttribute="width" constant="256" id="Og3-ZL-ELS"/>
+                        <constraint firstAttribute="height" constant="75" id="a8h-ER-gEk"/>
                     </constraints>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-aG-ahe">
@@ -34,7 +34,8 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.7568628191947937" green="0.93333339691162109" blue="0.70588237047195435" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="64" id="zYk-6t-2eh"/>
+                        <constraint firstAttribute="height" constant="75" id="qp8-Es-EV7"/>
+                        <constraint firstAttribute="width" constant="64" id="tHR-g1-6FM"/>
                     </constraints>
                     <state key="normal" image="Alarm">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,8 +44,8 @@
                         <action selector="setAlarm:" destination="-1" eventType="touchUpInside" id="Tda-r3-vCj"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5jS-B0-efN">
-                    <rect key="frame" x="271" y="0.0" width="246" height="75"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5jS-B0-efN">
+                    <rect key="frame" x="64" y="0.0" width="256" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh9-8k-JKM">
@@ -76,23 +77,15 @@
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="246" id="rDD-G9-ekZ"/>
-                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="DJX-bi-gWo" firstAttribute="leading" secondItem="lJM-aG-ahe" secondAttribute="trailing" id="21J-Iv-yRU"/>
-                <constraint firstItem="5jS-B0-efN" firstAttribute="top" secondItem="0Q5-yJ-kN2" secondAttribute="top" id="Aou-hK-MVU"/>
-                <constraint firstItem="DJX-bi-gWo" firstAttribute="top" secondItem="0Q5-yJ-kN2" secondAttribute="top" id="Hal-jm-g6Y"/>
-                <constraint firstAttribute="bottom" secondItem="lJM-aG-ahe" secondAttribute="bottom" id="Tjo-Pt-hne"/>
-                <constraint firstAttribute="bottom" secondItem="DJX-bi-gWo" secondAttribute="bottom" id="Usa-hn-Kli"/>
-                <constraint firstItem="lJM-aG-ahe" firstAttribute="leading" secondItem="0Q5-yJ-kN2" secondAttribute="leading" id="YaJ-Cz-deg"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5jS-B0-efN" secondAttribute="trailing" id="bkC-Fl-cQK"/>
-                <constraint firstItem="lJM-aG-ahe" firstAttribute="top" secondItem="0Q5-yJ-kN2" secondAttribute="top" id="c2g-4i-p4g"/>
-                <constraint firstAttribute="bottom" secondItem="5jS-B0-efN" secondAttribute="bottom" id="j9C-r0-fL2"/>
-                <constraint firstItem="5jS-B0-efN" firstAttribute="leading" secondItem="DJX-bi-gWo" secondAttribute="trailing" id="tY6-rr-daG"/>
+                <constraint firstItem="lJM-aG-ahe" firstAttribute="leading" secondItem="0Q5-yJ-kN2" secondAttribute="leading" id="0nP-zb-Gvl"/>
+                <constraint firstItem="DJX-bi-gWo" firstAttribute="leading" secondItem="lJM-aG-ahe" secondAttribute="trailing" id="G1m-vD-fEA"/>
+                <constraint firstAttribute="centerY" secondItem="lJM-aG-ahe" secondAttribute="centerY" id="ImR-lg-GP0"/>
+                <constraint firstAttribute="centerY" secondItem="DJX-bi-gWo" secondAttribute="centerY" id="n8b-x0-Lnf"/>
+                <constraint firstAttribute="trailing" secondItem="DJX-bi-gWo" secondAttribute="trailing" id="yKm-es-JCv"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
