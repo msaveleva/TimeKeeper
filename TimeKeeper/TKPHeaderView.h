@@ -12,4 +12,15 @@
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 
+//header view modes
+
+//for main screen
+- (void)enableStandartMode;
+
+//for edit screen and main screen while creating new category
+- (void)enableEditionMode;
+
+//for statistic screen
+- (void)enableStatisticMode;
+
 @end

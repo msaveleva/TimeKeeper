@@ -9,6 +9,17 @@
 #import "TKPHeaderView.h"
 #import "UIColor+CustomColors.h"
 
+static NSString * const kStandartTitle = @"Time Tracker";
+static NSString * const kEditTitle = @"Edit Track";
+
+@interface TKPHeaderView ()
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *statisticButton;
+@property (weak, nonatomic) IBOutlet UIButton *addCategoryButton;
+
+@end
+
 @implementation TKPHeaderView
 
 - (id)initWithFrame:(CGRect)frame
@@ -31,5 +42,42 @@
     }
     return self;
 }
+
+#pragma mark - Modes
+
+- (void)enableStandartMode
+{
+    self.statisticButton.hidden = NO;
+    self.addCategoryButton.hidden = NO;
+    
+    self.titleLabel.text = kStandartTitle;
+}
+
+- (void)enableEditionMode
+{
+    self.statisticButton.hidden = YES;
+    self.addCategoryButton.hidden = YES;
+    
+    self.titleLabel.text = kEditTitle;
+}
+
+- (void)enableStatisticMode
+{
+    self.statisticButton.hidden = YES;
+    self.addCategoryButton.hidden = YES;
+    
+    self.titleLabel.text = kStandartTitle;
+}
+
+#pragma mark - Button Actions
+
+- (IBAction)addButtonPressed:(id)sender {
+    
+}
+
+- (IBAction)showStatisticButtonPressed:(id)sender {
+    
+}
+
 
 @end
