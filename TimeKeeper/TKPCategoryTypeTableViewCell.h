@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, TKPTimeCategoryType) {
+    TKPTimeCategoryTypeProductive,
+    TKPTimeCategoryTypeNeutral,
+    TKPTimeCategoryTypeUnproductive,
+};
+
 @interface TKPCategoryTypeTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *indicatorImageView;
 @property (weak, nonatomic) IBOutlet UILabel *timeTypeLabel;
+
+- (void)setTimeCategoryType:(TKPTimeCategoryType)type;
 
 @end
