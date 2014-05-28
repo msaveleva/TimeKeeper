@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TKPEditViewController : UIViewController
+<
+UITableViewDataSource,
+UITableViewDelegate
+>
 
 @end

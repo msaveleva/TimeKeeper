@@ -10,6 +10,8 @@
 		1C1F3F2F1935C56300BD6220 /* TKPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F3F2E1935C56300BD6220 /* TKPRootViewController.m */; };
 		1C1F3F331935CF3E00BD6220 /* TKPEditNameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F3F311935CF3E00BD6220 /* TKPEditNameTableViewCell.m */; };
 		1C1F3F341935CF3E00BD6220 /* TKPEditNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F3F321935CF3E00BD6220 /* TKPEditNameTableViewCell.xib */; };
+		1C1F3F381935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F3F361935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m */; };
+		1C1F3F391935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F3F371935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib */; };
 		1C415E41192CBB190099FB1E /* UIFont+CustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C415E40192CBB190099FB1E /* UIFont+CustomFonts.m */; };
 		1C56D4ED192B85B500102E7B /* TKPCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */; };
 		1C6D0DAC192CAF3200F4EFD2 /* TKPTimeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D0DAB192CAF3200F4EFD2 /* TKPTimeScrollView.m */; };
@@ -54,6 +56,9 @@
 		1C1F3F301935CF3E00BD6220 /* TKPEditNameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPEditNameTableViewCell.h; sourceTree = "<group>"; };
 		1C1F3F311935CF3E00BD6220 /* TKPEditNameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPEditNameTableViewCell.m; sourceTree = "<group>"; };
 		1C1F3F321935CF3E00BD6220 /* TKPEditNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPEditNameTableViewCell.xib; sourceTree = "<group>"; };
+		1C1F3F351935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPCategoryTypeTableViewCell.h; sourceTree = "<group>"; };
+		1C1F3F361935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPCategoryTypeTableViewCell.m; sourceTree = "<group>"; };
+		1C1F3F371935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPCategoryTypeTableViewCell.xib; sourceTree = "<group>"; };
 		1C415E3F192CBB190099FB1E /* UIFont+CustomFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+CustomFonts.h"; sourceTree = "<group>"; };
 		1C415E40192CBB190099FB1E /* UIFont+CustomFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+CustomFonts.m"; sourceTree = "<group>"; };
 		1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPCategoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -261,6 +266,9 @@
 				1C1F3F301935CF3E00BD6220 /* TKPEditNameTableViewCell.h */,
 				1C1F3F311935CF3E00BD6220 /* TKPEditNameTableViewCell.m */,
 				1C1F3F321935CF3E00BD6220 /* TKPEditNameTableViewCell.xib */,
+				1C1F3F351935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.h */,
+				1C1F3F361935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m */,
+				1C1F3F371935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -343,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F85E8A719279AF200275E9A /* Images.xcassets in Resources */,
+				1C1F3F391935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib in Resources */,
 				1C56D4ED192B85B500102E7B /* TKPCategoryTableViewCell.xib in Resources */,
 				3F5A83E919286DE50029D3AE /* TKPTimeView.xib in Resources */,
 				3F09C41719287FC800D08E16 /* TKPHeaderView.xib in Resources */,
@@ -377,6 +386,7 @@
 				1C415E41192CBB190099FB1E /* UIFont+CustomFonts.m in Sources */,
 				1C1F3F331935CF3E00BD6220 /* TKPEditNameTableViewCell.m in Sources */,
 				3F85E8CB1927A37A00275E9A /* TKPTimeView.m in Sources */,
+				1C1F3F381935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m in Sources */,
 				1C1F3F2F1935C56300BD6220 /* TKPRootViewController.m in Sources */,
 				3F85E8D61927B39C00275E9A /* TKPCategoryTableViewCell.m in Sources */,
 				3F85E8C51927A31400275E9A /* TKPEditViewController.m in Sources */,
