@@ -10,6 +10,7 @@
 #import "TKPHeaderView.h"
 #import "TKPEditNameTableViewCell.h"
 #import "TKPCategoryTypeTableViewCell.h"
+#import "UIColor+CustomColors.h"
 
 static NSString * const kEditNameCell = @"editNameCell";
 static NSString * const kCategoryTypeCell = @"categoryTypeCell";
@@ -39,6 +40,10 @@ static CGFloat const kCategoryTypeCellHeight = 63.0f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //set colors
+    self.view.backgroundColor = [UIColor categoryCellBackgroundColor];
+    self.editTableView.backgroundColor = [UIColor categoryCellBackgroundColor];
     
     //remove header and footer
     self.editTableView.tableHeaderView =
@@ -102,6 +107,7 @@ static CGFloat const kCategoryTypeCellHeight = 63.0f;
                                               
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier
                                                                      forIndexPath:indexPath];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     if (indexPath.row == 0) {
         TKPEditNameTableViewCell *editCell = (TKPEditNameTableViewCell *)cell;

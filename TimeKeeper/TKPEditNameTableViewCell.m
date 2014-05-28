@@ -7,12 +7,14 @@
 //
 
 #import "TKPEditNameTableViewCell.h"
+#import "UIColor+CustomColors.h"
 
 @implementation TKPEditNameTableViewCell
 
 - (void)awakeFromNib
 {
-    // Initialization code
+    //set color
+    self.backgroundColor = [UIColor categoryCellBackgroundColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

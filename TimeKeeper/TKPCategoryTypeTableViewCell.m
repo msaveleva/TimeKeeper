@@ -7,12 +7,14 @@
 //
 
 #import "TKPCategoryTypeTableViewCell.h"
+#import "UIColor+CustomColors.h"
 
 @implementation TKPCategoryTypeTableViewCell
 
 - (void)awakeFromNib
 {
-    // Initialization code
+    //set colors
+    self.backgroundColor = [UIColor categoryCellBackgroundColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
