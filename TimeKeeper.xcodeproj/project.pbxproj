@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1F3F2F1935C56300BD6220 /* TKPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F3F2E1935C56300BD6220 /* TKPRootViewController.m */; };
 		1C415E41192CBB190099FB1E /* UIFont+CustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C415E40192CBB190099FB1E /* UIFont+CustomFonts.m */; };
 		1C56D4ED192B85B500102E7B /* TKPCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */; };
 		1C6D0DAC192CAF3200F4EFD2 /* TKPTimeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D0DAB192CAF3200F4EFD2 /* TKPTimeScrollView.m */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C1F3F2D1935C56300BD6220 /* TKPRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPRootViewController.h; sourceTree = "<group>"; };
+		1C1F3F2E1935C56300BD6220 /* TKPRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPRootViewController.m; sourceTree = "<group>"; };
 		1C415E3F192CBB190099FB1E /* UIFont+CustomFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+CustomFonts.h"; sourceTree = "<group>"; };
 		1C415E40192CBB190099FB1E /* UIFont+CustomFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+CustomFonts.m"; sourceTree = "<group>"; };
 		1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPCategoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 		3F85E8C61927A34F00275E9A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1C1F3F2D1935C56300BD6220 /* TKPRootViewController.h */,
+				1C1F3F2E1935C56300BD6220 /* TKPRootViewController.m */,
 				3F85E8A319279AF200275E9A /* TKPMainViewController.h */,
 				3F85E8A419279AF200275E9A /* TKPMainViewController.m */,
 				3F85E8C31927A31400275E9A /* TKPEditViewController.h */,
@@ -362,6 +367,7 @@
 				3F85E8A519279AF200275E9A /* TKPMainViewController.m in Sources */,
 				1C415E41192CBB190099FB1E /* UIFont+CustomFonts.m in Sources */,
 				3F85E8CB1927A37A00275E9A /* TKPTimeView.m in Sources */,
+				1C1F3F2F1935C56300BD6220 /* TKPRootViewController.m in Sources */,
 				3F85E8D61927B39C00275E9A /* TKPCategoryTableViewCell.m in Sources */,
 				3F85E8C51927A31400275E9A /* TKPEditViewController.m in Sources */,
 				3F85E89B19279AF200275E9A /* main.m in Sources */,
