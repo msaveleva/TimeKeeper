@@ -40,6 +40,12 @@ static CGFloat const kCategoryTypeCellHeight = 63.0f;
 {
     [super viewDidLoad];
     
+    //remove header and footer
+    self.editTableView.tableHeaderView =
+        [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.editTableView.bounds.size.width, 1.0f)];
+    self.editTableView.tableFooterView =
+        [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.editTableView.bounds.size.width, 1.0f)];
+    
     //get cells
     UINib *editNameNib = [UINib nibWithNibName:@"TKPEditNameTableViewCell" bundle:nil];
     [self.editTableView registerNib:editNameNib forCellReuseIdentifier:kEditNameCell];
@@ -65,11 +71,19 @@ static CGFloat const kCategoryTypeCellHeight = 63.0f;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[TKPEditNameTableViewCell class]]) {
-        return kEditNameCellHeight;
-    } else {
-        return kCategoryTypeCellHeight;
+    CGFloat height = 44.0f;
+    switch (indexPath.row) {
+        case 0:
+            height = kEditNameCellHeight;
+            break;
+        case 1:
+            height = kCategoryTypeCellHeight;
+            
+        default:
+            break;
     }
+    
+    return height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -89,12 +103,25 @@ static CGFloat const kCategoryTypeCellHeight = 63.0f;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier
                                                                      forIndexPath:indexPath];
     
+    if (indexPath.row == 0) {
+        TKPEditNameTableViewCell *editCell = (TKPEditNameTableViewCell *)cell;
+        editCell.nameTextField.delegate = self;
+    }
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //handle selection
+}
+
+#pragma mark - Text Field methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

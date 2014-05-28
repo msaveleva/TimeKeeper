@@ -11,7 +11,8 @@
 @interface TKPEditViewController : UIViewController
 <
 UITableViewDataSource,
-UITableViewDelegate
+UITableViewDelegate,
+UITextFieldDelegate
 >
 
 @end
