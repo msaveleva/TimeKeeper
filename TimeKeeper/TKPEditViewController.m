@@ -41,6 +41,9 @@ static CGFloat const kCategoryTypeCellHeight = 63.0f;
 {
     [super viewDidLoad];
     
+    //set header view mode
+    [self.headerView enableEditionMode];
+    
     //set colors
     self.view.backgroundColor = [UIColor categoryCellBackgroundColor];
     self.editTableView.backgroundColor = [UIColor categoryCellBackgroundColor];

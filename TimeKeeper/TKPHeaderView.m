@@ -17,6 +17,10 @@ static NSString * const kEditTitle = @"Edit Track";
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *statisticButton;
 @property (weak, nonatomic) IBOutlet UIButton *addCategoryButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *applyButton;
+@property (weak, nonatomic) IBOutlet UIButton *categoryListButton;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
 @end
 
@@ -36,6 +40,7 @@ static NSString * const kEditTitle = @"Edit Track";
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self addSubview:[[[NSBundle mainBundle] loadNibNamed:@"TKPHeaderView" owner:self options:nil] lastObject]];
+        [self enableStandartMode];
         
         //set colors
         self.contentView.backgroundColor = [UIColor headerViewBackground];
@@ -49,6 +54,10 @@ static NSString * const kEditTitle = @"Edit Track";
 {
     self.statisticButton.hidden = NO;
     self.addCategoryButton.hidden = NO;
+    self.cancelButton.hidden = YES;
+    self.applyButton.hidden = YES;
+    self.categoryListButton.hidden = YES;
+    self.settingsButton.hidden = YES;
     
     self.titleLabel.text = kStandartTitle;
 }
@@ -57,6 +66,10 @@ static NSString * const kEditTitle = @"Edit Track";
 {
     self.statisticButton.hidden = YES;
     self.addCategoryButton.hidden = YES;
+    self.cancelButton.hidden = NO;
+    self.applyButton.hidden = NO;
+    self.categoryListButton.hidden = YES;
+    self.settingsButton.hidden = YES;
     
     self.titleLabel.text = kEditTitle;
 }
@@ -65,6 +78,10 @@ static NSString * const kEditTitle = @"Edit Track";
 {
     self.statisticButton.hidden = YES;
     self.addCategoryButton.hidden = YES;
+    self.cancelButton.hidden = YES;
+    self.applyButton.hidden = YES;
+    self.categoryListButton.hidden = NO;
+    self.settingsButton.hidden = NO;
     
     self.titleLabel.text = kStandartTitle;
 }
@@ -79,5 +96,19 @@ static NSString * const kEditTitle = @"Edit Track";
     
 }
 
+- (IBAction)cancelButtonPressed:(id)sender {
+    
+}
 
+- (IBAction)applyButtonPressed:(id)sender {
+    
+}
+
+- (IBAction)categoryListButtonPressed:(id)sender {
+    
+}
+
+- (IBAction)settingsButtonPressed:(id)sender {
+    
+}
 @end

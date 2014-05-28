@@ -26,6 +26,9 @@ static NSString *const kCellIdentifier = @"categoryCell";
 {
     [super viewDidLoad];
     
+    //set header view mode
+    [self.headerView enableStandartMode];
+    
     //remove header and footer
     self.categoriesTableView.tableHeaderView =
         [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.categoriesTableView.bounds.size.width, 1.0f)];

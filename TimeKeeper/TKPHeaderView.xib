@@ -7,7 +7,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TKPHeaderView">
             <connections>
                 <outlet property="addCategoryButton" destination="a8q-9g-R14" id="UFf-2b-YYS"/>
+                <outlet property="applyButton" destination="bGJ-8n-g0z" id="cN8-oG-TwR"/>
+                <outlet property="cancelButton" destination="MbM-yn-OeZ" id="3oP-Fm-8Sg"/>
+                <outlet property="categoryListButton" destination="jdV-rs-ENc" id="4en-9u-Ogh"/>
                 <outlet property="contentView" destination="gD6-vT-VtS" id="3OB-vx-L0S"/>
+                <outlet property="settingsButton" destination="FA2-O8-IW0" id="Ozt-NY-eFG"/>
                 <outlet property="statisticButton" destination="J67-1g-EYj" id="Xud-I2-PEy"/>
                 <outlet property="titleLabel" destination="QOc-3h-YVB" id="rYF-Fv-umb"/>
             </connections>
@@ -48,14 +52,58 @@
                         <action selector="addButtonPressed:" destination="-1" eventType="touchUpInside" id="CiL-bf-NKz"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbM-yn-OeZ">
+                    <rect key="frame" x="14" y="30" width="18" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="Cancel">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelButtonPressed:" destination="-1" eventType="touchUpInside" id="674-gi-Mu2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGJ-8n-g0z">
+                    <rect key="frame" x="281" y="30" width="28" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="Apply">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="applyButtonPressed:" destination="-1" eventType="touchUpInside" id="cwn-d0-uKm"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdV-rs-ENc">
+                    <rect key="frame" x="14" y="30" width="25" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="CategoryList">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="categoryListButtonPressed:" destination="-1" eventType="touchUpInside" id="3ou-X5-WZ5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FA2-O8-IW0">
+                    <rect key="frame" x="283" y="30" width="23" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="Settings">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="settingsButtonPressed:" destination="-1" eventType="touchUpInside" id="GBN-mO-RG1"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.89411771297454834" green="0.93333339691162109" blue="0.69019609689712524" alpha="1" colorSpace="deviceRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
+        <image name="Apply" width="28" height="18"/>
+        <image name="Cancel" width="18" height="18"/>
+        <image name="CategoryList" width="25" height="19"/>
         <image name="Plus" width="22" height="22"/>
         <image name="Screen" width="160" height="285"/>
+        <image name="Settings" width="23" height="23"/>
         <image name="Statistcs" width="22" height="22"/>
     </resources>
 </document>
