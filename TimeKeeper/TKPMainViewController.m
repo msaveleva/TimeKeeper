@@ -9,7 +9,6 @@
 #import "TKPMainViewController.h"
 #import "TKPCategoryTableViewCell.h"
 #import "TKPHeaderView.h"
-#import "TKPTimeView.h"
 
 //static NSString *const kCellIdentifier = @"categoryCellIdentifier";
 static NSString *const kCellIdentifier = @"categoryCell";
@@ -18,7 +17,6 @@ static NSString *const kCellIdentifier = @"categoryCell";
 
 @property (weak, nonatomic) IBOutlet UITableView *categoriesTableView;
 @property (weak, nonatomic) IBOutlet TKPHeaderView *headerView;
-@property (weak, nonatomic) IBOutlet TKPTimeView *timeView;
 
 @end
 

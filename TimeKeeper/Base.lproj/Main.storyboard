@@ -95,7 +95,6 @@
                     <connections>
                         <outlet property="categoriesTableView" destination="mn7-T2-TyO" id="eeV-wb-IBh"/>
                         <outlet property="headerView" destination="BfD-JD-v4f" id="jp7-qp-ZIz"/>
-                        <outlet property="timeView" destination="yd5-mE-VjY" id="Svp-uF-dGH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
