@@ -83,7 +83,6 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     [self.view addSubview:self.blurView];
     [self.view bringSubviewToFront:self.timeTypeView];
     
-//    self.isSelectingTimeType = YES;
     [self switchBlur];
 }
 
@@ -159,7 +158,16 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //handle selection
+    switch (indexPath.row) {
+        case TKPCellTypeEditNameCell:
+            //do nothing
+            break;
+        case TKPCellTypeCategoryTypeCell:
+            self.isSelectingTimeType = YES;
+            [self switchBlur];
+        default:
+            break;
+    }
 }
 
 #pragma mark - Text Field methods
