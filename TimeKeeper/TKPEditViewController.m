@@ -21,6 +21,11 @@ static CGFloat const kEditNameCellHeight = 68.0f;
 static CGFloat const kCategoryTypeCellHeight = 63.0f;
 static CGFloat const kBlurRadius = 20.0f;
 
+typedef NS_ENUM(NSUInteger, TKPCellType) {
+    TKPCellTypeEditNameCell,
+    TKPCellTypeCategoryTypeCell,
+};
+
 @interface TKPEditViewController ()
 
 @property (weak, nonatomic) IBOutlet TKPHeaderView *headerView;
@@ -78,7 +83,7 @@ static CGFloat const kBlurRadius = 20.0f;
     [self.view addSubview:self.blurView];
     [self.view bringSubviewToFront:self.timeTypeView];
     
-    self.isSelectingTimeType = YES;
+//    self.isSelectingTimeType = YES;
     [self switchBlur];
 }
 
@@ -113,10 +118,10 @@ static CGFloat const kBlurRadius = 20.0f;
 {
     CGFloat height = 44.0f;
     switch (indexPath.row) {
-        case 0:
+        case TKPCellTypeEditNameCell:
             height = kEditNameCellHeight;
             break;
-        case 1:
+        case TKPCellTypeCategoryTypeCell:
             height = kCategoryTypeCellHeight;
             
         default:
@@ -130,10 +135,10 @@ static CGFloat const kBlurRadius = 20.0f;
 {
     NSString *identifier;
     switch (indexPath.row) {
-        case 0:
+        case TKPCellTypeEditNameCell:
             identifier = kEditNameCell;
             break;
-        case 1:
+        case TKPCellTypeCategoryTypeCell:
             identifier = kCategoryTypeCell;
             
         default:
