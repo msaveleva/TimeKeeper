@@ -12,6 +12,7 @@
 #import "TKPCategoryTypeTableViewCell.h"
 #import "UIColor+CustomColors.h"
 #import "FXBlurView.h"
+#import "TKPTimeTypeView.h"
 
 static NSString * const kEditNameCell = @"editNameCell";
 static NSString * const kCategoryTypeCell = @"categoryTypeCell";
@@ -27,6 +28,7 @@ static CGFloat const kBlurRadius = 20.0f;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (strong, nonatomic) FXBlurView *blurView;
 @property (nonatomic) BOOL isSelectingTimeType;
+@property (weak, nonatomic) IBOutlet TKPTimeTypeView *timeTypeView;
 
 - (void)switchBlur;
 

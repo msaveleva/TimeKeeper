@@ -145,6 +145,11 @@
                                     <outlet property="delegate" destination="WQ8-ya-EVI" id="aeM-fG-iIc"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-Pu-nYG" customClass="TKPTimeTypeView">
+                                <rect key="frame" x="10" y="227" width="300" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.12941177189350128" green="0.94117653369903564" blue="0.21568629145622253" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -152,6 +157,7 @@
                         <outlet property="deleteButton" destination="Dgz-Ha-dF9" id="b34-SE-IdU"/>
                         <outlet property="editTableView" destination="fsp-Bh-ih6" id="fU0-bO-PpA"/>
                         <outlet property="headerView" destination="3Fw-rE-iqE" id="5wT-pZ-g4n"/>
+                        <outlet property="timeTypeView" destination="HEJ-Pu-nYG" id="LFo-WO-CXD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42D-lN-x07" userLabel="First Responder" sceneMemberID="firstResponder"/>
