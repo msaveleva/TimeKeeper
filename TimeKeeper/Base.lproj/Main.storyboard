@@ -145,13 +145,21 @@
                                     <outlet property="delegate" destination="WQ8-ya-EVI" id="aeM-fG-iIc"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-Pu-nYG" customClass="TKPTimeTypeView">
-                                <rect key="frame" x="10" y="227" width="300" height="150"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-Pu-nYG" customClass="TKPTimeTypeView">
+                                <rect key="frame" x="10" y="209" width="300" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.12941177189350128" green="0.94117653369903564" blue="0.21568629145622253" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="bMa-kR-sTL"/>
+                                    <constraint firstAttribute="height" constant="150" id="cGw-z7-5P6"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="HEJ-Pu-nYG" secondAttribute="centerX" id="O8F-jV-jf2"/>
+                            <constraint firstAttribute="centerY" secondItem="HEJ-Pu-nYG" secondAttribute="centerY" id="eFL-Xj-7Pq"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="deleteButton" destination="Dgz-Ha-dF9" id="b34-SE-IdU"/>
