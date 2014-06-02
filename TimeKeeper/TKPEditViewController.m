@@ -75,6 +75,10 @@ static CGFloat const kBlurRadius = 20.0f;
     self.blurView.backgroundColor = [UIColor clearColor];
     self.blurView.tintColor = [UIColor clearColor];
     self.blurView.blurRadius = kBlurRadius;
+    [self.view addSubview:self.blurView];
+    [self.view bringSubviewToFront:self.timeTypeView];
+    
+    [self switchBlur];
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,9 +93,11 @@ static CGFloat const kBlurRadius = 20.0f;
 - (void)switchBlur
 {
     if (self.isSelectingTimeType) {
-        [self.view addSubview:self.blurView];
+        self.blurView.hidden = NO;
+        self.timeTypeView.hidden = NO;
     } else {
-        [self.blurView removeFromSuperview];
+        self.blurView.hidden = YES;
+        self.timeTypeView.hidden = YES;
     }
 }
 
