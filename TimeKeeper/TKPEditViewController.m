@@ -78,6 +78,7 @@ static CGFloat const kBlurRadius = 20.0f;
     [self.view addSubview:self.blurView];
     [self.view bringSubviewToFront:self.timeTypeView];
     
+    self.isSelectingTimeType = YES;
     [self switchBlur];
 }
 

@@ -146,12 +146,12 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-Pu-nYG" customClass="TKPTimeTypeView">
-                                <rect key="frame" x="10" y="209" width="300" height="150"/>
+                                <rect key="frame" x="10" y="199" width="300" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.12941177189350128" green="0.94117653369903564" blue="0.21568629145622253" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="bMa-kR-sTL"/>
-                                    <constraint firstAttribute="height" constant="150" id="cGw-z7-5P6"/>
+                                    <constraint firstAttribute="height" constant="170" id="f5i-3o-BHN"/>
                                 </constraints>
                             </view>
                         </subviews>
