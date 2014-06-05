@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C107F0F193C987E003328FB /* TKPTimeTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C107F0E193C987E003328FB /* TKPTimeTypeView.m */; };
+		1C107F11193C9891003328FB /* TKPTimeTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C107F10193C9891003328FB /* TKPTimeTypeView.xib */; };
 		1C1F3F2F1935C56300BD6220 /* TKPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F3F2E1935C56300BD6220 /* TKPRootViewController.m */; };
+		1C1F3F331935CF3E00BD6220 /* TKPEditNameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F3F311935CF3E00BD6220 /* TKPEditNameTableViewCell.m */; };
+		1C1F3F341935CF3E00BD6220 /* TKPEditNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F3F321935CF3E00BD6220 /* TKPEditNameTableViewCell.xib */; };
+		1C1F3F381935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F3F361935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m */; };
+		1C1F3F391935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F3F371935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib */; };
 		1C415E41192CBB190099FB1E /* UIFont+CustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C415E40192CBB190099FB1E /* UIFont+CustomFonts.m */; };
 		1C56D4ED192B85B500102E7B /* TKPCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */; };
 		1C6D0DAC192CAF3200F4EFD2 /* TKPTimeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D0DAB192CAF3200F4EFD2 /* TKPTimeScrollView.m */; };
@@ -34,6 +40,7 @@
 		3F85E8CE1927A3E600275E9A /* TKPHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8CD1927A3E600275E9A /* TKPHeaderView.m */; };
 		3F85E8D21927AD0600275E9A /* TKPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8D11927AD0600275E9A /* TKPCategory.m */; };
 		3F85E8D61927B39C00275E9A /* TKPCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8D51927B39C00275E9A /* TKPCategoryTableViewCell.m */; };
+		DA68185E6CCB49FD84A6D015 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DEB25A7EE94D15A6DB6F7D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +54,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19DEB25A7EE94D15A6DB6F7D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C107F0D193C987E003328FB /* TKPTimeTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPTimeTypeView.h; sourceTree = "<group>"; };
+		1C107F0E193C987E003328FB /* TKPTimeTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPTimeTypeView.m; sourceTree = "<group>"; };
+		1C107F10193C9891003328FB /* TKPTimeTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPTimeTypeView.xib; sourceTree = "<group>"; };
 		1C1F3F2D1935C56300BD6220 /* TKPRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPRootViewController.h; sourceTree = "<group>"; };
 		1C1F3F2E1935C56300BD6220 /* TKPRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPRootViewController.m; sourceTree = "<group>"; };
+		1C1F3F301935CF3E00BD6220 /* TKPEditNameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPEditNameTableViewCell.h; sourceTree = "<group>"; };
+		1C1F3F311935CF3E00BD6220 /* TKPEditNameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPEditNameTableViewCell.m; sourceTree = "<group>"; };
+		1C1F3F321935CF3E00BD6220 /* TKPEditNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPEditNameTableViewCell.xib; sourceTree = "<group>"; };
+		1C1F3F351935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPCategoryTypeTableViewCell.h; sourceTree = "<group>"; };
+		1C1F3F361935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPCategoryTypeTableViewCell.m; sourceTree = "<group>"; };
+		1C1F3F371935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPCategoryTypeTableViewCell.xib; sourceTree = "<group>"; };
 		1C415E3F192CBB190099FB1E /* UIFont+CustomFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+CustomFonts.h"; sourceTree = "<group>"; };
 		1C415E40192CBB190099FB1E /* UIFont+CustomFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+CustomFonts.m"; sourceTree = "<group>"; };
 		1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPCategoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -57,6 +74,7 @@
 		1C6D0DAD192CAF4200F4EFD2 /* TKPTimeScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPTimeScrollView.xib; sourceTree = "<group>"; };
 		1C7CBABF192C95E900878E93 /* UIColor+CustomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColors.h"; sourceTree = "<group>"; };
 		1C7CBAC0192C95E900878E93 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColors.m"; sourceTree = "<group>"; };
+		23BCE90BB87641699BF7DF6F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		3F09C41619287FC800D08E16 /* TKPHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPHeaderView.xib; sourceTree = "<group>"; };
 		3F5A83E819286DE50029D3AE /* TKPTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPTimeView.xib; sourceTree = "<group>"; };
 		3F85E88B19279AF200275E9A /* TimeKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +116,7 @@
 				3F85E89119279AF200275E9A /* CoreGraphics.framework in Frameworks */,
 				3F85E89319279AF200275E9A /* UIKit.framework in Frameworks */,
 				3F85E88F19279AF200275E9A /* Foundation.framework in Frameworks */,
+				DA68185E6CCB49FD84A6D015 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +151,7 @@
 				3F85E8B319279AF200275E9A /* TimeKeeperTests */,
 				3F85E88D19279AF200275E9A /* Frameworks */,
 				3F85E88C19279AF200275E9A /* Products */,
+				23BCE90BB87641699BF7DF6F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +171,7 @@
 				3F85E89019279AF200275E9A /* CoreGraphics.framework */,
 				3F85E89219279AF200275E9A /* UIKit.framework */,
 				3F85E8AD19279AF200275E9A /* XCTest.framework */,
+				19DEB25A7EE94D15A6DB6F7D /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -226,6 +247,9 @@
 				1C6D0DAA192CAF3200F4EFD2 /* TKPTimeScrollView.h */,
 				1C6D0DAB192CAF3200F4EFD2 /* TKPTimeScrollView.m */,
 				1C6D0DAD192CAF4200F4EFD2 /* TKPTimeScrollView.xib */,
+				1C107F0D193C987E003328FB /* TKPTimeTypeView.h */,
+				1C107F0E193C987E003328FB /* TKPTimeTypeView.m */,
+				1C107F10193C9891003328FB /* TKPTimeTypeView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -253,6 +277,12 @@
 				3F85E8D41927B39C00275E9A /* TKPCategoryTableViewCell.h */,
 				3F85E8D51927B39C00275E9A /* TKPCategoryTableViewCell.m */,
 				1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */,
+				1C1F3F301935CF3E00BD6220 /* TKPEditNameTableViewCell.h */,
+				1C1F3F311935CF3E00BD6220 /* TKPEditNameTableViewCell.m */,
+				1C1F3F321935CF3E00BD6220 /* TKPEditNameTableViewCell.xib */,
+				1C1F3F351935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.h */,
+				1C1F3F361935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m */,
+				1C1F3F371935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -264,9 +294,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F85E8BD19279AF200275E9A /* Build configuration list for PBXNativeTarget "TimeKeeper" */;
 			buildPhases = (
+				F0C5D7B73203475389D9B4CB /* Check Pods Manifest.lock */,
 				3F85E88719279AF200275E9A /* Sources */,
 				3F85E88819279AF200275E9A /* Frameworks */,
 				3F85E88919279AF200275E9A /* Resources */,
+				D0F4208CE2134AC9BBD4F7D1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,11 +367,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F85E8A719279AF200275E9A /* Images.xcassets in Resources */,
+				1C1F3F391935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib in Resources */,
 				1C56D4ED192B85B500102E7B /* TKPCategoryTableViewCell.xib in Resources */,
 				3F5A83E919286DE50029D3AE /* TKPTimeView.xib in Resources */,
 				3F09C41719287FC800D08E16 /* TKPHeaderView.xib in Resources */,
 				1C6D0DAE192CAF4200F4EFD2 /* TKPTimeScrollView.xib in Resources */,
 				3F85E89919279AF200275E9A /* InfoPlist.strings in Resources */,
+				1C107F11193C9891003328FB /* TKPTimeTypeView.xib in Resources */,
+				1C1F3F341935CF3E00BD6220 /* TKPEditNameTableViewCell.xib in Resources */,
 				3F85E8A219279AF200275E9A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +389,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D0F4208CE2134AC9BBD4F7D1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0C5D7B73203475389D9B4CB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3F85E88719279AF200275E9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -366,10 +434,13 @@
 				1C7CBAC1192C95E900878E93 /* UIColor+CustomColors.m in Sources */,
 				3F85E8A519279AF200275E9A /* TKPMainViewController.m in Sources */,
 				1C415E41192CBB190099FB1E /* UIFont+CustomFonts.m in Sources */,
+				1C1F3F331935CF3E00BD6220 /* TKPEditNameTableViewCell.m in Sources */,
 				3F85E8CB1927A37A00275E9A /* TKPTimeView.m in Sources */,
+				1C1F3F381935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m in Sources */,
 				1C1F3F2F1935C56300BD6220 /* TKPRootViewController.m in Sources */,
 				3F85E8D61927B39C00275E9A /* TKPCategoryTableViewCell.m in Sources */,
 				3F85E8C51927A31400275E9A /* TKPEditViewController.m in Sources */,
+				1C107F0F193C987E003328FB /* TKPTimeTypeView.m in Sources */,
 				3F85E89B19279AF200275E9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +563,7 @@
 		};
 		3F85E8BE19279AF200275E9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23BCE90BB87641699BF7DF6F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -505,6 +577,7 @@
 		};
 		3F85E8BF19279AF200275E9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23BCE90BB87641699BF7DF6F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

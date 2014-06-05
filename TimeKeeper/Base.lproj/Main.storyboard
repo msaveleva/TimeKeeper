@@ -92,6 +92,7 @@
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="493"/>
                     <connections>
                         <outlet property="categoriesTableView" destination="mn7-T2-TyO" id="eeV-wb-IBh"/>
                         <outlet property="headerView" destination="BfD-JD-v4f" id="jp7-qp-ZIz"/>
@@ -101,7 +102,80 @@
             </objects>
             <point key="canvasLocation" x="-49" y="174"/>
         </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="fVZ-zD-LHW">
+            <objects>
+                <viewController storyboardIdentifier="editViewController" id="WQ8-ya-EVI" customClass="TKPEditViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I8H-ih-ycf"/>
+                        <viewControllerLayoutGuide type="bottom" id="X0X-Sa-BOm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wVH-L2-97t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EditScreen" translatesAutoresizingMaskIntoConstraints="NO" id="L1B-4J-2Ee">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Fw-rE-iqE" customClass="TKPHeaderView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823535442352295" green="0.86274516582489014" blue="0.019607843831181526" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgz-Ha-dF9">
+                                <rect key="frame" x="20" y="274" width="280" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.91764712333679199" green="0.28627452254295349" blue="0.25490197539329529" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Delete category">
+                                    <color key="titleColor" red="0.9960784912109375" green="0.99215692281723022" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteCategory:" destination="WQ8-ya-EVI" eventType="touchUpInside" id="Oew-6T-ISN"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="63" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="fsp-Bh-ih6">
+                                <rect key="frame" x="0.0" y="66" width="320" height="135"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="WQ8-ya-EVI" id="aF7-uZ-U29"/>
+                                    <outlet property="delegate" destination="WQ8-ya-EVI" id="aeM-fG-iIc"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-Pu-nYG" customClass="TKPTimeTypeView">
+                                <rect key="frame" x="10" y="199" width="300" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.12941177189350128" green="0.94117653369903564" blue="0.21568629145622253" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="bMa-kR-sTL"/>
+                                    <constraint firstAttribute="height" constant="170" id="f5i-3o-BHN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="HEJ-Pu-nYG" secondAttribute="centerX" id="O8F-jV-jf2"/>
+                            <constraint firstAttribute="centerY" secondItem="HEJ-Pu-nYG" secondAttribute="centerY" id="eFL-Xj-7Pq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="deleteButton" destination="Dgz-Ha-dF9" id="b34-SE-IdU"/>
+                        <outlet property="editTableView" destination="fsp-Bh-ih6" id="fU0-bO-PpA"/>
+                        <outlet property="headerView" destination="3Fw-rE-iqE" id="5wT-pZ-g4n"/>
+                        <outlet property="timeTypeView" destination="HEJ-Pu-nYG" id="LFo-WO-CXD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="42D-lN-x07" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="302" y="174"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="EditScreen" width="160" height="284"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
