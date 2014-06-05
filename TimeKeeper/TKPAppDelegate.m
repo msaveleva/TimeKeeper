@@ -8,6 +8,7 @@
 
 #import "TKPAppDelegate.h"
 #import <CoreData/CoreData.h>
+#import "TKPCategory.h"
 
 @implementation TKPAppDelegate
 
@@ -17,7 +18,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        //TODO: remove
+        NSManagedObjectContext *context = self.managedObjectContext;
+        TKPCategory *category = [NSEntityDescription insertNewObjectForEntityForName:@"TKPCategory" inManagedObjectContext:context];
+        category.name = @"Guitar lesson";
+        [category setCategoryType:TKPCategoryTypeProductiveTime];
+        
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"Save yourself! Error! %@", [error localizedDescription]);
+        }
+    });
+    
     return YES;
 }
 							
