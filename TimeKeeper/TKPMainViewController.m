@@ -9,6 +9,8 @@
 #import "TKPMainViewController.h"
 #import "TKPCategoryTableViewCell.h"
 #import "TKPHeaderView.h"
+#import "TKPCategory.h"
+#import "TKPAppDelegate.h"
 
 //static NSString *const kCellIdentifier = @"categoryCellIdentifier";
 static NSString *const kCellIdentifier = @"categoryCell";
@@ -17,6 +19,7 @@ static NSString *const kCellIdentifier = @"categoryCell";
 
 @property (weak, nonatomic) IBOutlet UITableView *categoriesTableView;
 @property (weak, nonatomic) IBOutlet TKPHeaderView *headerView;
+@property (strong, nonatomic) NSArray *categoryList;
 
 @end
 
@@ -38,13 +41,27 @@ static NSString *const kCellIdentifier = @"categoryCell";
     //register custom cell
     UINib *nib = [UINib nibWithNibName:@"TKPCategoryTableViewCell" bundle:nil];
     [self.categoriesTableView registerNib:nib forCellReuseIdentifier:kCellIdentifier];
+    
+    [self loadData];
+}
+
+#pragma mark - Core Data methods
+
+- (void)loadData
+{
+    NSError *error;
+    TKPAppDelegate *appDelegate = (TKPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TKPCategory" inManagedObjectContext:appDelegate.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    self.categoryList = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
 }
 
 #pragma mark - Table View methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return [self.categoryList count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,7 +73,9 @@ static NSString *const kCellIdentifier = @"categoryCell";
 {
     TKPCategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier
                                                                      forIndexPath:indexPath];
-    cell.categoryNameLabel.text = @"Some category name";
+//    cell.categoryNameLabel.text = @"Some category name";
+    TKPCategory *category = [self.categoryList objectAtIndex:indexPath.row];
+    cell.categoryNameLabel.text = category.name;
     
     return cell;
 }
