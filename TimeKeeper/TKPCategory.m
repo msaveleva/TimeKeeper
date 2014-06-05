@@ -14,4 +14,15 @@
 @dynamic type;
 @dynamic name;
 
+- (TKPCategoryType)getCategoryType
+{
+    TKPCategoryType categoryType = [self.type integerValue];
+    return categoryType;
+}
+
+- (void)setCategoryType:(TKPCategoryType)categoryType
+{
+    self.type = [NSNumber numberWithInteger:categoryType];
+}
+
 @end

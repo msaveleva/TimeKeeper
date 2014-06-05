@@ -20,4 +20,7 @@ typedef NS_ENUM(NSUInteger, TKPCategoryType) {
 @property (nonatomic, retain) NSNumber * type;
 @property (nonatomic, retain) NSString * name;
 
+- (TKPCategoryType)getCategoryType;
+- (void)setCategoryType:(TKPCategoryType)categoryType;
+
 @end
