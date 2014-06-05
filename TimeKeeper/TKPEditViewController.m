@@ -36,7 +36,8 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 @property (nonatomic) BOOL isSelectingTimeType;
 @property (weak, nonatomic) IBOutlet TKPTimeTypeView *timeTypeView;
 
-- (void)switchBlur;
+- (void)showTimeTypeSelectionMenu;
+- (void)timeTypeSelectionMenuSetup;
 
 @end
 
@@ -98,7 +99,6 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 
 - (void)timeTypeSelected:(id)sender
 {
-    NSLog(@"Selected!");
     [self showTimeTypeSelectionMenu];
 }
 
