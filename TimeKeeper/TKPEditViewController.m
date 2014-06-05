@@ -20,6 +20,7 @@ static NSString * const kCategoryTypeCell = @"categoryTypeCell";
 static CGFloat const kEditNameCellHeight = 68.0f;
 static CGFloat const kCategoryTypeCellHeight = 63.0f;
 static CGFloat const kBlurRadius = 20.0f;
+static CGFloat const kAnimationSpeed = 0.3f;
 
 typedef NS_ENUM(NSUInteger, TKPCellType) {
     TKPCellTypeEditNameCell,
@@ -100,7 +101,20 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     if (self.isSelectingTimeType) {
         self.blurView.hidden = NO;
         self.timeTypeView.hidden = NO;
+        self.blurView.alpha = 0.0f;
+        self.timeTypeView.alpha = 0.0f;
+        [UIView animateWithDuration:kAnimationSpeed animations:^{
+            self.blurView.alpha = 1.0f;
+            self.timeTypeView.alpha = 1.0f;
+        }];
+
     } else {
+        self.blurView.alpha = 1.0f;
+        self.timeTypeView.alpha = 1.0f;
+        [UIView animateWithDuration:kAnimationSpeed animations:^{
+            self.blurView.alpha = 0.0f;
+            self.timeTypeView.alpha = 0.0f;
+        }];
         self.blurView.hidden = YES;
         self.timeTypeView.hidden = YES;
     }
