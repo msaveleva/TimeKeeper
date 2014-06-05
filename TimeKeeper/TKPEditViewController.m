@@ -76,15 +76,18 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     UINib *categoryTypeNib = [UINib nibWithNibName:@"TKPCategoryTypeTableViewCell" bundle:nil];
     [self.editTableView registerNib:categoryTypeNib forCellReuseIdentifier:kCategoryTypeCell];
     
-    //make blur view
-    self.blurView = [[FXBlurView alloc] initWithFrame:self.view.frame];
-    self.blurView.backgroundColor = [UIColor clearColor];
-    self.blurView.tintColor = [UIColor clearColor];
-    self.blurView.blurRadius = kBlurRadius;
-    [self.view addSubview:self.blurView];
-    [self.view bringSubviewToFront:self.timeTypeView];
+    [self timeTypeSelectionMenuSetup];
     
-    [self switchBlur];
+    //setting up methods for buttons
+    [self.timeTypeView.productiveTimeButton addTarget:self
+                                               action:@selector(timeTypeSelected:)
+                                     forControlEvents:UIControlEventTouchUpInside];
+    [self.timeTypeView.neutralTimeButton addTarget:self
+                                            action:@selector(timeTypeSelected:)
+                                  forControlEvents:UIControlEventTouchUpInside];
+    [self.timeTypeView.unproductiveTimeButton addTarget:self
+                                                 action:@selector(timeTypeSelected:)
+                                       forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,30 +96,49 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     // Dispose of any resources that can be recreated.
 }
 
+- (void)timeTypeSelected:(id)sender
+{
+    NSLog(@"Selected!");
+    [self showTimeTypeSelectionMenu];
+}
+
+- (void)timeTypeSelectionMenuSetup
+{
+    //make blur view
+    self.blurView = [[FXBlurView alloc] initWithFrame:self.view.frame];
+    self.blurView.backgroundColor = [UIColor clearColor];
+    self.blurView.tintColor = [UIColor clearColor];
+    self.blurView.blurRadius = kBlurRadius;
+    [self.view addSubview:self.blurView];
+    [self.view bringSubviewToFront:self.timeTypeView];
+    self.blurView.alpha = 0.0f;
+    self.timeTypeView.alpha = 0.0f;
+    
+    [self showTimeTypeSelectionMenu];
+}
+
 - (IBAction)deleteCategory:(id)sender {
 }
 
-- (void)switchBlur
+- (void)showTimeTypeSelectionMenu
 {
     if (self.isSelectingTimeType) {
+        self.isSelectingTimeType = NO;
         self.blurView.hidden = NO;
         self.timeTypeView.hidden = NO;
-        self.blurView.alpha = 0.0f;
-        self.timeTypeView.alpha = 0.0f;
         [UIView animateWithDuration:kAnimationSpeed animations:^{
             self.blurView.alpha = 1.0f;
             self.timeTypeView.alpha = 1.0f;
         }];
-
     } else {
-        self.blurView.alpha = 1.0f;
-        self.timeTypeView.alpha = 1.0f;
+        self.isSelectingTimeType = YES;
         [UIView animateWithDuration:kAnimationSpeed animations:^{
             self.blurView.alpha = 0.0f;
             self.timeTypeView.alpha = 0.0f;
+        } completion:^(BOOL finished) {
+            self.blurView.hidden = YES;
+            self.timeTypeView.hidden = YES;
         }];
-        self.blurView.hidden = YES;
-        self.timeTypeView.hidden = YES;
     }
 }
 
@@ -178,7 +200,7 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
             break;
         case TKPCellTypeCategoryTypeCell:
             self.isSelectingTimeType = YES;
-            [self switchBlur];
+            [self showTimeTypeSelectionMenu];
         default:
             break;
     }
