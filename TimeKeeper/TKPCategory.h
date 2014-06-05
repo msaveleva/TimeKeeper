@@ -2,11 +2,12 @@
 //  TKPCategory.h
 //  TimeKeeper
 //
-//  Created by Maria Saveleva on 17/05/14.
+//  Created by Maria Saveleva on 05/06/14.
 //  Copyright (c) 2014 Maria Saveleva. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 typedef NS_ENUM(NSUInteger, TKPCategoryType) {
     TKPCategoryTypeProductiveTime,
@@ -14,9 +15,9 @@ typedef NS_ENUM(NSUInteger, TKPCategoryType) {
     TKPCategoryTypeUnproductiveTime
 };
 
-@interface TKPCategory : NSObject
+@interface TKPCategory : NSManagedObject
 
-@property (strong, nonatomic) NSString *categoryName;
-@property (nonatomic) TKPCategoryType *categoryType;
+@property (nonatomic, retain) NSNumber * type;
+@property (nonatomic, retain) NSString * name;
 
 @end
