@@ -15,12 +15,6 @@ static NSString * const kEditTitle = @"Edit Track";
 @interface TKPHeaderView ()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIButton *statisticButton;
-@property (weak, nonatomic) IBOutlet UIButton *addCategoryButton;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-@property (weak, nonatomic) IBOutlet UIButton *applyButton;
-@property (weak, nonatomic) IBOutlet UIButton *categoryListButton;
-@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
 @end
 

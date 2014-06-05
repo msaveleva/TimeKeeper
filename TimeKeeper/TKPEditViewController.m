@@ -78,43 +78,13 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     [self.editTableView registerNib:categoryTypeNib forCellReuseIdentifier:kCategoryTypeCell];
     
     [self timeTypeSelectionMenuSetup];
-    
-    //setting up methods for buttons
-    [self.timeTypeView.productiveTimeButton addTarget:self
-                                               action:@selector(timeTypeSelected:)
-                                     forControlEvents:UIControlEventTouchUpInside];
-    [self.timeTypeView.neutralTimeButton addTarget:self
-                                            action:@selector(timeTypeSelected:)
-                                  forControlEvents:UIControlEventTouchUpInside];
-    [self.timeTypeView.unproductiveTimeButton addTarget:self
-                                                 action:@selector(timeTypeSelected:)
-                                       forControlEvents:UIControlEventTouchUpInside];
+    [self setupButtons];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)timeTypeSelected:(id)sender
-{
-    [self showTimeTypeSelectionMenu];
-}
-
-- (void)timeTypeSelectionMenuSetup
-{
-    //make blur view
-    self.blurView = [[FXBlurView alloc] initWithFrame:self.view.frame];
-    self.blurView.backgroundColor = [UIColor clearColor];
-    self.blurView.tintColor = [UIColor clearColor];
-    self.blurView.blurRadius = kBlurRadius;
-    [self.view addSubview:self.blurView];
-    [self.view bringSubviewToFront:self.timeTypeView];
-    self.blurView.alpha = 0.0f;
-    self.timeTypeView.alpha = 0.0f;
-    
-    [self showTimeTypeSelectionMenu];
 }
 
 - (IBAction)deleteCategory:(id)sender {
@@ -140,6 +110,68 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
             self.timeTypeView.hidden = YES;
         }];
     }
+}
+
+#pragma mark - Buttons selectors
+
+- (void)timeTypeSelected:(UIButton *)button
+{
+    //TODO: implement saving
+    [self showTimeTypeSelectionMenu];
+    if ([button isEqual:self.timeTypeView.productiveTimeButton]) {
+        //handle productive
+    } else if ([button isEqual:self.timeTypeView.neutralTimeButton]) {
+        //handle neutral
+    } else if ([button isEqual:self.timeTypeView.unproductiveTimeButton]) {
+        //handle unproductive
+    }
+}
+
+- (void)headerViewButtonSelected:(UIButton *)button
+{
+    //TODO: handle buttons selection
+    if ([button isEqual:self.headerView.cancelButton]) {
+        //handle transition to previous screen
+    } else if ([button isEqual:self.headerView.applyButton]) {
+        //handle save and transition to previous screen
+    }
+}
+
+#pragma mark - Setting up methods
+
+- (void)timeTypeSelectionMenuSetup
+{
+    //make blur view
+    self.blurView = [[FXBlurView alloc] initWithFrame:self.view.frame];
+    self.blurView.backgroundColor = [UIColor clearColor];
+    self.blurView.tintColor = [UIColor clearColor];
+    self.blurView.blurRadius = kBlurRadius;
+    [self.view addSubview:self.blurView];
+    [self.view bringSubviewToFront:self.timeTypeView];
+    self.blurView.alpha = 0.0f;
+    self.timeTypeView.alpha = 0.0f;
+    
+    [self showTimeTypeSelectionMenu];
+}
+
+- (void)setupButtons
+{
+    //setting up methods for buttons
+    [self.timeTypeView.productiveTimeButton addTarget:self
+                                               action:@selector(timeTypeSelected:)
+                                     forControlEvents:UIControlEventTouchUpInside];
+    [self.timeTypeView.neutralTimeButton addTarget:self
+                                            action:@selector(timeTypeSelected:)
+                                  forControlEvents:UIControlEventTouchUpInside];
+    [self.timeTypeView.unproductiveTimeButton addTarget:self
+                                                 action:@selector(timeTypeSelected:)
+                                       forControlEvents:UIControlEventTouchUpInside];
+    [self.headerView.cancelButton addTarget:self
+                                     action:@selector(headerViewButtonSelected:)
+                           forControlEvents:UIControlEventTouchUpInside];
+    [self.headerView.applyButton addTarget:self
+                                    action:@selector(headerViewButtonSelected:)
+                          forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - Table View methods
