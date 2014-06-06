@@ -13,9 +13,12 @@
 #import "UIColor+CustomColors.h"
 #import "FXBlurView.h"
 #import "TKPTimeTypeView.h"
+#import "TKPAppDelegate.h"
+#import "TKPCategory.h"
 
 static NSString * const kEditNameCell = @"editNameCell";
 static NSString * const kCategoryTypeCell = @"categoryTypeCell";
+static NSString * const kCategoryManagedObject = @"TKPCategory";
 
 static CGFloat const kEditNameCellHeight = 68.0f;
 static CGFloat const kCategoryTypeCellHeight = 63.0f;
@@ -35,6 +38,8 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 @property (strong, nonatomic) FXBlurView *blurView;
 @property (nonatomic) BOOL isSelectingTimeType;
 @property (weak, nonatomic) IBOutlet TKPTimeTypeView *timeTypeView;
+@property (strong, nonatomic) TKPCategory *currentCategory;
+@property (weak, nonatomic) UITextField *textField;
 
 - (void)showTimeTypeSelectionMenu;
 - (void)timeTypeSelectionMenuSetup;
@@ -130,7 +135,20 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 - (void)headerViewButtonSelected:(UIButton *)button
 {
     if ([button isEqual:self.headerView.applyButton]) {
-        //handle saving
+        if (self.textField.text) {
+            TKPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+            NSManagedObjectContext *context = delegate.managedObjectContext;
+            TKPCategory *category =
+            [NSEntityDescription insertNewObjectForEntityForName:kCategoryManagedObject
+                                          inManagedObjectContext:context];
+            category.name = self.textField.text;
+            //TODO: add category type saving
+            
+            NSError *error;
+            if (![context save:&error]) {
+                NSLog(@"Can't save object!  %@", [error localizedDescription]);
+            }
+        }
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -217,6 +235,7 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     if (indexPath.row == 0) {
         TKPEditNameTableViewCell *editCell = (TKPEditNameTableViewCell *)cell;
         editCell.nameTextField.delegate = self;
+        self.textField = editCell.nameTextField;
     }
     
     return cell;
