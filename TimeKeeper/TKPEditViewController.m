@@ -13,9 +13,12 @@
 #import "UIColor+CustomColors.h"
 #import "FXBlurView.h"
 #import "TKPTimeTypeView.h"
+#import "TKPAppDelegate.h"
+#import "TKPCategory.h"
 
 static NSString * const kEditNameCell = @"editNameCell";
 static NSString * const kCategoryTypeCell = @"categoryTypeCell";
+static NSString * const kCategoryManagedObject = @"TKPCategory";
 
 static CGFloat const kEditNameCellHeight = 68.0f;
 static CGFloat const kCategoryTypeCellHeight = 63.0f;
@@ -35,6 +38,9 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 @property (strong, nonatomic) FXBlurView *blurView;
 @property (nonatomic) BOOL isSelectingTimeType;
 @property (weak, nonatomic) IBOutlet TKPTimeTypeView *timeTypeView;
+@property (strong, nonatomic) TKPCategory *currentCategory;
+@property (weak, nonatomic) UITextField *textField;
+@property (nonatomic) TKPCategoryType timeType;
 
 - (void)showTimeTypeSelectionMenu;
 - (void)timeTypeSelectionMenuSetup;
@@ -119,22 +125,33 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     //TODO: implement saving
     [self showTimeTypeSelectionMenu];
     if ([button isEqual:self.timeTypeView.productiveTimeButton]) {
-        //handle productive
+        self.timeType = TKPCategoryTypeProductiveTime;
     } else if ([button isEqual:self.timeTypeView.neutralTimeButton]) {
-        //handle neutral
+        self.timeType = TKPCategoryTypeNeutralTime;
     } else if ([button isEqual:self.timeTypeView.unproductiveTimeButton]) {
-        //handle unproductive
+        self.timeType = TKPCategoryTypeUnproductiveTime;
     }
 }
 
 - (void)headerViewButtonSelected:(UIButton *)button
 {
-    //TODO: handle buttons selection
-    if ([button isEqual:self.headerView.cancelButton]) {
-        //handle transition to previous screen
-    } else if ([button isEqual:self.headerView.applyButton]) {
-        //handle save and transition to previous screen
+    if ([button isEqual:self.headerView.applyButton]) {
+        if (self.textField.text) {
+            TKPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+            NSManagedObjectContext *context = delegate.managedObjectContext;
+            TKPCategory *category =
+            [NSEntityDescription insertNewObjectForEntityForName:kCategoryManagedObject
+                                          inManagedObjectContext:context];
+            category.name = self.textField.text;
+            [category setCategoryType:self.timeType];
+            
+            NSError *error;
+            if (![context save:&error]) {
+                NSLog(@"Can't save object!  %@", [error localizedDescription]);
+            }
+        }
     }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Setting up methods
@@ -219,6 +236,7 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     if (indexPath.row == 0) {
         TKPEditNameTableViewCell *editCell = (TKPEditNameTableViewCell *)cell;
         editCell.nameTextField.delegate = self;
+        self.textField = editCell.nameTextField;
     }
     
     return cell;

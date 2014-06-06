@@ -17,21 +17,7 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        //TODO: remove
-        NSManagedObjectContext *context = self.managedObjectContext;
-        TKPCategory *category = [NSEntityDescription insertNewObjectForEntityForName:@"TKPCategory" inManagedObjectContext:context];
-        category.name = @"Guitar lesson";
-        [category setCategoryType:TKPCategoryTypeProductiveTime];
-        
-        NSError *error;
-        if (![context save:&error]) {
-            NSLog(@"Save yourself! Error! %@", [error localizedDescription]);
-        }
-    });
-    
+{        
     return YES;
 }
 							
