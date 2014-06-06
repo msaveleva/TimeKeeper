@@ -52,6 +52,14 @@ static NSString *const kEditViewControllerID = @"editViewController";
     [self loadData];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self loadData];
+    [self.categoriesTableView reloadData];
+}
+
 - (void)addCategory:(UIButton *)button
 {
     TKPEditViewController *editViewController =
