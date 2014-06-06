@@ -19,7 +19,7 @@ static NSString * const kUnproductiveIndicator = @"BigRedCircle";
 {
     //set colors
     self.backgroundColor = [UIColor categoryCellBackgroundColor];
-    [self setTimeCategoryType:TKPTimeCategoryTypeProductive];
+    [self setTimeCategoryType:TKPCategoryTypeProductiveTime];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -29,16 +29,16 @@ static NSString * const kUnproductiveIndicator = @"BigRedCircle";
     // Configure the view for the selected state
 }
 
-- (void)setTimeCategoryType:(TKPTimeCategoryType)type
+- (void)setTimeCategoryType:(TKPCategoryType)type
 {
     switch (type) {
-        case TKPTimeCategoryTypeProductive:
+        case TKPCategoryTypeProductiveTime:
             [self.indicatorImageView setImage:[UIImage imageNamed:kProductiveIndicator]];
             break;
-        case TKPTimeCategoryTypeNeutral:
+        case TKPCategoryTypeNeutralTime:
             [self.indicatorImageView setImage:[UIImage imageNamed:kNeutralIndicator]];
             break;
-        case TKPTimeCategoryTypeUnproductive:
+        case TKPCategoryTypeUnproductiveTime:
             [self.indicatorImageView setImage:[UIImage imageNamed:kNeutralIndicator]];
             break;
         default:
@@ -48,16 +48,16 @@ static NSString * const kUnproductiveIndicator = @"BigRedCircle";
     self.timeTypeLabel.text = [self nameForType:type];
 }
 
-- (NSString *)nameForType:(TKPTimeCategoryType)type
+- (NSString *)nameForType:(TKPCategoryType)type
 {
     switch (type) {
-        case TKPTimeCategoryTypeProductive:
+        case TKPCategoryTypeProductiveTime:
             return @"Productive time";
             break;
-        case TKPTimeCategoryTypeNeutral:
+        case TKPCategoryTypeNeutralTime:
             return @"Neutral time";
             break;
-        case TKPTimeCategoryTypeUnproductive:
+        case TKPCategoryTypeUnproductiveTime:
             return @"Unproductive time";
             break;
         default:

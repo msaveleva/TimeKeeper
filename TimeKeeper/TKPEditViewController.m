@@ -40,6 +40,7 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 @property (weak, nonatomic) IBOutlet TKPTimeTypeView *timeTypeView;
 @property (strong, nonatomic) TKPCategory *currentCategory;
 @property (weak, nonatomic) UITextField *textField;
+@property (nonatomic) TKPCategoryType timeType;
 
 - (void)showTimeTypeSelectionMenu;
 - (void)timeTypeSelectionMenuSetup;
@@ -124,11 +125,11 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     //TODO: implement saving
     [self showTimeTypeSelectionMenu];
     if ([button isEqual:self.timeTypeView.productiveTimeButton]) {
-        //handle productive
+        self.timeType = TKPCategoryTypeProductiveTime;
     } else if ([button isEqual:self.timeTypeView.neutralTimeButton]) {
-        //handle neutral
+        self.timeType = TKPCategoryTypeNeutralTime;
     } else if ([button isEqual:self.timeTypeView.unproductiveTimeButton]) {
-        //handle unproductive
+        self.timeType = TKPCategoryTypeUnproductiveTime;
     }
 }
 
@@ -142,7 +143,7 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
             [NSEntityDescription insertNewObjectForEntityForName:kCategoryManagedObject
                                           inManagedObjectContext:context];
             category.name = self.textField.text;
-            //TODO: add category type saving
+            [category setCategoryType:self.timeType];
             
             NSError *error;
             if (![context save:&error]) {
