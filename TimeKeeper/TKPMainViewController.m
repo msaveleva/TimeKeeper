@@ -11,9 +11,11 @@
 #import "TKPHeaderView.h"
 #import "TKPCategory.h"
 #import "TKPAppDelegate.h"
+#import "TKPEditViewController.h"
 
 //static NSString *const kCellIdentifier = @"categoryCellIdentifier";
 static NSString *const kCellIdentifier = @"categoryCell";
+static NSString *const kEditViewControllerID = @"editViewController";
 
 @interface TKPMainViewController ()
 
@@ -42,7 +44,19 @@ static NSString *const kCellIdentifier = @"categoryCell";
     UINib *nib = [UINib nibWithNibName:@"TKPCategoryTableViewCell" bundle:nil];
     [self.categoriesTableView registerNib:nib forCellReuseIdentifier:kCellIdentifier];
     
+    //setting up buttons
+    [self.headerView.addCategoryButton addTarget:self
+                                          action:@selector(addCategory:)
+                                forControlEvents:UIControlEventTouchUpInside];
+    
     [self loadData];
+}
+
+- (void)addCategory:(UIButton *)button
+{
+    TKPEditViewController *editViewController =
+        [self.storyboard instantiateViewControllerWithIdentifier:kEditViewControllerID];
+    [self presentViewController:editViewController animated:YES completion:nil];
 }
 
 #pragma mark - Core Data methods
