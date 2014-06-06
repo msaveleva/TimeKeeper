@@ -129,12 +129,10 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 
 - (void)headerViewButtonSelected:(UIButton *)button
 {
-    //TODO: handle buttons selection
-    if ([button isEqual:self.headerView.cancelButton]) {
-        //handle transition to previous screen
-    } else if ([button isEqual:self.headerView.applyButton]) {
-        //handle save and transition to previous screen
+    if ([button isEqual:self.headerView.applyButton]) {
+        //handle saving
     }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Setting up methods
