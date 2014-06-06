@@ -20,6 +20,8 @@
 		1C6D0DAE192CAF4200F4EFD2 /* TKPTimeScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6D0DAD192CAF4200F4EFD2 /* TKPTimeScrollView.xib */; };
 		1C7CBAC1192C95E900878E93 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7CBAC0192C95E900878E93 /* UIColor+CustomColors.m */; };
 		3F09C41719287FC800D08E16 /* TKPHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F09C41619287FC800D08E16 /* TKPHeaderView.xib */; };
+		3F27B4F11942380E00EF1653 /* TKPTimeAndDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F27B4F01942380E00EF1653 /* TKPTimeAndDate.m */; };
+		3F27B4F41942384500EF1653 /* TKPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F27B4F31942384500EF1653 /* TKPCategory.m */; };
 		3F5A83E919286DE50029D3AE /* TKPTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5A83E819286DE50029D3AE /* TKPTimeView.xib */; };
 		3F85E88F19279AF200275E9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F85E88E19279AF200275E9A /* Foundation.framework */; };
 		3F85E89119279AF200275E9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F85E89019279AF200275E9A /* CoreGraphics.framework */; };
@@ -38,8 +40,8 @@
 		3F85E8C51927A31400275E9A /* TKPEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8C41927A31400275E9A /* TKPEditViewController.m */; };
 		3F85E8CB1927A37A00275E9A /* TKPTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8CA1927A37A00275E9A /* TKPTimeView.m */; };
 		3F85E8CE1927A3E600275E9A /* TKPHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8CD1927A3E600275E9A /* TKPHeaderView.m */; };
-		3F85E8D21927AD0600275E9A /* TKPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8D11927AD0600275E9A /* TKPCategory.m */; };
 		3F85E8D61927B39C00275E9A /* TKPCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8D51927B39C00275E9A /* TKPCategoryTableViewCell.m */; };
+		3FB4CE5E1940F4410003E556 /* TimeKeeper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4CE5C1940F4410003E556 /* TimeKeeper.xcdatamodeld */; };
 		DA68185E6CCB49FD84A6D015 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DEB25A7EE94D15A6DB6F7D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,10 @@
 		1C7CBAC0192C95E900878E93 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColors.m"; sourceTree = "<group>"; };
 		23BCE90BB87641699BF7DF6F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		3F09C41619287FC800D08E16 /* TKPHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPHeaderView.xib; sourceTree = "<group>"; };
+		3F27B4EF1942380E00EF1653 /* TKPTimeAndDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKPTimeAndDate.h; path = ../TKPTimeAndDate.h; sourceTree = "<group>"; };
+		3F27B4F01942380E00EF1653 /* TKPTimeAndDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKPTimeAndDate.m; path = ../TKPTimeAndDate.m; sourceTree = "<group>"; };
+		3F27B4F21942384500EF1653 /* TKPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPCategory.h; sourceTree = "<group>"; };
+		3F27B4F31942384500EF1653 /* TKPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPCategory.m; sourceTree = "<group>"; };
 		3F5A83E819286DE50029D3AE /* TKPTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPTimeView.xib; sourceTree = "<group>"; };
 		3F85E88B19279AF200275E9A /* TimeKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F85E88E19279AF200275E9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,10 +108,9 @@
 		3F85E8CA1927A37A00275E9A /* TKPTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPTimeView.m; sourceTree = "<group>"; };
 		3F85E8CC1927A3E600275E9A /* TKPHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPHeaderView.h; sourceTree = "<group>"; };
 		3F85E8CD1927A3E600275E9A /* TKPHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPHeaderView.m; sourceTree = "<group>"; };
-		3F85E8D01927AD0600275E9A /* TKPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPCategory.h; sourceTree = "<group>"; };
-		3F85E8D11927AD0600275E9A /* TKPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPCategory.m; sourceTree = "<group>"; };
 		3F85E8D41927B39C00275E9A /* TKPCategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPCategoryTableViewCell.h; sourceTree = "<group>"; };
 		3F85E8D51927B39C00275E9A /* TKPCategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPCategoryTableViewCell.m; sourceTree = "<group>"; };
+		3FB4CE5D1940F4410003E556 /* TimeKeeper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeKeeper.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,8 +270,11 @@
 		3F85E8CF1927ACF300275E9A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3F85E8D01927AD0600275E9A /* TKPCategory.h */,
-				3F85E8D11927AD0600275E9A /* TKPCategory.m */,
+				3FB4CE5C1940F4410003E556 /* TimeKeeper.xcdatamodeld */,
+				3F27B4F21942384500EF1653 /* TKPCategory.h */,
+				3F27B4F31942384500EF1653 /* TKPCategory.m */,
+				3F27B4EF1942380E00EF1653 /* TKPTimeAndDate.h */,
+				3F27B4F01942380E00EF1653 /* TKPTimeAndDate.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -427,12 +435,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F85E8D21927AD0600275E9A /* TKPCategory.m in Sources */,
 				3F85E89F19279AF200275E9A /* TKPAppDelegate.m in Sources */,
 				1C6D0DAC192CAF3200F4EFD2 /* TKPTimeScrollView.m in Sources */,
 				3F85E8CE1927A3E600275E9A /* TKPHeaderView.m in Sources */,
 				1C7CBAC1192C95E900878E93 /* UIColor+CustomColors.m in Sources */,
 				3F85E8A519279AF200275E9A /* TKPMainViewController.m in Sources */,
+				3F27B4F41942384500EF1653 /* TKPCategory.m in Sources */,
+				3FB4CE5E1940F4410003E556 /* TimeKeeper.xcdatamodeld in Sources */,
+				3F27B4F11942380E00EF1653 /* TKPTimeAndDate.m in Sources */,
 				1C415E41192CBB190099FB1E /* UIFont+CustomFonts.m in Sources */,
 				1C1F3F331935CF3E00BD6220 /* TKPEditNameTableViewCell.m in Sources */,
 				3F85E8CB1927A37A00275E9A /* TKPTimeView.m in Sources */,
@@ -660,6 +670,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3FB4CE5C1940F4410003E556 /* TimeKeeper.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3FB4CE5D1940F4410003E556 /* TimeKeeper.xcdatamodel */,
+			);
+			currentVersion = 3FB4CE5D1940F4410003E556 /* TimeKeeper.xcdatamodel */;
+			path = TimeKeeper.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3F85E88319279AF200275E9A /* Project object */;
 }

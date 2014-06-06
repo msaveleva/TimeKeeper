@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -73,7 +73,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDG-nG-JJc">
-                                <rect key="frame" x="99" y="19" width="34" height="18"/>
+                                <rect key="frame" x="99" y="18" width="34" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="highlightedColor"/>
@@ -87,7 +87,7 @@
                             <constraint firstItem="YNR-lJ-v9Y" firstAttribute="leading" secondItem="rP0-Hc-JF4" secondAttribute="leading" constant="3" id="9W6-2A-79c"/>
                             <constraint firstItem="uKJ-RN-UNQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EDG-nG-JJc" secondAttribute="trailing" constant="10" id="Bck-wj-JN0"/>
                             <constraint firstItem="rP0-Hc-JF4" firstAttribute="leading" secondItem="LTa-2P-IIG" secondAttribute="leading" constant="20" id="RGH-e4-aKl"/>
-                            <constraint firstItem="rP0-Hc-JF4" firstAttribute="baseline" secondItem="EDG-nG-JJc" secondAttribute="baseline" constant="-1" id="RHT-Oj-0sN"/>
+                            <constraint firstItem="rP0-Hc-JF4" firstAttribute="baseline" secondItem="EDG-nG-JJc" secondAttribute="baseline" id="RHT-Oj-0sN"/>
                             <constraint firstItem="374-pm-2aM" firstAttribute="leading" secondItem="YNR-lJ-v9Y" secondAttribute="trailing" constant="6" id="Vdo-Ux-f6P"/>
                             <constraint firstItem="uKJ-RN-UNQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="374-pm-2aM" secondAttribute="trailing" constant="10" id="Vmr-wa-hDb"/>
                             <constraint firstItem="rP0-Hc-JF4" firstAttribute="top" secondItem="LTa-2P-IIG" secondAttribute="top" constant="16" id="WPI-QD-igj"/>
