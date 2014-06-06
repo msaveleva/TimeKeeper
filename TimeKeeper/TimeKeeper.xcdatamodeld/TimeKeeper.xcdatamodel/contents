@@ -3,8 +3,15 @@
     <entity name="TKPCategory" representedClassName="TKPCategory" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="timesAndDates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TKPTimeAndDate" inverseName="category" inverseEntity="TKPTimeAndDate" syncable="YES"/>
+    </entity>
+    <entity name="TKPTimeAndDate" representedClassName="TKPTimeAndDate" syncable="YES">
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TKPCategory" inverseName="timesAndDates" inverseEntity="TKPCategory" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TKPCategory" positionX="-54" positionY="-9" width="128" height="73"/>
+        <element name="TKPCategory" positionX="-1332" positionY="-72" width="128" height="88"/>
+        <element name="TKPTimeAndDate" positionX="-1136" positionY="-54" width="128" height="88"/>
     </elements>
 </model>
