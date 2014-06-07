@@ -87,6 +87,8 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     
     if (!self.editedCategory) {
         self.deleteButton.hidden = YES;
+    } else {
+        self.timeType = self.editedCategory.type.integerValue;
     }
 }
 
@@ -140,23 +142,21 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 
 - (void)headerViewButtonSelected:(UIButton *)button
 {
-    TKPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = delegate.managedObjectContext;
     if ([button isEqual:self.headerView.applyButton]) {
+        TKPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = delegate.managedObjectContext;
+        
         if (self.textField.text && !self.editedCategory) {
             TKPCategory *category =
             [NSEntityDescription insertNewObjectForEntityForName:kCategoryManagedObject
                                           inManagedObjectContext:context];
             category.name = self.textField.text;
             [category setCategoryType:self.timeType];
+        } else if (self.editedCategory) {
+            self.editedCategory.name = self.textField.text;
+            [self.editedCategory setCategoryType:self.timeType];
         }
-    } else if (self.editedCategory) {
-        self.editedCategory.name = self.textField.text;
-        [self.editedCategory setCategoryType:self.timeType];
         
-    }
-    
-    if ([button isEqual:self.headerView.applyButton]) {
         NSError *error;
         if (![context save:&error]) {
             NSLog(@"Can't save object!  %@", [error localizedDescription]);
@@ -253,11 +253,7 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     
     if (indexPath.row == 1) {
         TKPCategoryTypeTableViewCell *typeCell = (TKPCategoryTypeTableViewCell *)cell;
-        if (self.editedCategory) {
-            [typeCell setTimeCategoryType:self.editedCategory.type.integerValue];
-        } else {
-            [typeCell setTimeCategoryType:self.timeType];
-        }
+        [typeCell setTimeCategoryType:self.timeType];
     }
     
     return cell;
