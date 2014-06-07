@@ -131,6 +131,8 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     } else if ([button isEqual:self.timeTypeView.unproductiveTimeButton]) {
         self.timeType = TKPCategoryTypeUnproductiveTime;
     }
+    
+    [self.editTableView reloadData];
 }
 
 - (void)headerViewButtonSelected:(UIButton *)button
@@ -237,6 +239,11 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
         TKPEditNameTableViewCell *editCell = (TKPEditNameTableViewCell *)cell;
         editCell.nameTextField.delegate = self;
         self.textField = editCell.nameTextField;
+    }
+    
+    if (indexPath.row == 1) {
+        TKPCategoryTypeTableViewCell *typeCell = (TKPCategoryTypeTableViewCell *)cell;
+        [typeCell setTimeCategoryType:self.timeType];
     }
     
     return cell;
