@@ -140,22 +140,29 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 
 - (void)headerViewButtonSelected:(UIButton *)button
 {
+    TKPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = delegate.managedObjectContext;
     if ([button isEqual:self.headerView.applyButton]) {
-        if (self.textField.text) {
-            TKPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-            NSManagedObjectContext *context = delegate.managedObjectContext;
+        if (self.textField.text && !self.editedCategory) {
             TKPCategory *category =
             [NSEntityDescription insertNewObjectForEntityForName:kCategoryManagedObject
                                           inManagedObjectContext:context];
             category.name = self.textField.text;
             [category setCategoryType:self.timeType];
-            
-            NSError *error;
-            if (![context save:&error]) {
-                NSLog(@"Can't save object!  %@", [error localizedDescription]);
-            }
+        }
+    } else if (self.editedCategory) {
+        self.editedCategory.name = self.textField.text;
+        [self.editedCategory setCategoryType:self.timeType];
+        
+    }
+    
+    if ([button isEqual:self.headerView.applyButton]) {
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"Can't save object!  %@", [error localizedDescription]);
         }
     }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -249,7 +256,7 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
         if (self.editedCategory) {
             [typeCell setTimeCategoryType:self.editedCategory.type.integerValue];
         } else {
-            [typeCell setTimeCategoryType:TKPCategoryTypeProductiveTime];
+            [typeCell setTimeCategoryType:self.timeType];
         }
     }
     
