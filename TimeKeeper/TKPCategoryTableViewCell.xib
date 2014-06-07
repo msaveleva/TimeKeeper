@@ -108,6 +108,7 @@
                 <outlet property="categoryIndicatorImageView" destination="YNR-lJ-v9Y" id="ui3-qX-0KS"/>
                 <outlet property="categoryLabelsContentView" destination="LTa-2P-IIG" id="axA-vD-wIC"/>
                 <outlet property="categoryNameLabel" destination="rP0-Hc-JF4" id="39J-Rh-RcT"/>
+                <outlet property="categoryTimePassLabel" destination="EDG-nG-JJc" id="sqQ-iB-BYe"/>
                 <outlet property="categoryTypeLabel" destination="374-pm-2aM" id="Dgi-2G-ZRo"/>
                 <outlet property="editButton" destination="Cbd-YW-7vu" id="DL2-i3-U92"/>
                 <outlet property="leftContentViewConstraint" destination="for-Gp-onV" id="j21-68-vYu"/>

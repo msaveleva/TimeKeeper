@@ -65,6 +65,12 @@ static CGFloat const kAnimationSpeed = 0.3f;
                                               action:@selector(handleRightSwipe:)];
     [self.rightSwipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
     [self addGestureRecognizer:self.rightSwipeGesture];
+    
+    /**
+     при создании новой категории она не активна, поэтому время не отсчитывается,
+     и лэйбл не виден
+     */
+    self.categoryTimePassLabel.hidden = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
