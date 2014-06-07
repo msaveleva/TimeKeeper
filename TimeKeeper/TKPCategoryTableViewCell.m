@@ -77,7 +77,7 @@ static CGFloat const kAnimationSpeed = 0.3f;
 - (void)configureCellWithCategory:(TKPCategory *)category
 {
     self.currentCategory = category;
-    self.categoryTypeLabel.text = self.currentCategory.name;
+    self.categoryNameLabel.text = self.currentCategory.name;
     [self setCategoryTimeTypeWithType:self.currentCategory.type.integerValue];
 }
 
