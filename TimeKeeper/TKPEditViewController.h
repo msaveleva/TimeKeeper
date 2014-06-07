@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class TKPCategory;
+
 @interface TKPEditViewController : UIViewController
 <
 UITableViewDataSource,
 UITableViewDelegate,
 UITextFieldDelegate
 >
+
+/**
+ если категория != nil, экран открывается в режиме редактирования
+ с кнопкой для удаления категории)
+ */
+@property (strong, nonatomic) TKPCategory *editedCategory;
 
 @end

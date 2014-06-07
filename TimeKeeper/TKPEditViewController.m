@@ -38,7 +38,6 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 @property (strong, nonatomic) FXBlurView *blurView;
 @property (nonatomic) BOOL isSelectingTimeType;
 @property (weak, nonatomic) IBOutlet TKPTimeTypeView *timeTypeView;
-@property (strong, nonatomic) TKPCategory *currentCategory;
 @property (weak, nonatomic) UITextField *textField;
 @property (nonatomic) TKPCategoryType timeType;
 
@@ -85,6 +84,12 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     
     [self timeTypeSelectionMenuSetup];
     [self setupButtons];
+    
+    if (!self.editedCategory) {
+        self.deleteButton.hidden = YES;
+    } else {
+        self.timeType = self.editedCategory.type.integerValue;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,26 +136,33 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     } else if ([button isEqual:self.timeTypeView.unproductiveTimeButton]) {
         self.timeType = TKPCategoryTypeUnproductiveTime;
     }
+    
+    [self.editTableView reloadData];
 }
 
 - (void)headerViewButtonSelected:(UIButton *)button
 {
     if ([button isEqual:self.headerView.applyButton]) {
-        if (self.textField.text) {
-            TKPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-            NSManagedObjectContext *context = delegate.managedObjectContext;
+        TKPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = delegate.managedObjectContext;
+        
+        if (self.textField.text && !self.editedCategory) {
             TKPCategory *category =
             [NSEntityDescription insertNewObjectForEntityForName:kCategoryManagedObject
                                           inManagedObjectContext:context];
             category.name = self.textField.text;
             [category setCategoryType:self.timeType];
-            
-            NSError *error;
-            if (![context save:&error]) {
-                NSLog(@"Can't save object!  %@", [error localizedDescription]);
-            }
+        } else if (self.editedCategory) {
+            self.editedCategory.name = self.textField.text;
+            [self.editedCategory setCategoryType:self.timeType];
+        }
+        
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"Can't save object!  %@", [error localizedDescription]);
         }
     }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -235,8 +247,13 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     
     if (indexPath.row == 0) {
         TKPEditNameTableViewCell *editCell = (TKPEditNameTableViewCell *)cell;
-        editCell.nameTextField.delegate = self;
+        [editCell configureCellWithDelegate:self category:self.editedCategory];
         self.textField = editCell.nameTextField;
+    }
+    
+    if (indexPath.row == 1) {
+        TKPCategoryTypeTableViewCell *typeCell = (TKPCategoryTypeTableViewCell *)cell;
+        [typeCell setTimeCategoryType:self.timeType];
     }
     
     return cell;

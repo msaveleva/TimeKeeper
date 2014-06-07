@@ -21,6 +21,7 @@ static CGFloat const kAnimationSpeed = 0.3f;
 
 @property (strong, nonatomic) UISwipeGestureRecognizer *leftSwipeGesture;
 @property (strong, nonatomic) UISwipeGestureRecognizer *rightSwipeGesture;
+@property (strong, nonatomic) TKPCategory *currentCategory;
 
 @end
 
@@ -64,6 +65,12 @@ static CGFloat const kAnimationSpeed = 0.3f;
                                               action:@selector(handleRightSwipe:)];
     [self.rightSwipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
     [self addGestureRecognizer:self.rightSwipeGesture];
+    
+    /**
+     при создании новой категории она не активна, поэтому время не отсчитывается,
+     и лэйбл не виден
+     */
+    self.categoryTimePassLabel.hidden = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -71,6 +78,13 @@ static CGFloat const kAnimationSpeed = 0.3f;
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)configureCellWithCategory:(TKPCategory *)category
+{
+    self.currentCategory = category;
+    self.categoryNameLabel.text = self.currentCategory.name;
+    [self setCategoryTimeTypeWithType:self.currentCategory.type.integerValue];
 }
 
 #pragma mark - Edition mode animation
@@ -144,9 +158,34 @@ static CGFloat const kAnimationSpeed = 0.3f;
 #pragma mark - Edit and remove actions
 
 - (IBAction)editCategory:(id)sender {
+    [self.delegate editCategory:self.currentCategory];
 }
 
 - (IBAction)removeCategory:(id)sender {
+    [self.delegate deleteCategory:self.currentCategory];
+}
+
+#pragma mark - Category type
+
+- (void)setCategoryTimeTypeWithType:(TKPCategoryType)type
+{
+    switch (type) {
+        case TKPCategoryTypeProductiveTime:
+            self.categoryTypeLabel.text = @"Productive time"; //TODO: sel localization
+            self.categoryIndicatorImageView.image = [UIImage imageNamed:@"SmallGreenCircle"];
+            break;
+        case TKPCategoryTypeNeutralTime:
+            self.categoryTypeLabel.text = @"Neutral time";
+            self.categoryIndicatorImageView.image = [UIImage imageNamed:@"SmallBlueCircle"];
+            break;
+        case TKPCategoryTypeUnproductiveTime:
+            self.categoryTypeLabel.text = @"Unproductive time";
+            self.categoryIndicatorImageView.image = [UIImage imageNamed:@"SmallRedCircle"];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

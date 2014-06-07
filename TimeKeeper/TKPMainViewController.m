@@ -7,7 +7,6 @@
 //
 
 #import "TKPMainViewController.h"
-#import "TKPCategoryTableViewCell.h"
 #import "TKPHeaderView.h"
 #import "TKPCategory.h"
 #import "TKPAppDelegate.h"
@@ -95,9 +94,9 @@ static NSString *const kEditViewControllerID = @"editViewController";
 {
     TKPCategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier
                                                                      forIndexPath:indexPath];
-//    cell.categoryNameLabel.text = @"Some category name";
     TKPCategory *category = [self.categoryList objectAtIndex:indexPath.row];
-    cell.categoryNameLabel.text = category.name;
+    [cell configureCellWithCategory:category];
+    cell.delegate = self;
     
     return cell;
 }
@@ -105,6 +104,30 @@ static NSString *const kEditViewControllerID = @"editViewController";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //handle selection
+}
+
+#pragma mark - TKPEditDeleteProtocol methods
+
+- (void)editCategory:(TKPCategory *)category
+{
+    TKPEditViewController *editViewController =
+        [self.storyboard instantiateViewControllerWithIdentifier:kEditViewControllerID];
+    editViewController.editedCategory = category;
+    [self presentViewController:editViewController animated:YES completion:nil];
+}
+
+- (void)deleteCategory:(TKPCategory *)category
+{
+    TKPAppDelegate *appDelegate = (TKPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.managedObjectContext deleteObject:category];
+    
+    NSError *error;
+    if (![appDelegate.managedObjectContext save:&error]) {
+        NSLog(@"Can't delete category: %@", error);
+    }
+    
+    [self loadData];
+    [self.categoriesTableView reloadData];
 }
 
 @end

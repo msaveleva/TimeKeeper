@@ -7,13 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TKPCategory.h"
+
+@protocol TKPEditDeleteProtocol <NSObject>
+
+- (void)editCategory:(TKPCategory *)category;
+- (void)deleteCategory:(TKPCategory *)category;
+
+@end
 
 @interface TKPCategoryTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) id<TKPEditDeleteProtocol> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *categoryNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryTypeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *categoryIndicatorImageView;
 @property (weak, nonatomic) IBOutlet UIView *categoryLabelsContentView;
+@property (weak, nonatomic) IBOutlet UILabel *categoryTimePassLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *removeButton;
@@ -24,5 +34,6 @@
 
 - (void)hidePauseButton;
 - (void)showPauseButton;
+- (void)configureCellWithCategory:(TKPCategory *)category;
 
 @end
