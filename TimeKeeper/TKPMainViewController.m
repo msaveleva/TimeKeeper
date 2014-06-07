@@ -7,7 +7,6 @@
 //
 
 #import "TKPMainViewController.h"
-#import "TKPCategoryTableViewCell.h"
 #import "TKPHeaderView.h"
 #import "TKPCategory.h"
 #import "TKPAppDelegate.h"
@@ -100,6 +99,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
 //    cell.categoryNameLabel.text = category.name;
 //    [cell setCategoryTimeTypeWithType:category.type.integerValue];
     [cell configureCellWithCategory:category];
+    cell.delegate = self;
     
     return cell;
 }
@@ -107,6 +107,18 @@ static NSString *const kEditViewControllerID = @"editViewController";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //handle selection
+}
+
+#pragma mark - TKPEditDeleteProtocol methods
+
+- (void)editCategory:(TKPCategory *)category
+{
+    NSLog(@"Category edited!");
+}
+
+- (void)deleteCategory:(TKPCategory *)category
+{
+    NSLog(@"Category deleted!");
 }
 
 @end

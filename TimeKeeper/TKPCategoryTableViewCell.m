@@ -152,10 +152,11 @@ static CGFloat const kAnimationSpeed = 0.3f;
 #pragma mark - Edit and remove actions
 
 - (IBAction)editCategory:(id)sender {
-    
+    [self.delegate editCategory:self.currentCategory];
 }
 
 - (IBAction)removeCategory:(id)sender {
+    [self.delegate deleteCategory:self.currentCategory];
 }
 
 #pragma mark - Category type
