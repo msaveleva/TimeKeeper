@@ -85,6 +85,10 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     
     [self timeTypeSelectionMenuSetup];
     [self setupButtons];
+    
+    if (!self.editedCategory) {
+        self.deleteButton.hidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning
