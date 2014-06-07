@@ -97,8 +97,9 @@ static NSString *const kEditViewControllerID = @"editViewController";
                                                                      forIndexPath:indexPath];
 //    cell.categoryNameLabel.text = @"Some category name";
     TKPCategory *category = [self.categoryList objectAtIndex:indexPath.row];
-    cell.categoryNameLabel.text = category.name;
-    [cell setCategoryTimeTypeWithType:category.type.integerValue];
+//    cell.categoryNameLabel.text = category.name;
+//    [cell setCategoryTimeTypeWithType:category.type.integerValue];
+    [cell configureCellWithCategory:category];
     
     return cell;
 }
