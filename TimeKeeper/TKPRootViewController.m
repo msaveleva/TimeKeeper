@@ -37,6 +37,7 @@ static NSString * const kMainViewControllerIdentifier = @"mainViewController";
     //adding child view controller
     TKPMainViewController *childViewController =
         [self.storyboard instantiateViewControllerWithIdentifier:kMainViewControllerIdentifier];
+    childViewController.view.frame = self.containerViewForChild.frame;
     [self addChildViewController:childViewController];
     [self.containerViewForChild addSubview:childViewController.view];
 }
