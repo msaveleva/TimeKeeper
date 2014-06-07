@@ -85,6 +85,10 @@ static CGFloat const kAnimationSpeed = 0.3f;
     self.currentCategory = category;
     self.categoryNameLabel.text = self.currentCategory.name;
     [self setCategoryTimeTypeWithType:self.currentCategory.type.integerValue];
+    
+    self.leftContentViewConstraint.constant = kMinMargin;
+    self.rightContentViewConstraint.constant = kMinMargin;
+    [self layoutIfNeeded];
 }
 
 #pragma mark - Edition mode animation
