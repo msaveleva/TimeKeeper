@@ -39,7 +39,7 @@ static NSString * const kUnproductiveIndicator = @"BigRedCircle";
             [self.indicatorImageView setImage:[UIImage imageNamed:kNeutralIndicator]];
             break;
         case TKPCategoryTypeUnproductiveTime:
-            [self.indicatorImageView setImage:[UIImage imageNamed:kNeutralIndicator]];
+            [self.indicatorImageView setImage:[UIImage imageNamed:kUnproductiveIndicator]];
             break;
         default:
             break;
