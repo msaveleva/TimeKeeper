@@ -110,7 +110,10 @@ static NSString *const kEditViewControllerID = @"editViewController";
 
 - (void)editCategory:(TKPCategory *)category
 {
-    NSLog(@"Category edited!");
+    TKPEditViewController *editViewController =
+        [self.storyboard instantiateViewControllerWithIdentifier:kEditViewControllerID];
+    editViewController.editedCategory = category;
+    [self presentViewController:editViewController animated:YES completion:nil];
 }
 
 - (void)deleteCategory:(TKPCategory *)category
@@ -125,7 +128,6 @@ static NSString *const kEditViewControllerID = @"editViewController";
     
     [self loadData];
     [self.categoriesTableView reloadData];
-    NSLog(@"Category deleted!");
 }
 
 @end

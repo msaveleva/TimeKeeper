@@ -38,7 +38,6 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 @property (strong, nonatomic) FXBlurView *blurView;
 @property (nonatomic) BOOL isSelectingTimeType;
 @property (weak, nonatomic) IBOutlet TKPTimeTypeView *timeTypeView;
-@property (strong, nonatomic) TKPCategory *currentCategory;
 @property (weak, nonatomic) UITextField *textField;
 @property (nonatomic) TKPCategoryType timeType;
 
@@ -241,7 +240,8 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     
     if (indexPath.row == 0) {
         TKPEditNameTableViewCell *editCell = (TKPEditNameTableViewCell *)cell;
-        editCell.nameTextField.delegate = self;
+//        editCell.nameTextField.delegate = self;
+        [editCell configureCellWithDelegate:self category:self.editedCategory];
         self.textField = editCell.nameTextField;
     }
     

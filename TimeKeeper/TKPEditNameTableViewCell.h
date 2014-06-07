@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class TKPCategory;
+
 @interface TKPEditNameTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+
+- (void)configureCellWithDelegate:(id)delegate category:(TKPCategory *)category;
 
 @end
