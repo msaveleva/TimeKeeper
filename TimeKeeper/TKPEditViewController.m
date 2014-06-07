@@ -240,14 +240,17 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     
     if (indexPath.row == 0) {
         TKPEditNameTableViewCell *editCell = (TKPEditNameTableViewCell *)cell;
-//        editCell.nameTextField.delegate = self;
         [editCell configureCellWithDelegate:self category:self.editedCategory];
         self.textField = editCell.nameTextField;
     }
     
     if (indexPath.row == 1) {
         TKPCategoryTypeTableViewCell *typeCell = (TKPCategoryTypeTableViewCell *)cell;
-        [typeCell setTimeCategoryType:self.timeType];
+        if (self.editedCategory) {
+            [typeCell setTimeCategoryType:self.editedCategory.type.integerValue];
+        } else {
+            [typeCell setTimeCategoryType:TKPCategoryTypeProductiveTime];
+        }
     }
     
     return cell;
