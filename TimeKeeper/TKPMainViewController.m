@@ -94,10 +94,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
 {
     TKPCategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier
                                                                      forIndexPath:indexPath];
-//    cell.categoryNameLabel.text = @"Some category name";
     TKPCategory *category = [self.categoryList objectAtIndex:indexPath.row];
-//    cell.categoryNameLabel.text = category.name;
-//    [cell setCategoryTimeTypeWithType:category.type.integerValue];
     [cell configureCellWithCategory:category];
     cell.delegate = self;
     
@@ -125,6 +122,9 @@ static NSString *const kEditViewControllerID = @"editViewController";
     if (![appDelegate.managedObjectContext save:&error]) {
         NSLog(@"Can't delete category: %@", error);
     }
+    
+    [self loadData];
+    [self.categoriesTableView reloadData];
     NSLog(@"Category deleted!");
 }
 
