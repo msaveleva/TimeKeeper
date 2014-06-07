@@ -149,4 +149,27 @@ static CGFloat const kAnimationSpeed = 0.3f;
 - (IBAction)removeCategory:(id)sender {
 }
 
+#pragma mark - Category type
+
+- (void)setCategoryTimeTypeWithType:(TKPCategoryType)type
+{
+    switch (type) {
+        case TKPCategoryTypeProductiveTime:
+            self.categoryTypeLabel.text = @"Productive time"; //TODO: sel localization
+            self.categoryIndicatorImageView.image = [UIImage imageNamed:@"SmallGreenCircle"];
+            break;
+        case TKPCategoryTypeNeutralTime:
+            self.categoryTypeLabel.text = @"Neutral time";
+            self.categoryIndicatorImageView.image = [UIImage imageNamed:@"SmallBlueCircle"];
+            break;
+        case TKPCategoryTypeUnproductiveTime:
+            self.categoryTypeLabel.text = @"Unproductive time";
+            self.categoryIndicatorImageView.image = [UIImage imageNamed:@"SmallRedCircle"];
+            break;
+            
+        default:
+            break;
+    }
+}
+
 @end

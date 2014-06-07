@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TKPCategory.h"
 
 @interface TKPCategoryTableViewCell : UITableViewCell
 
@@ -24,5 +25,6 @@
 
 - (void)hidePauseButton;
 - (void)showPauseButton;
+- (void)setCategoryTimeTypeWithType:(TKPCategoryType)type;
 
 @end
