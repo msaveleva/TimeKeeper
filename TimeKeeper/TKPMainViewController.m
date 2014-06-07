@@ -118,6 +118,13 @@ static NSString *const kEditViewControllerID = @"editViewController";
 
 - (void)deleteCategory:(TKPCategory *)category
 {
+    TKPAppDelegate *appDelegate = (TKPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.managedObjectContext deleteObject:category];
+    
+    NSError *error;
+    if (![appDelegate.managedObjectContext save:&error]) {
+        NSLog(@"Can't delete category: %@", error);
+    }
     NSLog(@"Category deleted!");
 }
 
