@@ -16,6 +16,7 @@ static NSString * const kMainViewControllerIdentifier = @"mainViewController";
 
 @property (weak, nonatomic) IBOutlet UIView *containerViewForChild;
 @property (weak, nonatomic) IBOutlet TKPTimeView *timeView;
+@property (strong, nonatomic) TKPMainViewController *childViewController;
 
 @end
 
@@ -35,17 +36,20 @@ static NSString * const kMainViewControllerIdentifier = @"mainViewController";
     [super viewDidLoad];
     
     //adding child view controller
-    TKPMainViewController *childViewController =
-        [self.storyboard instantiateViewControllerWithIdentifier:kMainViewControllerIdentifier];
-    childViewController.view.frame = self.containerViewForChild.frame;
-    [self addChildViewController:childViewController];
-    [self.containerViewForChild addSubview:childViewController.view];
+    self.childViewController = [self.storyboard instantiateViewControllerWithIdentifier:kMainViewControllerIdentifier];
+    [self addChildViewController:self.childViewController];
+    [self.containerViewForChild addSubview:self.childViewController.view];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidLayoutSubviews
+{
+    self.childViewController.view.frame = self.containerViewForChild.frame;
 }
 
 @end
