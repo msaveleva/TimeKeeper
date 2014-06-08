@@ -99,6 +99,15 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 }
 
 - (IBAction)deleteCategory:(id)sender {
+    TKPAppDelegate *appDelegate = (TKPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.managedObjectContext deleteObject:self.editedCategory];
+    
+    NSError *error;
+    if (![appDelegate.managedObjectContext save:&error]) {
+        NSLog(@"Can't delete category: %@", error);
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)showTimeTypeSelectionMenu
