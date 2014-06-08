@@ -17,7 +17,9 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{        
+{
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
     return YES;
 }
 							
