@@ -10,8 +10,6 @@
 
 @interface TKPTimerManager ()
 
-@property (strong, nonatomic) NSTimer *timer;
-
 @end
 
 @implementation TKPTimerManager
@@ -30,21 +28,12 @@
 - (void)startTimerWithTime:(NSInteger)time
 {
     NSUInteger timeInSeconds = time * 60;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:timeInSeconds
-                                                  target:self
-                                                selector:@selector(timeExpiredNotification:)
-                                                userInfo:nil
-                                                 repeats:NO];
-}
-
-- (void)timeExpiredNotification:(id)sender
-{
+    NSDate *fireDate = [[NSDate date] dateByAddingTimeInterval:timeInSeconds];
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    [localNotification setFireDate:nil];
+    [localNotification setFireDate:fireDate];
     [localNotification setAlertBody:@"Hey, time has already passed"];
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    
-    [self.timer invalidate];
 }
 
 @end
