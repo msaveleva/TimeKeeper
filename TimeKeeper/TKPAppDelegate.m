@@ -49,6 +49,16 @@
     [self saveContext];
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey, time has already passed"
+                                                    message:@""
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 #pragma mark - Core Data methods
 
 - (void)saveContext
