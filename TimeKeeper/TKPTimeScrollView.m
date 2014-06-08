@@ -9,6 +9,7 @@
 #import "TKPTimeScrollView.h"
 #import "UIColor+CustomColors.h"
 #import "UIFont+CustomFonts.h"
+#import "TKPTimerManager.h"
 
 static CGSize const kTimeButtonSize = { 68.0f, 53.0f };
 
@@ -66,8 +67,23 @@ static CGSize const kTimeButtonSize = { 68.0f, 53.0f };
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [self.scrollViewContentView addSubview:button];
             leftMargin += kTimeButtonSize.width;
+            
+            [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
+}
+
+- (void)buttonPressed:(UIButton *)button
+{
+    NSUInteger time = [button.titleLabel.text integerValue];
+    [[TKPTimerManager sharedManager] startTimerWithTime:time];
+    
+    UIAlertView *timerAlert = [[UIAlertView alloc] initWithTitle:@"Timer was set"
+                                                         message:@""
+                                                        delegate:self
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+    [timerAlert show];
 }
 
 @end
