@@ -37,7 +37,6 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 {
     self.category = category;
     self.startDate = [NSDate date];
-    //TODO: handle category start
     self.isCategoryActive = YES;
 }
 
