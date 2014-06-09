@@ -43,6 +43,7 @@
 		3F85E8CE1927A3E600275E9A /* TKPHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8CD1927A3E600275E9A /* TKPHeaderView.m */; };
 		3F85E8D61927B39C00275E9A /* TKPCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F85E8D51927B39C00275E9A /* TKPCategoryTableViewCell.m */; };
 		3FB4CE5E1940F4410003E556 /* TimeKeeper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4CE5C1940F4410003E556 /* TimeKeeper.xcdatamodeld */; };
+		3FB92C1B194633E20075424E /* TKPCategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB92C1A194633E20075424E /* TKPCategoryManager.m */; };
 		DA68185E6CCB49FD84A6D015 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DEB25A7EE94D15A6DB6F7D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,8 @@
 		3F85E8D41927B39C00275E9A /* TKPCategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPCategoryTableViewCell.h; sourceTree = "<group>"; };
 		3F85E8D51927B39C00275E9A /* TKPCategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPCategoryTableViewCell.m; sourceTree = "<group>"; };
 		3FB4CE5D1940F4410003E556 /* TimeKeeper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeKeeper.xcdatamodel; sourceTree = "<group>"; };
+		3FB92C19194633E20075424E /* TKPCategoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPCategoryManager.h; sourceTree = "<group>"; };
+		3FB92C1A194633E20075424E /* TKPCategoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPCategoryManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 			children = (
 				3F307B671944AA8800F66B3F /* TKPTimerManager.h */,
 				3F307B681944AA8800F66B3F /* TKPTimerManager.m */,
+				3FB92C19194633E20075424E /* TKPCategoryManager.h */,
+				3FB92C1A194633E20075424E /* TKPCategoryManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 				3F85E8C51927A31400275E9A /* TKPEditViewController.m in Sources */,
 				3F307B691944AA8800F66B3F /* TKPTimerManager.m in Sources */,
 				1C107F0F193C987E003328FB /* TKPTimeTypeView.m in Sources */,
+				3FB92C1B194633E20075424E /* TKPCategoryManager.m in Sources */,
 				3F85E89B19279AF200275E9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
