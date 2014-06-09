@@ -12,6 +12,8 @@
 
 @interface TKPCategoryManager : NSObject
 
+@property (nonatomic) BOOL isCategoryActive;
+
 + (instancetype)sharedInstance;
 
 - (void)startCategory:(TKPCategory *)category;
@@ -19,5 +21,8 @@
  This method will also called when pause category
  */
 - (void)stopCategory:(TKPCategory *)category;
+
+- (NSString *)currentCategoryName;
+- (NSString *)currentCategoryTimer;
 
 @end

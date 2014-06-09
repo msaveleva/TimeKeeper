@@ -8,6 +8,10 @@
 
 #import "TKPCategoryManager.h"
 #import "TKPCategory.h"
+#import "TKPTimeAndDate.h"
+#import "TKPAppDelegate.h"
+
+static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 
 @interface TKPCategoryManager ()
 
@@ -34,12 +38,25 @@
     self.category = category;
     self.startDate = [NSDate date];
     //TODO: handle category start
+    self.isCategoryActive = YES;
 }
 
 - (void)stopCategory:(TKPCategory *)category
 {
-    //TODO: handle category pause and saving with endDate
-//    NSDate *endDate = [NSDate date];
+    TKPAppDelegate *appDelegate = (TKPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    TKPTimeAndDate *timeAndDate =
+        [NSEntityDescription insertNewObjectForEntityForName:kTimeAndDateManagedObject
+                                      inManagedObjectContext:appDelegate.managedObjectContext];
+    timeAndDate.startDate = self.startDate;
+    timeAndDate.endDate = [NSDate date];
+    [category addTimesAndDatesObject:timeAndDate];
+    
+    NSError *error;
+    if (![appDelegate.managedObjectContext save:&error]) {
+        NSLog(@"Unable to save time for category! %@", error);
+    }
+    
+    self.isCategoryActive = NO;
 }
 
 - (NSString *)currentCategoryName
@@ -49,6 +66,12 @@
     } else {
         return @"No running category"; //TODO: localize
     }
+}
+
+- (NSString *)currentCategoryTimer
+{
+    NSString *categoryTimer;
+    return categoryTimer;
 }
 
 @end
