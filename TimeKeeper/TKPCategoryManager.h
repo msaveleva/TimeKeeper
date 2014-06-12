@@ -20,7 +20,7 @@
 
 @interface TKPCategoryManager : NSObject
 
-@property (nonatomic) BOOL isCategoryActive;
+@property (nonatomic) BOOL isCategoryRecording;
 @property (weak, nonatomic) id<TKPStopWatchUpdateDelegate> delegate;
 @property (weak, nonatomic) TKPTimeView *timeView;
 
@@ -31,5 +31,6 @@
  This method will also called when pause category
  */
 - (void)stopCategory;
+- (NSString *)currentCategoryName;
 
 @end

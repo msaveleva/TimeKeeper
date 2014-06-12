@@ -20,7 +20,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
 @property (weak, nonatomic) IBOutlet UITableView *categoriesTableView;
 @property (weak, nonatomic) IBOutlet TKPHeaderView *headerView;
 @property (strong, nonatomic) NSArray *categoryList;
-@property (weak, nonatomic) UILabel *timerLabelFromCell;
+@property (weak, nonatomic) NSString *timerTextForCell;
 
 @end
 
@@ -49,7 +49,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
                                           action:@selector(addCategory:)
                                 forControlEvents:UIControlEventTouchUpInside];
     
-    [self loadData];    
+    [self loadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -98,16 +98,26 @@ static NSString *const kEditViewControllerID = @"editViewController";
     TKPCategory *category = [self.categoryList objectAtIndex:indexPath.row];
     [cell configureCellWithCategory:category];
     cell.delegate = self;
+    NSString *currentCategoryName = [[TKPCategoryManager sharedInstance] currentCategoryName];
+    BOOL isCategoryRecording = [[TKPCategoryManager sharedInstance] isCategoryRecording];
+    if ([category.name isEqualToString:currentCategoryName] && isCategoryRecording) {
+        cell.isCategoryTimeRecording = YES;
+        cell.categoryTimePassLabel.text = self.timerTextForCell;
+    } else {
+        cell.isCategoryTimeRecording = NO;
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    cell.isCategoryTimeRecording = YES;
-    [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
-    self.timerLabelFromCell = cell.categoryTimePassLabel;
+    BOOL isCategoryRecording = [[TKPCategoryManager sharedInstance] isCategoryRecording];
+    if (!isCategoryRecording) {
+        TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        cell.isCategoryTimeRecording = YES;
+        [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
+    }
 }
 
 #pragma mark - TKPEditDeleteProtocol methods
@@ -138,13 +148,14 @@ static NSString *const kEditViewControllerID = @"editViewController";
 
 - (void)updateStopwatch:(NSString *)stopwatchValue
 {
-    self.timerLabelFromCell.text = stopwatchValue;
+    self.timerTextForCell = stopwatchValue;
+    [self.categoriesTableView reloadData];
 }
 
 - (void)stopCategoryTraking
 {
+    self.timerTextForCell = nil;
     [self.categoriesTableView reloadData];
-    self.timerLabelFromCell = nil;
 }
 
 @end

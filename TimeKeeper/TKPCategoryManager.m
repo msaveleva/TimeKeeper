@@ -59,7 +59,7 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     
     [self startStopwatch];
     self.timeView.pauseButton.enabled = YES;
-    self.isCategoryActive = YES;
+    self.isCategoryRecording = YES;
 }
 
 - (void)stopCategory
@@ -80,7 +80,16 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     [self.timeView clearTimeView];
     [self.delegate stopCategoryTraking];
     [self stopStopwatch];
-    self.isCategoryActive = NO;
+    self.isCategoryRecording = NO;
+}
+
+- (NSString *)currentCategoryName
+{
+    if (self.category) {
+        return self.category.name;
+    } else {
+        return @"No running category"; //TODO: localize
+    }
 }
 
 #pragma mark - Stopwatch for category
