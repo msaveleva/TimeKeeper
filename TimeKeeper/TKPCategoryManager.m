@@ -120,12 +120,14 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 {
     NSDate *currentDate = [NSDate date];
     NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:self.stopwatchStartDate];
-//    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
     NSDate *timerDate = [NSDate dateWithTimeInterval:timeInterval sinceDate:self.zeroDate];
     NSString *stopwatchValue = [self.dateFormatter stringFromDate:timerDate];
     
     if (self.timeView) {
         self.timeView.categoryStopwatchLabel.text = stopwatchValue;
+        if (self.category) {
+            self.timeView.categoryNameLabel.text = self.category.name;
+        }
     }
     
     [self.delegate updateStopwatch:stopwatchValue];
