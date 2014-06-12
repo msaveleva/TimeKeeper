@@ -103,6 +103,9 @@ static NSString *const kEditViewControllerID = @"editViewController";
     if ([category.name isEqualToString:currentCategoryName] && isCategoryRecording) {
         cell.isCategoryTimeRecording = YES;
         cell.categoryTimePassLabel.text = self.timerTextForCell;
+        [cell.pauseButton addTarget:self
+                             action:@selector(stopCategoryFromCell:)
+                   forControlEvents:UIControlEventTouchUpInside];
     } else {
         cell.isCategoryTimeRecording = NO;
     }
@@ -118,6 +121,11 @@ static NSString *const kEditViewControllerID = @"editViewController";
         cell.isCategoryTimeRecording = YES;
         [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
     }
+}
+
+- (void)stopCategoryFromCell:(id)sender
+{
+    [[TKPCategoryManager sharedInstance] stopCategory];
 }
 
 #pragma mark - TKPEditDeleteProtocol methods
