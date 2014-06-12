@@ -21,6 +21,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
 @property (weak, nonatomic) IBOutlet TKPHeaderView *headerView;
 @property (strong, nonatomic) NSArray *categoryList;
 @property (weak, nonatomic) NSString *timerTextForCell;
+@property (strong, nonatomic) NSIndexPath *indexPathForRecordedCell;
 
 @end
 
@@ -120,6 +121,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
         TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
         cell.isCategoryTimeRecording = YES;
         [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
+        self.indexPathForRecordedCell = indexPath;
     }
 }
 
@@ -157,12 +159,15 @@ static NSString *const kEditViewControllerID = @"editViewController";
 - (void)updateStopwatch:(NSString *)stopwatchValue
 {
     self.timerTextForCell = stopwatchValue;
-    [self.categoriesTableView reloadData];
+    if (self.indexPathForRecordedCell) {
+        [self.categoriesTableView reloadRowsAtIndexPaths:@[self.indexPathForRecordedCell] withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 
 - (void)stopCategoryTraking
 {
     self.timerTextForCell = nil;
+    self.indexPathForRecordedCell = nil;
     [self.categoriesTableView reloadData];
 }
 
