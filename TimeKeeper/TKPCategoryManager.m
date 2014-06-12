@@ -42,10 +42,10 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     self.category = category;
     self.startDate = [NSDate date];
     if (!self.dateFormatter) {
-        self.dateFormatter = [NSDateFormatter new];
-        
-        [self.dateFormatter setDateFormat:@"hh:mm:ss"];
-        [self.dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+        self.dateFormatter = [[NSDateFormatter alloc] init];
+        [self.dateFormatter setDateFormat:@"HH:mm:ss"];
+        NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+        [self.dateFormatter setLocale:locale];
     }
     
     [self startStopwatch];
@@ -102,7 +102,7 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 {
     self.stopwatchStartDate = nil;
     [self.stopwatchTimer invalidate];
-    [self.delegate updateStopwatch:@"--:--:--"];
+    [self.delegate updateStopwatch:@"00:00:00"];
 }
 
 - (void)updateStopwatchTime:(id)sender
