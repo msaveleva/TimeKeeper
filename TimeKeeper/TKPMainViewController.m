@@ -100,10 +100,6 @@ static NSString *const kEditViewControllerID = @"editViewController";
     [cell configureCellWithCategory:category];
     cell.delegate = self;
     
-    if (cell.isCategoryTimeRecording) {
-        self.timerLabelFromCell = cell.categoryTimePassLabel;
-    }
-    
     return cell;
 }
 
@@ -112,6 +108,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
     TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     cell.isCategoryTimeRecording = YES;
     [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
+    self.timerLabelFromCell = cell.categoryTimePassLabel;
 }
 
 #pragma mark - TKPEditDeleteProtocol methods
