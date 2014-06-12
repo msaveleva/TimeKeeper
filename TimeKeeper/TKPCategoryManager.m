@@ -45,8 +45,6 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     if (!self.dateFormatter) {
         self.dateFormatter = [[NSDateFormatter alloc] init];
         [self.dateFormatter setDateFormat:@"HH:mm:ss"];
-        NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-        [self.dateFormatter setLocale:locale];
     }
     
     if (!self.zeroDate) {
