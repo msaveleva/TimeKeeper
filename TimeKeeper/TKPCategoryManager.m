@@ -21,6 +21,7 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 @property (strong, nonatomic) NSTimer *stopwatchTimer;
 @property (strong, nonatomic) NSDate *stopwatchStartDate;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (strong, nonatomic) NSDate *zeroDate;
 
 @end
 
@@ -46,6 +47,16 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
         [self.dateFormatter setDateFormat:@"HH:mm:ss"];
         NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
         [self.dateFormatter setLocale:locale];
+    }
+    
+    if (!self.zeroDate) {
+        NSDateComponents *components = [NSDateComponents new];
+        [components setHour:0];
+        [components setMinute:0];
+        [components setSecond:0];
+        
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        self.zeroDate = [calendar dateFromComponents:components];
     }
     
     [self startStopwatch];
@@ -109,7 +120,8 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 {
     NSDate *currentDate = [NSDate date];
     NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:self.stopwatchStartDate];
-    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+//    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    NSDate *timerDate = [NSDate dateWithTimeInterval:timeInterval sinceDate:self.zeroDate];
     NSString *stopwatchValue = [self.dateFormatter stringFromDate:timerDate];
     
     if (self.timeView) {
