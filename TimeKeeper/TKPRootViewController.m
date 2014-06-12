@@ -9,6 +9,7 @@
 #import "TKPRootViewController.h"
 #import "TKPTimeView.h"
 #import "TKPMainViewController.h"
+#import "TKPCategoryManager.h"
 
 static NSString * const kMainViewControllerIdentifier = @"mainViewController";
 
@@ -39,6 +40,8 @@ static NSString * const kMainViewControllerIdentifier = @"mainViewController";
     self.childViewController = [self.storyboard instantiateViewControllerWithIdentifier:kMainViewControllerIdentifier];
     [self addChildViewController:self.childViewController];
     [self.containerViewForChild addSubview:self.childViewController.view];
+    
+    [[TKPCategoryManager sharedInstance] setTimeView:self.timeView];
 }
 
 - (void)didReceiveMemoryWarning

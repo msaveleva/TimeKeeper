@@ -31,6 +31,11 @@
 
 @property (nonatomic) BOOL isEditing;
 @property (nonatomic) BOOL isRemoving;
+/**
+ in this mode you can't edit or remove categories, so when YES,
+ swipes are inactive, and pause button shown
+ */
+@property (nonatomic) BOOL isCategoryTimeRecording;
 
 - (void)hidePauseButton;
 - (void)showPauseButton;

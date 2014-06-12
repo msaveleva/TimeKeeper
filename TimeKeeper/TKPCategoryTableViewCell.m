@@ -58,19 +58,13 @@ static CGFloat const kAnimationSpeed = 0.3f;
     [[UISwipeGestureRecognizer alloc] initWithTarget:self
                                               action:@selector(handleLeftSwipe:)];
     [self.leftSwipeGesture setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [self addGestureRecognizer:self.leftSwipeGesture];
     
     self.rightSwipeGesture =
     [[UISwipeGestureRecognizer alloc] initWithTarget:self
                                               action:@selector(handleRightSwipe:)];
     [self.rightSwipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
-    [self addGestureRecognizer:self.rightSwipeGesture];
-    
-    /**
-     при создании новой категории она не активна, поэтому время не отсчитывается,
-     и лэйбл не виден
-     */
-    self.categoryTimePassLabel.hidden = YES;
+
+    self.isCategoryTimeRecording = NO;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -189,6 +183,23 @@ static CGFloat const kAnimationSpeed = 0.3f;
             
         default:
             break;
+    }
+}
+
+#pragma mark - Category Recording Mode
+
+- (void)setIsCategoryTimeRecording:(BOOL)isCategoryTimeRecording
+{
+    if (isCategoryTimeRecording) {
+        self.categoryTimePassLabel.hidden = NO;
+        [self showPauseButton];
+    } else {
+        if (self.pauseButtonWidthConstraint.constant != kMaxMargin) {
+            [self hidePauseButton];
+        }
+        self.categoryTimePassLabel.hidden = YES;
+        [self addGestureRecognizer:self.leftSwipeGesture];
+        [self addGestureRecognizer:self.rightSwipeGesture];
     }
 }
 

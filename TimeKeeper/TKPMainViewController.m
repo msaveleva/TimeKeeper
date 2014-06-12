@@ -12,7 +12,6 @@
 #import "TKPAppDelegate.h"
 #import "TKPEditViewController.h"
 
-//static NSString *const kCellIdentifier = @"categoryCellIdentifier";
 static NSString *const kCellIdentifier = @"categoryCell";
 static NSString *const kEditViewControllerID = @"editViewController";
 
@@ -21,6 +20,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
 @property (weak, nonatomic) IBOutlet UITableView *categoriesTableView;
 @property (weak, nonatomic) IBOutlet TKPHeaderView *headerView;
 @property (strong, nonatomic) NSArray *categoryList;
+@property (weak, nonatomic) UILabel *timerLabelFromCell;
 
 @end
 
@@ -32,6 +32,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
     
     //set header view mode
     [self.headerView enableStandartMode];
+    [[TKPCategoryManager sharedInstance] setDelegate:self];
     
     //remove header and footer
     self.categoriesTableView.tableHeaderView =
@@ -49,6 +50,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
                                 forControlEvents:UIControlEventTouchUpInside];
     
     [self loadData];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -103,7 +105,10 @@ static NSString *const kEditViewControllerID = @"editViewController";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //handle selection
+    TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.isCategoryTimeRecording = YES;
+    [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
+    self.timerLabelFromCell = cell.categoryTimePassLabel;
 }
 
 #pragma mark - TKPEditDeleteProtocol methods
@@ -128,6 +133,13 @@ static NSString *const kEditViewControllerID = @"editViewController";
     
     [self loadData];
     [self.categoriesTableView reloadData];
+}
+
+#pragma mark - TKPStopWatchUpdateDelegate
+
+- (void)updateStopwatch:(NSString *)stopwatchValue
+{
+    self.timerLabelFromCell.text = stopwatchValue;
 }
 
 @end
