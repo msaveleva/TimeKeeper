@@ -10,9 +10,16 @@
 
 @class TKPCategory;
 
+@protocol TKPStopWatchUpdateDelegate <NSObject>
+
+- (void)updateStopwatch:(NSString *)stopwatchValue;
+
+@end
+
 @interface TKPCategoryManager : NSObject
 
 @property (nonatomic) BOOL isCategoryActive;
+@property (weak, nonatomic) id<TKPStopWatchUpdateDelegate> delegate;
 
 + (instancetype)sharedInstance;
 

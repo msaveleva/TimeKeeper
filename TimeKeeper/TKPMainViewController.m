@@ -12,7 +12,6 @@
 #import "TKPAppDelegate.h"
 #import "TKPEditViewController.h"
 
-//static NSString *const kCellIdentifier = @"categoryCellIdentifier";
 static NSString *const kCellIdentifier = @"categoryCell";
 static NSString *const kEditViewControllerID = @"editViewController";
 
@@ -49,6 +48,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
                                 forControlEvents:UIControlEventTouchUpInside];
     
     [self loadData];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -103,7 +103,9 @@ static NSString *const kEditViewControllerID = @"editViewController";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //handle selection
+    TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.isCategoryTimeRecording = YES;
+    
 }
 
 #pragma mark - TKPEditDeleteProtocol methods

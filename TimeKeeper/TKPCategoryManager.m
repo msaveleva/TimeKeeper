@@ -18,6 +18,10 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 @property (nonatomic, strong) TKPCategory *category;
 @property (nonatomic, strong) NSDate *startDate;
 
+@property (strong, nonatomic) NSTimer *stopwatchTimer;
+@property (strong, nonatomic) NSDate *stopwatchStartDate;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
+
 @end
 
 @implementation TKPCategoryManager
@@ -37,6 +41,11 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 {
     self.category = category;
     self.startDate = [NSDate date];
+    if (!self.dateFormatter) {
+        self.dateFormatter = [NSDateFormatter new];
+        [self.dateFormatter setDateFormat:@"HH:mm:ss"];
+//        [self.dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0f]];
+    }
     self.isCategoryActive = YES;
 }
 
@@ -71,6 +80,35 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 {
     NSString *categoryTimer;
     return categoryTimer;
+}
+
+#pragma mark - Stopwatch for category
+
+- (void)startStopwatch
+{
+    self.stopwatchStartDate = [NSDate date];
+    self.stopwatchTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
+                                                           target:self
+                                                         selector:@selector(updateStopwatchTime:)
+                                                         userInfo:nil
+                                                          repeats:YES];
+}
+
+- (void)stopStopwatch
+{
+    self.stopwatchStartDate = nil;
+    [self.stopwatchTimer invalidate];
+    [self.delegate updateStopwatch:@"--:--:--"];
+}
+
+- (void)updateStopwatchTime:(id)sender
+{
+    NSDate *currentDate = [NSDate date];
+    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:self.stopwatchStartDate];
+    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    NSString *stopwatchValue = [self.dateFormatter stringFromDate:timerDate];
+    
+    [self.delegate updateStopwatch:stopwatchValue];
 }
 
 @end
