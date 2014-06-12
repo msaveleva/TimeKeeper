@@ -193,10 +193,10 @@ static CGFloat const kAnimationSpeed = 0.3f;
     if (isCategoryTimeRecording) {
         self.categoryTimePassLabel.hidden = NO;
         [self showPauseButton];
+        [self removeGestureRecognizer:self.leftSwipeGesture];
+        [self removeGestureRecognizer:self.rightSwipeGesture];
     } else {
-        if (self.pauseButtonWidthConstraint.constant != kMaxMargin) {
-            [self hidePauseButton];
-        }
+        [self hidePauseButton];
         self.categoryTimePassLabel.hidden = YES;
         [self addGestureRecognizer:self.leftSwipeGesture];
         [self addGestureRecognizer:self.rightSwipeGesture];

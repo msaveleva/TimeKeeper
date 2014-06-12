@@ -112,6 +112,7 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
 
 - (void)showTimeTypeSelectionMenu
 {
+    [self.textField resignFirstResponder];
     if (self.isSelectingTimeType) {
         self.isSelectingTimeType = NO;
         self.blurView.hidden = NO;

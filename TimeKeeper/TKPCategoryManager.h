@@ -14,12 +14,13 @@
 @protocol TKPStopWatchUpdateDelegate <NSObject>
 
 - (void)updateStopwatch:(NSString *)stopwatchValue;
+- (void)stopCategoryTraking;
 
 @end
 
 @interface TKPCategoryManager : NSObject
 
-@property (nonatomic) BOOL isCategoryActive;
+@property (nonatomic) BOOL isCategoryRecording;
 @property (weak, nonatomic) id<TKPStopWatchUpdateDelegate> delegate;
 @property (weak, nonatomic) TKPTimeView *timeView;
 
@@ -29,9 +30,7 @@
 /**
  This method will also called when pause category
  */
-- (void)stopCategory:(TKPCategory *)category;
-
+- (void)stopCategory;
 - (NSString *)currentCategoryName;
-- (NSString *)currentCategoryTimer;
 
 @end
