@@ -42,6 +42,9 @@ static NSString * const kMainViewControllerIdentifier = @"mainViewController";
     [self.containerViewForChild addSubview:self.childViewController.view];
     
     [[TKPCategoryManager sharedInstance] setTimeView:self.timeView];
+    [self.timeView.pauseButton addTarget:self
+                                  action:@selector(pauseCurrentCategory:)
+                        forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,6 +56,13 @@ static NSString * const kMainViewControllerIdentifier = @"mainViewController";
 - (void)viewDidLayoutSubviews
 {
     self.childViewController.view.frame = self.containerViewForChild.frame;
+}
+
+#pragma mark - Buttons actions
+
+- (void)pauseCurrentCategory:(UIButton *)sender
+{
+    [[TKPCategoryManager sharedInstance] stopCategory];
 }
 
 @end

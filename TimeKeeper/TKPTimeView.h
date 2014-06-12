@@ -20,4 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryStopwatchLabel;
 
+- (void)clearTimeView;
+
 @end

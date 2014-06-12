@@ -49,8 +49,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
                                           action:@selector(addCategory:)
                                 forControlEvents:UIControlEventTouchUpInside];
     
-    [self loadData];
-    
+    [self loadData];    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -140,6 +139,12 @@ static NSString *const kEditViewControllerID = @"editViewController";
 - (void)updateStopwatch:(NSString *)stopwatchValue
 {
     self.timerLabelFromCell.text = stopwatchValue;
+}
+
+- (void)stopCategoryTraking
+{
+    [self.categoriesTableView reloadData];
+    self.timerLabelFromCell = nil;
 }
 
 @end

@@ -14,6 +14,7 @@
 @protocol TKPStopWatchUpdateDelegate <NSObject>
 
 - (void)updateStopwatch:(NSString *)stopwatchValue;
+- (void)stopCategoryTraking;
 
 @end
 
@@ -29,9 +30,6 @@
 /**
  This method will also called when pause category
  */
-- (void)stopCategory:(TKPCategory *)category;
-
-- (NSString *)currentCategoryName;
-- (NSString *)currentCategoryTimer;
+- (void)stopCategory;
 
 @end

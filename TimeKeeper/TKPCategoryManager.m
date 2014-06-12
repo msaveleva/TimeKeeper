@@ -58,10 +58,11 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     }
     
     [self startStopwatch];
+    self.timeView.pauseButton.enabled = YES;
     self.isCategoryActive = YES;
 }
 
-- (void)stopCategory:(TKPCategory *)category
+- (void)stopCategory
 {
     TKPAppDelegate *appDelegate = (TKPAppDelegate *)[[UIApplication sharedApplication] delegate];
     TKPTimeAndDate *timeAndDate =
@@ -69,30 +70,17 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
                                       inManagedObjectContext:appDelegate.managedObjectContext];
     timeAndDate.startDate = self.startDate;
     timeAndDate.endDate = [NSDate date];
-    [category addTimesAndDatesObject:timeAndDate];
+    [self.category addTimesAndDatesObject:timeAndDate];
     
     NSError *error;
     if (![appDelegate.managedObjectContext save:&error]) {
         NSLog(@"Unable to save time for category! %@", error);
     }
     
+    [self.timeView clearTimeView];
+    [self.delegate stopCategoryTraking];
     [self stopStopwatch];
     self.isCategoryActive = NO;
-}
-
-- (NSString *)currentCategoryName
-{
-    if (self.category) {
-        return self.category.name;
-    } else {
-        return @"No running category"; //TODO: localize
-    }
-}
-
-- (NSString *)currentCategoryTimer
-{
-    NSString *categoryTimer;
-    return categoryTimer;
 }
 
 #pragma mark - Stopwatch for category
