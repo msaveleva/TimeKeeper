@@ -17,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet TKPTimeScrollView *timerScrollView;
 @property (weak, nonatomic) IBOutlet UIView *timerView;
 @property (weak, nonatomic) IBOutlet UIView *timerAndButtonView;
+@property (weak, nonatomic) IBOutlet UILabel *categoryNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryStopwatchLabel;
 
 @end

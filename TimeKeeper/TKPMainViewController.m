@@ -20,6 +20,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
 @property (weak, nonatomic) IBOutlet UITableView *categoriesTableView;
 @property (weak, nonatomic) IBOutlet TKPHeaderView *headerView;
 @property (strong, nonatomic) NSArray *categoryList;
+@property (weak, nonatomic) UILabel *timerLabelFromCell;
 
 @end
 
@@ -31,6 +32,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
     
     //set header view mode
     [self.headerView enableStandartMode];
+    [[TKPCategoryManager sharedInstance] setDelegate:self];
     
     //remove header and footer
     self.categoriesTableView.tableHeaderView =
@@ -98,6 +100,10 @@ static NSString *const kEditViewControllerID = @"editViewController";
     [cell configureCellWithCategory:category];
     cell.delegate = self;
     
+    if (cell.isCategoryTimeRecording) {
+        self.timerLabelFromCell = cell.categoryTimePassLabel;
+    }
+    
     return cell;
 }
 
@@ -105,7 +111,7 @@ static NSString *const kEditViewControllerID = @"editViewController";
 {
     TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     cell.isCategoryTimeRecording = YES;
-    
+    [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
 }
 
 #pragma mark - TKPEditDeleteProtocol methods
@@ -130,6 +136,13 @@ static NSString *const kEditViewControllerID = @"editViewController";
     
     [self loadData];
     [self.categoriesTableView reloadData];
+}
+
+#pragma mark - TKPStopWatchUpdateDelegate
+
+- (void)updateStopwatch:(NSString *)stopwatchValue
+{
+    self.timerLabelFromCell.text = stopwatchValue;
 }
 
 @end

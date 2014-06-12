@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TKPTimeView.h"
 
 @class TKPCategory;
 
@@ -20,6 +21,7 @@
 
 @property (nonatomic) BOOL isCategoryActive;
 @property (weak, nonatomic) id<TKPStopWatchUpdateDelegate> delegate;
+@property (weak, nonatomic) TKPTimeView *timeView;
 
 + (instancetype)sharedInstance;
 

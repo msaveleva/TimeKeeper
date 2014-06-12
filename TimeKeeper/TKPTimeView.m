@@ -44,7 +44,7 @@ static CGFloat const kTimerAndButtonView = 256.0f;
         
         //hide scrollView
         self.isSettingAlarm = NO;
-        
+        self.categoryNameLabel.text = @"";
     }
     return self;
 }

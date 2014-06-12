@@ -43,9 +43,12 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     self.startDate = [NSDate date];
     if (!self.dateFormatter) {
         self.dateFormatter = [NSDateFormatter new];
-        [self.dateFormatter setDateFormat:@"HH:mm:ss"];
-//        [self.dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0f]];
+        
+        [self.dateFormatter setDateFormat:@"hh:mm:ss"];
+        [self.dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     }
+    
+    [self startStopwatch];
     self.isCategoryActive = YES;
 }
 
@@ -64,6 +67,7 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
         NSLog(@"Unable to save time for category! %@", error);
     }
     
+    [self stopStopwatch];
     self.isCategoryActive = NO;
 }
 
@@ -107,6 +111,10 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:self.stopwatchStartDate];
     NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
     NSString *stopwatchValue = [self.dateFormatter stringFromDate:timerDate];
+    
+    if (self.timeView) {
+        self.timeView.categoryStopwatchLabel.text = stopwatchValue;
+    }
     
     [self.delegate updateStopwatch:stopwatchValue];
 }
