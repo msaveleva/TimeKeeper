@@ -11,9 +11,11 @@
 #import "TKPCategory.h"
 #import "TKPAppDelegate.h"
 #import "TKPEditViewController.h"
+#import "TKPStatisticsViewController.h"
 
 static NSString *const kCellIdentifier = @"categoryCell";
 static NSString *const kEditViewControllerID = @"editViewController";
+static NSString *const kStatisticsViewController = @"statisticsViewController";
 
 @interface TKPMainViewController ()
 
@@ -49,6 +51,9 @@ static NSString *const kEditViewControllerID = @"editViewController";
     [self.headerView.addCategoryButton addTarget:self
                                           action:@selector(addCategory:)
                                 forControlEvents:UIControlEventTouchUpInside];
+    [self.headerView.statisticButton addTarget:self
+                                        action:@selector(viewStatistics:)
+                              forControlEvents:UIControlEventTouchUpInside];
     
     [self loadData];
 }
@@ -66,6 +71,14 @@ static NSString *const kEditViewControllerID = @"editViewController";
     TKPEditViewController *editViewController =
         [self.storyboard instantiateViewControllerWithIdentifier:kEditViewControllerID];
     [self presentViewController:editViewController animated:YES completion:nil];
+}
+
+- (void)viewStatistics:(UIButton *)button
+{
+    TKPStatisticsViewController *statisticsViewController =
+        [self.storyboard instantiateViewControllerWithIdentifier:kStatisticsViewController];
+    statisticsViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:statisticsViewController animated:YES completion:nil];
 }
 
 #pragma mark - Core Data methods

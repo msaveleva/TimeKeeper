@@ -1,10 +1,13 @@
 PODS:
   - FXBlurView (1.6.1)
+  - XYPieChart (0.2)
 
 DEPENDENCIES:
   - FXBlurView
+  - XYPieChart
 
 SPEC CHECKSUMS:
   FXBlurView: 1d01b96076d65027314d1be024c7506c292392aa
+  XYPieChart: 94f89331038feb5b4e6372ba07c7a89e74899d32
 
 COCOAPODS: 0.32.1
