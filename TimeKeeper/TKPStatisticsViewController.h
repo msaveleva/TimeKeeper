@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XYPieChart.h"
 
 @interface TKPStatisticsViewController : UIViewController
+<
+UITableViewDataSource,
+UITableViewDelegate,
+XYPieChartDataSource,
+XYPieChartDelegate
+>
 
 @end
