@@ -122,6 +122,13 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jfp-qg-zSK" customClass="XYPieChart">
                                 <rect key="frame" x="60" y="74" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KUH-8b-FYX">
+                                        <rect key="frame" x="40" y="40" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.99899703577324828" blue="0.55746993394835975" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -129,6 +136,7 @@
                     </view>
                     <connections>
                         <outlet property="headerView" destination="280-TK-KnP" id="adC-bP-isa"/>
+                        <outlet property="percentageBackground" destination="KUH-8b-FYX" id="sgQ-wn-1id"/>
                         <outlet property="pieChart" destination="Jfp-qg-zSK" id="UnS-es-FUL"/>
                     </connections>
                 </viewController>

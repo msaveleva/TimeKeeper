@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet XYPieChart *pieChart;
 @property (strong, nonatomic) NSMutableArray *chartSlices;
 @property (strong, nonatomic) NSArray *chartSliceColors;
+@property (weak, nonatomic) IBOutlet UIView *percentageBackground;
 
 
 @end
@@ -50,12 +51,14 @@
     self.pieChart.dataSource = self;
     [self.pieChart setShowPercentage:NO];
     [self.pieChart setPieBackgroundColor:[UIColor categoryCellBackgroundColor]];	//optional
-    [self.pieChart setLabelRadius:50.0f];
+    [self.pieChart setLabelRadius:0.0f];
     [self.pieChart setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]];
     [self.pieChart setStartPieAngle:M_PI_2];
     [self.pieChart setAnimationSpeed:1.0];
     [self.pieChart setUserInteractionEnabled:NO];
     
+    [self.percentageBackground.layer setCornerRadius:60.0f];
+    self.percentageBackground.backgroundColor = [UIColor categoryCellBackgroundColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated
