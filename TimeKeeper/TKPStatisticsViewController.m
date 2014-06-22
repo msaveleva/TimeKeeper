@@ -9,6 +9,7 @@
 #import "TKPStatisticsViewController.h"
 #import "XYPieChart.h"
 #import "TKPHeaderView.h"
+#import "UIColor+CustomColors.h"
 
 @interface TKPStatisticsViewController ()
 
@@ -32,6 +33,7 @@
     [super viewDidLoad];
     
     [self.headerView enableStatisticMode];
+    self.view.backgroundColor = [UIColor categoryCellBackgroundColor];
 }
 
 - (void)didReceiveMemoryWarning

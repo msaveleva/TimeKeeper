@@ -12,6 +12,7 @@
 #import "TKPAppDelegate.h"
 #import "TKPEditViewController.h"
 #import "TKPStatisticsViewController.h"
+#import "UIColor+CustomColors.h"
 
 static NSString *const kCellIdentifier = @"categoryCell";
 static NSString *const kEditViewControllerID = @"editViewController";
@@ -34,6 +35,7 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
     [super viewDidLoad];
     
     //set header view mode
+    self.categoriesTableView.backgroundColor = [UIColor categoryCellBackgroundColor];
     [self.headerView enableStandartMode];
     [[TKPCategoryManager sharedInstance] setDelegate:self];
     
