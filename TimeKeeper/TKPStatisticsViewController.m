@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet TKPHeaderView *headerView;
 @property (weak, nonatomic) IBOutlet XYPieChart *pieChart;
+@property (strong, nonatomic) NSMutableArray *chartSlices;
+@property (strong, nonatomic) NSArray *chartSliceColors;
 
 
 @end
@@ -37,43 +39,47 @@
     self.view.backgroundColor = [UIColor categoryCellBackgroundColor];
     
     //configure pieChart
+    self.chartSlices = [NSMutableArray arrayWithArray:@[@20, @20, @50, @60]];
+    self.chartSliceColors =[NSArray arrayWithObjects:
+                            [UIColor colorWithRed:246/255.0 green:155/255.0 blue:0/255.0 alpha:1],
+                            [UIColor colorWithRed:129/255.0 green:195/255.0 blue:29/255.0 alpha:1],
+                            [UIColor colorWithRed:62/255.0 green:173/255.0 blue:219/255.0 alpha:1],
+                            [UIColor colorWithRed:229/255.0 green:66/255.0 blue:115/255.0 alpha:1],nil];
+    
     self.pieChart.delegate = self;
     self.pieChart.dataSource = self;
     [self.pieChart setShowPercentage:NO];
+    [self.pieChart setPieBackgroundColor:[UIColor categoryCellBackgroundColor]];	//optional
+    [self.pieChart setLabelRadius:50.0f];
+    [self.pieChart setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]];
+    [self.pieChart setStartPieAngle:M_PI_2];
+    [self.pieChart setAnimationSpeed:1.0];
+    [self.pieChart setUserInteractionEnabled:NO];
     
-    [self.pieChart setStartPieAngle:M_PI_2];	//optional
-    [self.pieChart setAnimationSpeed:1.0];	//optional
-    [self.pieChart setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]];	//optional
-    [self.pieChart setLabelColor:[UIColor blackColor]];	//optional, defaults to white
-    [self.pieChart setLabelShadowColor:[UIColor blackColor]];	//optional, defaults to none (nil)
-    [self.pieChart setLabelRadius:160];	//optional
-    [self.pieChart setShowPercentage:YES];	//optional
-    [self.pieChart setPieBackgroundColor:[UIColor greenColor]];	//optional
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.pieChart reloadData];
 }
 
 #pragma mark - PieChart delegete & data source methods
 
 - (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
 {
-    return 2;
+    return self.chartSlices.count;
 }
 
 - (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index
 {
-    CGFloat value = 0.0f;
-    switch (index) {
-        case 0:
-            value = 80.0f;
-            break;
-        case 1:
-            value = 20.0f;
-            break;
-            
-        default:
-            break;
-    }
-    
-    return value;
+    return [[self.chartSlices objectAtIndex:index] intValue];
+}
+
+- (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index
+{
+    return [self.chartSliceColors objectAtIndex:index];
 }
 
 @end
