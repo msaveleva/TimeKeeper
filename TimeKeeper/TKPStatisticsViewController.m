@@ -40,12 +40,10 @@
     self.view.backgroundColor = [UIColor categoryCellBackgroundColor];
     
     //configure pieChart
-    self.chartSlices = [NSMutableArray arrayWithArray:@[@20, @20, @50, @60]];
-    self.chartSliceColors =[NSArray arrayWithObjects:
-                            [UIColor colorWithRed:246/255.0 green:155/255.0 blue:0/255.0 alpha:1],
-                            [UIColor colorWithRed:129/255.0 green:195/255.0 blue:29/255.0 alpha:1],
-                            [UIColor colorWithRed:62/255.0 green:173/255.0 blue:219/255.0 alpha:1],
-                            [UIColor colorWithRed:229/255.0 green:66/255.0 blue:115/255.0 alpha:1],nil];
+    self.chartSlices = [NSMutableArray arrayWithArray:@[@20, @20, @50]];
+    self.chartSliceColors = @[[UIColor productiveColor],
+                              [UIColor neutralColor],
+                              [UIColor unproductiveColor]];
     
     self.pieChart.delegate = self;
     self.pieChart.dataSource = self;
