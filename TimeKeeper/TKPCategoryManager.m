@@ -128,4 +128,17 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     [self.delegate updateStopwatch:stopwatchValue];
 }
 
+- (NSArray *)loadCategories
+{
+    NSArray *allCategories;
+    NSError *error;
+    TKPAppDelegate *appDelegate = (TKPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TKPCategory" inManagedObjectContext:appDelegate.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    allCategories = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    return allCategories;
+}
+
 @end

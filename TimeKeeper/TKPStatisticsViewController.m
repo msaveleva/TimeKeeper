@@ -10,6 +10,10 @@
 #import "TKPHeaderView.h"
 #import "UIColor+CustomColors.h"
 #import "TKPStatisticsTableViewCell.h"
+#import "TKPAppDelegate.h"
+#import "TKPCategory.h"
+#import "TKPTimeAndDate.h"
+#import "TKPCategoryManager.h"
 
 static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 
@@ -21,6 +25,8 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 @property (strong, nonatomic) NSArray *chartSliceColors;
 @property (weak, nonatomic) IBOutlet UIView *percentageBackground;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) NSArray *categoryList;
 
 
 @end
@@ -72,6 +78,9 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
     //cells
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([TKPStatisticsTableViewCell class]) bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:kStatisticsCellIdentifier];
+    
+    //loading categories
+    self.categoryList = [[TKPCategoryManager sharedInstance] loadCategories];
 }
 
 - (void)viewDidAppear:(BOOL)animated

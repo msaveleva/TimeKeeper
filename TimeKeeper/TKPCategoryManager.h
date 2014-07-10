@@ -33,4 +33,6 @@
 - (void)stopCategory;
 - (NSString *)currentCategoryName;
 
+- (NSArray *)loadCategories;
+
 @end
