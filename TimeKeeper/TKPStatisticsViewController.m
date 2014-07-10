@@ -57,6 +57,10 @@
     
     [self.percentageBackground.layer setCornerRadius:60.0f];
     self.percentageBackground.backgroundColor = [UIColor categoryCellBackgroundColor];
+    
+    [self.headerView.categoryListButton addTarget:self
+                                           action:@selector(returnToMainScree:)
+                                 forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -81,6 +85,13 @@
 - (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index
 {
     return [self.chartSliceColors objectAtIndex:index];
+}
+
+#pragma mark - Header view navigation
+
+- (void)returnToMainScree:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
