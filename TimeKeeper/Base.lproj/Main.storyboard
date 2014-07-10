@@ -139,6 +139,7 @@
                         <outlet property="headerView" destination="280-TK-KnP" id="adC-bP-isa"/>
                         <outlet property="percentageBackground" destination="KUH-8b-FYX" id="sgQ-wn-1id"/>
                         <outlet property="pieChart" destination="Jfp-qg-zSK" id="UnS-es-FUL"/>
+                        <outlet property="tableView" destination="es7-WI-fXN" id="bLz-xb-5hA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xx-DA-8Vw" userLabel="First Responder" sceneMemberID="firstResponder"/>

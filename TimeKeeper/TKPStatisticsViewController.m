@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSMutableArray *chartSlices;
 @property (strong, nonatomic) NSArray *chartSliceColors;
 @property (weak, nonatomic) IBOutlet UIView *percentageBackground;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end
@@ -61,6 +62,9 @@
     [self.headerView.categoryListButton addTarget:self
                                            action:@selector(returnToMainScree:)
                                  forControlEvents:UIControlEventTouchUpInside];
+    
+    //colors
+    self.tableView.backgroundColor = [UIColor categoryCellBackgroundColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -88,6 +92,7 @@
     
     if (!cell) {
         cell = [UITableViewCell new];
+        cell.backgroundColor = [UIColor categoryCellBackgroundColor];
     }
     
     return cell;
