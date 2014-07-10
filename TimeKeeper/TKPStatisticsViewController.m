@@ -70,6 +70,29 @@
     [self.pieChart reloadData];
 }
 
+#pragma mark - TableView delegte & data source methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 75.0f;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    if (!cell) {
+        cell = [UITableViewCell new];
+    }
+    
+    return cell;
+}
+
 #pragma mark - PieChart delegete & data source methods
 
 - (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
