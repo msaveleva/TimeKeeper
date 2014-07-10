@@ -7,11 +7,12 @@
 //
 
 #import "TKPStatisticsTableViewCell.h"
+#import "UIColor+CustomColors.h"
 
 @implementation TKPStatisticsTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.backgroundColor = [UIColor categoryCellBackgroundColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

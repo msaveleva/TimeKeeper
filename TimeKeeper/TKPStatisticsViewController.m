@@ -9,6 +9,9 @@
 #import "TKPStatisticsViewController.h"
 #import "TKPHeaderView.h"
 #import "UIColor+CustomColors.h"
+#import "TKPStatisticsTableViewCell.h"
+
+static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 
 @interface TKPStatisticsViewController ()
 
@@ -65,6 +68,10 @@
     
     //colors
     self.tableView.backgroundColor = [UIColor categoryCellBackgroundColor];
+    
+    //cells
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([TKPStatisticsTableViewCell class]) bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:kStatisticsCellIdentifier];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -88,12 +95,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
-    if (!cell) {
-        cell = [UITableViewCell new];
-        cell.backgroundColor = [UIColor categoryCellBackgroundColor];
-    }
+    TKPStatisticsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kStatisticsCellIdentifier];
     
     return cell;
 }
