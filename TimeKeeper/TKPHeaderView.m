@@ -75,7 +75,8 @@ static NSString * const kEditTitle = @"Edit Track";
     self.cancelButton.hidden = YES;
     self.applyButton.hidden = YES;
     self.categoryListButton.hidden = NO;
-    self.settingsButton.hidden = NO;
+    //TODO: enable when add settings
+    self.settingsButton.hidden = YES;
     
     self.titleLabel.text = kStandartTitle;
 }
