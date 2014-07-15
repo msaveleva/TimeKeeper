@@ -12,6 +12,10 @@
 @interface TKPStatisticsTableHeaderView ()
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIImageView *categoryIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *persentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
