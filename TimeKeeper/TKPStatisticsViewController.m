@@ -248,6 +248,31 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
         [self.tableView beginUpdates];
         [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:YES];
         [self.tableView endUpdates];
+    } else {
+        NSInteger numberOfRows = 0;
+        switch (section) {
+            case TKPCategoryTypeProductiveTime:
+                numberOfRows = [self.productiveCategories count];
+                self.productiveCategories = nil;
+                break;
+            case TKPCategoryTypeNeutralTime:
+                numberOfRows = [self.neutralCategories count];
+                self.neutralCategories = nil;
+                break;
+            case TKPCategoryTypeUnproductiveTime:
+                numberOfRows = [self.unproductiveCategories count];
+                self.unproductiveCategories = nil;
+                break;
+        }
+        
+        NSMutableArray *indexPaths = [NSMutableArray new];
+        for (int i = 0; i < numberOfRows; i++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
+            [indexPaths addObject:indexPath];
+        }
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:YES];
+        [self.tableView endUpdates];
     }
 }
 
