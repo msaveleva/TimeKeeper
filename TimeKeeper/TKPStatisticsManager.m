@@ -58,4 +58,30 @@
     return timeRange;
 }
 
+- (NSInteger)loadPercentsForType:(TKPCategoryType)type
+{
+    double result = 0;
+    double productiveTime = [self loadTimeForType:TKPCategoryTypeProductiveTime];
+    double neutralTime = [self loadTimeForType:TKPCategoryTypeNeutralTime];
+    double unproductiveTime = [self loadTimeForType:TKPCategoryTypeUnproductiveTime];
+    
+    double sum = productiveTime + neutralTime + unproductiveTime;
+    double onePercent = sum / 100;
+    
+    switch (type) {
+        case TKPCategoryTypeProductiveTime:
+            result = productiveTime;
+            break;
+        case TKPCategoryTypeNeutralTime:
+            result = neutralTime;
+            break;
+        case TKPCategoryTypeUnproductiveTime:
+            result = unproductiveTime;
+            break;
+    }
+    result /= onePercent;
+    
+    return result;
+}
+
 @end
