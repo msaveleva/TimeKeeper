@@ -19,8 +19,8 @@
 		1C6D0DAC192CAF3200F4EFD2 /* TKPTimeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D0DAB192CAF3200F4EFD2 /* TKPTimeScrollView.m */; };
 		1C6D0DAE192CAF4200F4EFD2 /* TKPTimeScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6D0DAD192CAF4200F4EFD2 /* TKPTimeScrollView.xib */; };
 		1C7CBAC1192C95E900878E93 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7CBAC0192C95E900878E93 /* UIColor+CustomColors.m */; };
-		1CF69242196EA90B002CFDD7 /* TKPStatisticsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69240196EA90B002CFDD7 /* TKPStatisticsTableViewCell.m */; };
-		1CF69243196EA90B002CFDD7 /* TKPStatisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CF69241196EA90B002CFDD7 /* TKPStatisticsTableViewCell.xib */; };
+		1CF69242196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69240196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.m */; };
+		1CF69243196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CF69241196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.xib */; };
 		3F09C41719287FC800D08E16 /* TKPHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F09C41619287FC800D08E16 /* TKPHeaderView.xib */; };
 		3F27B4F11942380E00EF1653 /* TKPTimeAndDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F27B4F01942380E00EF1653 /* TKPTimeAndDate.m */; };
 		3F27B4F41942384500EF1653 /* TKPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F27B4F31942384500EF1653 /* TKPCategory.m */; };
@@ -82,9 +82,9 @@
 		1C6D0DAD192CAF4200F4EFD2 /* TKPTimeScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPTimeScrollView.xib; sourceTree = "<group>"; };
 		1C7CBABF192C95E900878E93 /* UIColor+CustomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColors.h"; sourceTree = "<group>"; };
 		1C7CBAC0192C95E900878E93 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColors.m"; sourceTree = "<group>"; };
-		1CF6923F196EA90B002CFDD7 /* TKPStatisticsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPStatisticsTableViewCell.h; sourceTree = "<group>"; };
-		1CF69240196EA90B002CFDD7 /* TKPStatisticsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPStatisticsTableViewCell.m; sourceTree = "<group>"; };
-		1CF69241196EA90B002CFDD7 /* TKPStatisticsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPStatisticsTableViewCell.xib; sourceTree = "<group>"; };
+		1CF6923F196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPStatisticsTableHeaderView.h; sourceTree = "<group>"; };
+		1CF69240196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPStatisticsTableHeaderView.m; sourceTree = "<group>"; };
+		1CF69241196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPStatisticsTableHeaderView.xib; sourceTree = "<group>"; };
 		23BCE90BB87641699BF7DF6F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		3F09C41619287FC800D08E16 /* TKPHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPHeaderView.xib; sourceTree = "<group>"; };
 		3F27B4EF1942380E00EF1653 /* TKPTimeAndDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKPTimeAndDate.h; path = ../TKPTimeAndDate.h; sourceTree = "<group>"; };
@@ -287,6 +287,9 @@
 				1C107F0D193C987E003328FB /* TKPTimeTypeView.h */,
 				1C107F0E193C987E003328FB /* TKPTimeTypeView.m */,
 				1C107F10193C9891003328FB /* TKPTimeTypeView.xib */,
+				1CF6923F196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.h */,
+				1CF69240196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.m */,
+				1CF69241196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -323,9 +326,6 @@
 				1C1F3F351935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.h */,
 				1C1F3F361935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m */,
 				1C1F3F371935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib */,
-				1CF6923F196EA90B002CFDD7 /* TKPStatisticsTableViewCell.h */,
-				1CF69240196EA90B002CFDD7 /* TKPStatisticsTableViewCell.m */,
-				1CF69241196EA90B002CFDD7 /* TKPStatisticsTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 				3F09C41719287FC800D08E16 /* TKPHeaderView.xib in Resources */,
 				1C6D0DAE192CAF4200F4EFD2 /* TKPTimeScrollView.xib in Resources */,
 				3F85E89919279AF200275E9A /* InfoPlist.strings in Resources */,
-				1CF69243196EA90B002CFDD7 /* TKPStatisticsTableViewCell.xib in Resources */,
+				1CF69243196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.xib in Resources */,
 				1C107F11193C9891003328FB /* TKPTimeTypeView.xib in Resources */,
 				1C1F3F341935CF3E00BD6220 /* TKPEditNameTableViewCell.xib in Resources */,
 				3F85E8A219279AF200275E9A /* Main.storyboard in Resources */,
@@ -478,7 +478,7 @@
 				3F85E8A519279AF200275E9A /* TKPMainViewController.m in Sources */,
 				3F27B4F41942384500EF1653 /* TKPCategory.m in Sources */,
 				3FB4CE5E1940F4410003E556 /* TimeKeeper.xcdatamodeld in Sources */,
-				1CF69242196EA90B002CFDD7 /* TKPStatisticsTableViewCell.m in Sources */,
+				1CF69242196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.m in Sources */,
 				3F27B4F11942380E00EF1653 /* TKPTimeAndDate.m in Sources */,
 				1C415E41192CBB190099FB1E /* UIFont+CustomFonts.m in Sources */,
 				1C1F3F331935CF3E00BD6220 /* TKPEditNameTableViewCell.m in Sources */,

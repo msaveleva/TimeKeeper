@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TKPStatisticsTableViewCell : UITableViewCell
+@interface TKPStatisticsTableHeaderView : UIView
 
 @end

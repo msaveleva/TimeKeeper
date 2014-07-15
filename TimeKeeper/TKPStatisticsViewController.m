@@ -9,11 +9,11 @@
 #import "TKPStatisticsViewController.h"
 #import "TKPHeaderView.h"
 #import "UIColor+CustomColors.h"
-#import "TKPStatisticsTableViewCell.h"
 #import "TKPAppDelegate.h"
 #import "TKPCategory.h"
 #import "TKPTimeAndDate.h"
 #import "TKPCategoryManager.h"
+#import "TKPStatisticsTableHeaderView.h"
 
 static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 
@@ -75,10 +75,6 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
     //colors
     self.tableView.backgroundColor = [UIColor categoryCellBackgroundColor];
     
-    //cells
-    UINib *nib = [UINib nibWithNibName:NSStringFromClass([TKPStatisticsTableViewCell class]) bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:kStatisticsCellIdentifier];
-    
     //loading categories
     self.categoryList = [[TKPCategoryManager sharedInstance] loadCategories];
 }
@@ -94,17 +90,38 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //TODO: change when get real data
     return 75.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    //TODO: change when get real data
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 75.0f;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    //TODO: change when get real data
+    return 3;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    TKPStatisticsTableHeaderView *headerView = [[TKPStatisticsTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, 320, 75)];
+    return headerView;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TKPStatisticsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kStatisticsCellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kStatisticsCellIdentifier];
+    
+    //TODO: implement
     
     return cell;
 }
