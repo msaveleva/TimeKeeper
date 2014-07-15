@@ -15,6 +15,7 @@
 #import "TKPCategoryManager.h"
 #import "TKPStatisticsManager.h"
 #import "TKPHeaderInfo.h"
+#import "TKPStatisticsTableViewCell.h"
 
 static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 
@@ -84,6 +85,9 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 //    NSInteger result = [[TKPStatisticsManager sharedInstance] loadPercentsForType:TKPCategoryTypeProductiveTime];
 //    double categorytime = [[TKPStatisticsManager sharedInstance] loadTimeForCategoryNamed:@"Manga"];
     //Привет, мусечка!
+    
+    UINib *cellNib = [UINib nibWithNibName:NSStringFromClass([TKPStatisticsTableViewCell class]) bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:kStatisticsCellIdentifier];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -98,13 +102,13 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //TODO: change when get real data
-    return 75.0f;
+    return 44.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //TODO: change when get real data
-    return 0;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -137,7 +141,7 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kStatisticsCellIdentifier];
+    TKPStatisticsTableViewCell *cell = (TKPStatisticsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kStatisticsCellIdentifier];
     
     //TODO: implement
     
