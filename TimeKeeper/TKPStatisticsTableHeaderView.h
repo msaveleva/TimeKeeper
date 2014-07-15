@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TKPStatisticsManager.h"
+#import "TKPHeaderInfo.h"
 
 @protocol TKPUnscrollEventsProtocol <NSObject>
 
@@ -17,5 +19,7 @@
 @interface TKPStatisticsTableHeaderView : UIView
 
 @property (weak, nonatomic) id<TKPUnscrollEventsProtocol> delegate;
+
+- (void)configureHeaderViewWithInfo:(TKPHeaderInfo *)info;
 
 @end

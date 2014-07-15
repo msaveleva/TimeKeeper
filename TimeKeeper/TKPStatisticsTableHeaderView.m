@@ -63,10 +63,24 @@
     [self.contentView addGestureRecognizer:self.tapGesture];
 }
 
-//TODO: add all objects for headerView configuration
-- (void)configureWithSection:(NSInteger)section
+- (void)configureHeaderViewWithInfo:(TKPHeaderInfo *)info
 {
-    self.section = section;
+    NSString *nameLabel;
+    switch (info.type) {
+        case TKPCategoryTypeProductiveTime:
+            nameLabel = @"Productive";
+            break;
+        case TKPCategoryTypeNeutralTime:
+            nameLabel = @"Neutral";
+            break;
+        case TKPCategoryTypeUnproductiveTime:
+            nameLabel = @"Unproductive";
+            break;
+    }
+    
+    self.nameLabel.text = nameLabel;
+    self.timeLabel.text = info.spentTime;
+    self.persentLabel.text = info.persents;
 }
 
 #pragma mark - Gestures

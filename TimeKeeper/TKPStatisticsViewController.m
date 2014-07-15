@@ -13,6 +13,8 @@
 #import "TKPCategory.h"
 #import "TKPTimeAndDate.h"
 #import "TKPCategoryManager.h"
+#import "TKPStatisticsManager.h"
+#import "TKPHeaderInfo.h"
 
 static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 
@@ -76,6 +78,12 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
     
     //loading categories
     self.categoryList = [[TKPCategoryManager sharedInstance] loadCategories];
+    
+//    NSArray *array = [[TKPStatisticsManager sharedInstance] loadCategoriesForType:TKPCategoryTypeProductiveTime];
+//    double time = [[TKPStatisticsManager sharedInstance] loadTimeForType:TKPCategoryTypeProductiveTime];
+//    NSInteger result = [[TKPStatisticsManager sharedInstance] loadPercentsForType:TKPCategoryTypeProductiveTime];
+//    double categorytime = [[TKPStatisticsManager sharedInstance] loadTimeForCategoryNamed:@"Manga"];
+    //Привет, мусечка!
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -113,6 +121,14 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     TKPStatisticsTableHeaderView *headerView = [[TKPStatisticsTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, 320, 75)];
+    double time = [[TKPStatisticsManager sharedInstance] loadTimeForType:section];
+    NSInteger percents = [[TKPStatisticsManager sharedInstance] loadPercentsForType:section];
+    NSString *timeStringRepresentation = [self makeTimeStringFromInterval:time];
+    
+    TKPHeaderInfo *headerInfo = [TKPHeaderInfo new];
+    headerInfo.type = section;
+    headerInfo.spentTime = timeStringRepresentation;
+    headerInfo.persents = [NSString stringWithFormat:@"%d %%", percents];
     headerView.delegate = self;
     return headerView;
 }
@@ -124,6 +140,20 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
     //TODO: implement
     
     return cell;
+}
+
+#pragma mark - Data translates
+
+- (NSString *)makeTimeStringFromInterval:(double)interval
+{
+    int timeInterval = (int)interval;
+    int seconds = timeInterval % 60;
+    int minutes = (timeInterval / 60) % 60;
+    int hours = timeInterval / 3600;
+    
+    NSString *result = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
+    
+    return  result;
 }
 
 #pragma mark - PieChart delegete & data source methods
