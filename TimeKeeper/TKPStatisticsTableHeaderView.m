@@ -21,6 +21,7 @@
  Default is NO
  */
 @property (nonatomic) BOOL isUnscroll;
+@property (nonatomic) NSInteger section;
 
 //gestures
 @property (strong, nonatomic) UITapGestureRecognizer *tapGesture;
@@ -62,11 +63,18 @@
     [self.contentView addGestureRecognizer:self.tapGesture];
 }
 
+//TODO: add all objects for headerView configuration
+- (void)configureWithSection:(NSInteger)section
+{
+    self.section = section;
+}
+
 #pragma mark - Gestures
 
 - (void)onTap:(id)sender
 {
     self.isUnscroll = !self.isUnscroll;
+    [self.delegate listWasUnscrolled:self.isUnscroll forSection:self.section];
 }
 
 @end

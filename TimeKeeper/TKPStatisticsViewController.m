@@ -13,7 +13,6 @@
 #import "TKPCategory.h"
 #import "TKPTimeAndDate.h"
 #import "TKPCategoryManager.h"
-#import "TKPStatisticsTableHeaderView.h"
 
 static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 
@@ -114,6 +113,7 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     TKPStatisticsTableHeaderView *headerView = [[TKPStatisticsTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, 320, 75)];
+    headerView.delegate = self;
     return headerView;
 }
 
@@ -148,6 +148,13 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 - (void)returnToMainScree:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Table Header View methods
+
+- (void)listWasUnscrolled:(BOOL)isUnscrolled forSection:(NSInteger)section
+{
+    //TODO: insert or delete rows for category type
 }
 
 @end

@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "XYPieChart.h"
+#import "TKPStatisticsTableHeaderView.h"
 
 @interface TKPStatisticsViewController : UIViewController
 <
 UITableViewDataSource,
 UITableViewDelegate,
 XYPieChartDataSource,
-XYPieChartDelegate
+XYPieChartDelegate,
+TKPUnscrollEventsProtocol
 >
 
 @end

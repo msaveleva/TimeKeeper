@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TKPUnscrollEventsProtocol <NSObject>
+
+- (void)listWasUnscrolled:(BOOL)isUnscrolled forSection:(NSInteger)section;
+
+@end
+
 @interface TKPStatisticsTableHeaderView : UIView
+
+@property (weak, nonatomic) id<TKPUnscrollEventsProtocol> delegate;
 
 @end
