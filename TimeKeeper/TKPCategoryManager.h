@@ -23,6 +23,7 @@
 @property (nonatomic) BOOL isCategoryRecording;
 @property (weak, nonatomic) id<TKPStopWatchUpdateDelegate> delegate;
 @property (weak, nonatomic) TKPTimeView *timeView;
+@property (strong, nonatomic) NSString *currentCategoryName;
 
 + (instancetype)sharedInstance;
 
@@ -31,7 +32,6 @@
  This method will also called when pause category
  */
 - (void)stopCategory;
-- (NSString *)currentCategoryName;
 
 /**
  Get all categories

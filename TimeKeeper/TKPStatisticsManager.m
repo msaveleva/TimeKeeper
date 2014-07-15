@@ -29,7 +29,6 @@
 
 - (NSArray *)loadCategoriesForType:(TKPCategoryType)type
 {
-    //TODO: fix currentCategoryName
     NSMutableArray *categories = [NSMutableArray arrayWithArray:[[TKPCategoryManager sharedInstance] loadCategories]];
     NSString *currentCategoryName = [[TKPCategoryManager sharedInstance] currentCategoryName];
     for (TKPCategory *category in categories) {
