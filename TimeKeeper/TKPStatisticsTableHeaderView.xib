@@ -19,11 +19,11 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EQI-k5-p4I">
-                    <rect key="frame" x="13" y="11" width="25" height="25"/>
+                    <rect key="frame" x="21" y="17" width="14" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="Ym7-yI-cPh"/>
-                        <constraint firstAttribute="height" constant="25" id="d4n-lL-Cnp"/>
+                        <constraint firstAttribute="width" constant="14" id="Ym7-yI-cPh"/>
+                        <constraint firstAttribute="height" constant="14" id="d4n-lL-Cnp"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc5-lV-ZrX">
@@ -51,11 +51,11 @@
                 <constraint firstItem="Cc5-lV-ZrX" firstAttribute="centerY" secondItem="EQI-k5-p4I" secondAttribute="centerY" constant="1" id="FRy-iQ-imK"/>
                 <constraint firstAttribute="trailing" secondItem="BFp-Wp-DZa" secondAttribute="trailing" constant="20" id="Smd-Wm-5s0"/>
                 <constraint firstItem="BFp-Wp-DZa" firstAttribute="centerY" secondItem="Cc5-lV-ZrX" secondAttribute="centerY" constant="-1" id="TBb-qo-VUk"/>
-                <constraint firstItem="EQI-k5-p4I" firstAttribute="leading" secondItem="jJm-PS-5OH" secondAttribute="leading" constant="13" id="UZf-g5-7HI"/>
+                <constraint firstItem="EQI-k5-p4I" firstAttribute="leading" secondItem="jJm-PS-5OH" secondAttribute="leading" constant="21" id="UZf-g5-7HI"/>
                 <constraint firstItem="9r8-JD-bYv" firstAttribute="leading" secondItem="Cc5-lV-ZrX" secondAttribute="leading" id="XJ9-dT-1Rd"/>
-                <constraint firstItem="Cc5-lV-ZrX" firstAttribute="leading" secondItem="EQI-k5-p4I" secondAttribute="trailing" constant="8" id="YcZ-f1-3hw"/>
+                <constraint firstItem="Cc5-lV-ZrX" firstAttribute="leading" secondItem="EQI-k5-p4I" secondAttribute="trailing" constant="11" id="YcZ-f1-3hw"/>
                 <constraint firstAttribute="centerY" secondItem="9r8-JD-bYv" secondAttribute="centerY" constant="-16" id="YeI-YD-RF3"/>
-                <constraint firstItem="EQI-k5-p4I" firstAttribute="top" secondItem="jJm-PS-5OH" secondAttribute="top" constant="11" id="gnM-Ks-8oa"/>
+                <constraint firstItem="EQI-k5-p4I" firstAttribute="top" secondItem="jJm-PS-5OH" secondAttribute="top" constant="17" id="gnM-Ks-8oa"/>
                 <constraint firstItem="BFp-Wp-DZa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cc5-lV-ZrX" secondAttribute="trailing" constant="10" id="lzZ-YN-IRf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

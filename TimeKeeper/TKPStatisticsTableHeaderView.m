@@ -66,19 +66,24 @@
 - (void)configureHeaderViewWithInfo:(TKPHeaderInfo *)info
 {
     NSString *nameLabel;
+    NSString *indicatorImageName;
     switch (info.type) {
         case TKPCategoryTypeProductiveTime:
             nameLabel = @"Productive";
+            indicatorImageName = @"BigBlueCircle";
             break;
         case TKPCategoryTypeNeutralTime:
             nameLabel = @"Neutral";
+            indicatorImageName = @"BigGreenCircle";
             break;
         case TKPCategoryTypeUnproductiveTime:
             nameLabel = @"Unproductive";
+            indicatorImageName = @"BigRedCircle";
             break;
     }
     
     self.nameLabel.text = nameLabel;
+    [self.categoryIndicator setImage:[UIImage imageNamed:indicatorImageName]];
     self.timeLabel.text = info.spentTime;
     self.persentLabel.text = info.persents;
 }
