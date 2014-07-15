@@ -129,7 +129,9 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
     headerInfo.type = section;
     headerInfo.spentTime = timeStringRepresentation;
     headerInfo.persents = [NSString stringWithFormat:@"%d %%", percents];
+    
     headerView.delegate = self;
+    [headerView configureHeaderViewWithInfo:headerInfo];
     return headerView;
 }
 
