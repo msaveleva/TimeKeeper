@@ -70,11 +70,11 @@
     switch (info.type) {
         case TKPCategoryTypeProductiveTime:
             nameLabel = @"Productive";
-            indicatorImageName = @"BigBlueCircle";
+            indicatorImageName = @"BigGreenCircle";
             break;
         case TKPCategoryTypeNeutralTime:
             nameLabel = @"Neutral";
-            indicatorImageName = @"BigGreenCircle";
+            indicatorImageName = @"BigBlueCircle";
             break;
         case TKPCategoryTypeUnproductiveTime:
             nameLabel = @"Unproductive";
