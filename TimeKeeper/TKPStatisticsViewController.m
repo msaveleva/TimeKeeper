@@ -30,6 +30,10 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 
 @property (strong, nonatomic) NSArray *categoryList;
 
+//model data
+@property (strong, nonatomic) NSArray *productiveCategories;
+@property (strong, nonatomic) NSArray *neutralCategories;
+@property (strong, nonatomic) NSArray *unproductiveCategories;
 
 @end
 
@@ -101,14 +105,25 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //TODO: change when get real data
     return 44.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //TODO: change when get real data
-    return 2;
+    NSInteger numberOfRows = 0;
+    switch (section) {
+        case TKPCategoryTypeProductiveTime:
+            numberOfRows = [self.productiveCategories count];
+            break;
+        case TKPCategoryTypeNeutralTime:
+            numberOfRows = [self.neutralCategories count];
+            break;
+        case TKPCategoryTypeUnproductiveTime:
+            numberOfRows = [self.unproductiveCategories count];
+            break;
+    }
+    
+    return numberOfRows;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -135,7 +150,7 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
     headerInfo.persents = [NSString stringWithFormat:@"%d %%", percents];
     
     headerView.delegate = self;
-    [headerView configureHeaderViewWithInfo:headerInfo];
+    [headerView configureHeaderViewWithInfo:headerInfo section:section];
     return headerView;
 }
 
@@ -190,7 +205,34 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 
 - (void)listWasUnscrolled:(BOOL)isUnscrolled forSection:(NSInteger)section
 {
-    //TODO: insert or delete rows for category type
+    if (isUnscrolled) {
+        NSArray *usedArray;
+        switch (section) {
+            case TKPCategoryTypeProductiveTime:
+                self.productiveCategories = [[TKPStatisticsManager sharedInstance] loadCategoriesForType:TKPCategoryTypeProductiveTime];
+                usedArray = self.productiveCategories;
+                break;
+            case TKPCategoryTypeNeutralTime:
+                self.neutralCategories = [[TKPStatisticsManager sharedInstance] loadCategoriesForType:TKPCategoryTypeNeutralTime];
+                usedArray = self.neutralCategories;
+                break;
+            case TKPCategoryTypeUnproductiveTime:
+                self.unproductiveCategories = [[TKPStatisticsManager sharedInstance] loadCategoriesForType:TKPCategoryTypeUnproductiveTime];
+                usedArray = self.unproductiveCategories;
+                break;
+        }
+        
+        NSInteger numberOfRows = [usedArray count];
+        NSMutableArray *indexPaths = [NSMutableArray new];
+        for (int i = 0; i < numberOfRows; i++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
+            [indexPaths addObject:indexPath];
+        }
+        
+        [self.tableView beginUpdates];
+        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:YES];
+        [self.tableView endUpdates];
+    }
 }
 
 @end

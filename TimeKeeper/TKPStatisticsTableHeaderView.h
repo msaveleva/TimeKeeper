@@ -20,6 +20,6 @@
 
 @property (weak, nonatomic) id<TKPUnscrollEventsProtocol> delegate;
 
-- (void)configureHeaderViewWithInfo:(TKPHeaderInfo *)info;
+- (void)configureHeaderViewWithInfo:(TKPHeaderInfo *)info section:(NSInteger)section;
 
 @end

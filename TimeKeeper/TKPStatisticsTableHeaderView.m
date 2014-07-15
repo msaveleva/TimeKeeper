@@ -63,7 +63,7 @@
     [self.contentView addGestureRecognizer:self.tapGesture];
 }
 
-- (void)configureHeaderViewWithInfo:(TKPHeaderInfo *)info
+- (void)configureHeaderViewWithInfo:(TKPHeaderInfo *)info section:(NSInteger)section
 {
     NSString *nameLabel;
     NSString *indicatorImageName;
@@ -86,6 +86,8 @@
     [self.categoryIndicator setImage:[UIImage imageNamed:indicatorImageName]];
     self.timeLabel.text = info.spentTime;
     self.persentLabel.text = info.persents;
+    
+    self.section = section;
 }
 
 #pragma mark - Gestures
