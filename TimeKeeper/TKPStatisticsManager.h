@@ -7,28 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TKPCategory.h"
 
 @interface TKPStatisticsManager : NSObject
 
++ (instancetype)sharedInstance;
+
 /**
- Return arrays of TKPCategory objects
+ Returns arrays of TKPCategory objects
  */
-- (NSArray *)loadProductiveCategories;
-- (NSArray *)loadNeutralCategories;
-- (NSArray *)loadUnproductiveCategories;
+- (NSArray *)loadCategoriesForType:(TKPCategoryType)type;
 
 /**
  Return time spent for all category type
  */
-- (double)loadProductiveTime;
-- (double)loadNeutralTime;
-- (double)loadUnproductiveTime;
+- (double)loadTimeForType:(TKPCategoryType)type;
 
 /**
  Return time in percents
  */
-- (NSInteger)loadProductivePercents;
-- (NSInteger)loadNeutralPercents;
-- (NSInteger)loadUnproductivePercents;
+- (NSInteger)loadPercentsForType:(TKPCategoryType)type;
 
 @end

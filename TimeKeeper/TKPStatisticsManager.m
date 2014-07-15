@@ -11,25 +11,24 @@
 
 @implementation TKPStatisticsManager
 
-- (NSArray *)loadProductiveCategories
++ (instancetype)sharedInstance
 {
-    NSArray *productiveCategories;
+    static TKPStatisticsManager *statisticsManager;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        statisticsManager = [[TKPStatisticsManager alloc] init];
+    });
     
-    return productiveCategories;
+    return statisticsManager;
 }
 
-- (NSArray *)loadNeutralCategories
+- (NSArray *)loadCategoriesForType:(TKPCategoryType)type
 {
-    NSArray *neutralCategories;
+    NSArray *categories = [[TKPCategoryManager sharedInstance] loadCategories];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type = %@", @(type)];
+    NSArray *toReturn =  [categories filteredArrayUsingPredicate:predicate];
     
-    return neutralCategories;
-}
-
-- (NSArray *)loadUnproductiveCategories
-{
-    NSArray *unproductiveCategories;
-    
-    return unproductiveCategories;
+    return toReturn;
 }
 
 @end
