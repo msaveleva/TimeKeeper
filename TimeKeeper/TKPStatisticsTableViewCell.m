@@ -25,7 +25,8 @@
 
 - (void)configureWithCategoryName:(NSString *)name andTime:(NSString *)time
 {
-    
+    self.nameLabel.text = name;
+    self.timeLabel.text = time;
 }
 
 @end

@@ -158,7 +158,23 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 {
     TKPStatisticsTableViewCell *cell = (TKPStatisticsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kStatisticsCellIdentifier];
     
-    //TODO: implement
+    NSArray *usedArray;
+    switch (indexPath.section) {
+        case TKPCategoryTypeProductiveTime:
+            usedArray = self.productiveCategories;
+            break;
+        case TKPCategoryTypeNeutralTime:
+            usedArray = self.neutralCategories;
+            break;
+        case TKPCategoryTypeUnproductiveTime:
+            usedArray = self.unproductiveCategories;
+            break;
+    }
+    
+    TKPCategory *category = [usedArray objectAtIndex:indexPath.row];
+    double categoryTime = [[TKPStatisticsManager sharedInstance] loadTimeForCategoryNamed:category.name];
+    NSString *categoryTimeStringRepresentation = [self makeTimeStringFromInterval:categoryTime];
+    [cell configureWithCategoryName:category.name andTime:categoryTimeStringRepresentation];
     
     return cell;
 }
