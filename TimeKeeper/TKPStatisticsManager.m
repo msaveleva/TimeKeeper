@@ -8,6 +8,7 @@
 
 #import "TKPStatisticsManager.h"
 #import "TKPCategoryManager.h"
+#import "TKPTimeAndDate.h"
 
 @interface TKPStatisticsManager ()
 
@@ -28,6 +29,7 @@
 
 - (NSArray *)loadCategoriesForType:(TKPCategoryType)type
 {
+    //TODO: fix currentCategoryName
     NSMutableArray *categories = [NSMutableArray arrayWithArray:[[TKPCategoryManager sharedInstance] loadCategories]];
     NSString *currentCategoryName = [[TKPCategoryManager sharedInstance] currentCategoryName];
     for (TKPCategory *category in categories) {
@@ -49,7 +51,8 @@
     NSArray *categoriesWithType = [self loadCategoriesForType:type];
     for (TKPCategory *category in categoriesWithType) {
         for (TKPTimeAndDate *timeAndDate in category.timesAndDates) {
-            //TODO: handle dates
+            NSTimeInterval interval = [timeAndDate.endDate timeIntervalSinceDate:timeAndDate.startDate];
+            timeRange += interval;
         }
     }
     
