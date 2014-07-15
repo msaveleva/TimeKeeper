@@ -22,6 +22,7 @@
  Return time spent for all category type
  */
 - (double)loadTimeForType:(TKPCategoryType)type;
+- (double)loadTimeForCategoryNamed:(NSString *)categoryName;
 
 /**
  Return time in percents

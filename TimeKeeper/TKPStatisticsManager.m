@@ -27,7 +27,7 @@
     return statisticsManager;
 }
 
-- (NSArray *)loadCategoriesForType:(TKPCategoryType)type
+- (NSArray *)loadCategoriesWithourCurrent
 {
     NSMutableArray *categories = [NSMutableArray arrayWithArray:[[TKPCategoryManager sharedInstance] loadCategories]];
     NSString *currentCategoryName = [[TKPCategoryManager sharedInstance] currentCategoryName];
@@ -37,6 +37,13 @@
             break;
         }
     }
+    
+    return (NSArray *)categories;
+}
+
+- (NSArray *)loadCategoriesForType:(TKPCategoryType)type
+{
+    NSArray *categories = [self loadCategoriesWithourCurrent];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type = %@", @(type)];
     NSArray *toReturn =  [categories filteredArrayUsingPredicate:predicate];
@@ -56,6 +63,22 @@
     }
     
     return timeRange;
+}
+
+- (double)loadTimeForCategoryNamed:(NSString *)categoryName
+{
+    double result = 0;
+    NSArray *categories = [self loadCategoriesWithourCurrent];
+    for (TKPCategory *category in categories) {
+        if ([category.name isEqualToString:categoryName]) {
+            for (TKPTimeAndDate *timeAndDate in category.timesAndDates) {
+                NSTimeInterval interval = [timeAndDate.endDate timeIntervalSinceDate:timeAndDate.startDate];
+                result += interval;
+            }
+        }
+    }
+    
+    return result;
 }
 
 - (NSInteger)loadPercentsForType:(TKPCategoryType)type
