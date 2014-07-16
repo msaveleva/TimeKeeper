@@ -16,5 +16,8 @@
 + (UIColor *)editButtonCellColor;
 + (UIColor *)removeButtonCellColor;
 + (UIColor *)categoryCellBackgroundColor;
++ (UIColor *)productiveColor;
++ (UIColor *)neutralColor;
++ (UIColor *)unproductiveColor;
 
 @end

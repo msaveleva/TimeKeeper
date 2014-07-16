@@ -60,6 +60,7 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     [self startStopwatch];
     self.timeView.pauseButton.enabled = YES;
     self.isCategoryRecording = YES;
+    self.currentCategoryName = self.category.name;
 }
 
 - (void)stopCategory
@@ -81,15 +82,7 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     [self.delegate stopCategoryTraking];
     [self stopStopwatch];
     self.isCategoryRecording = NO;
-}
-
-- (NSString *)currentCategoryName
-{
-    if (self.category) {
-        return self.category.name;
-    } else {
-        return @"No running category"; //TODO: localize
-    }
+    self.currentCategoryName = nil;
 }
 
 #pragma mark - Stopwatch for category
@@ -126,6 +119,19 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     }
     
     [self.delegate updateStopwatch:stopwatchValue];
+}
+
+- (NSArray *)loadCategories
+{
+    NSArray *allCategories;
+    NSError *error;
+    TKPAppDelegate *appDelegate = (TKPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TKPCategory" inManagedObjectContext:appDelegate.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    allCategories = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    return allCategories;
 }
 
 @end

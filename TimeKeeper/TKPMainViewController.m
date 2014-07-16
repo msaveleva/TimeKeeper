@@ -12,6 +12,7 @@
 #import "TKPAppDelegate.h"
 #import "TKPEditViewController.h"
 #import "TKPStatisticsViewController.h"
+#import "UIColor+CustomColors.h"
 
 static NSString *const kCellIdentifier = @"categoryCell";
 static NSString *const kEditViewControllerID = @"editViewController";
@@ -34,6 +35,7 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
     [super viewDidLoad];
     
     //set header view mode
+    self.categoriesTableView.backgroundColor = [UIColor categoryCellBackgroundColor];
     [self.headerView enableStandartMode];
     [[TKPCategoryManager sharedInstance] setDelegate:self];
     
@@ -55,14 +57,14 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
                                         action:@selector(viewStatistics:)
                               forControlEvents:UIControlEventTouchUpInside];
     
-    [self loadData];
+    self.categoryList = [[TKPCategoryManager sharedInstance] loadCategories];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [self loadData];
+    self.categoryList = [[TKPCategoryManager sharedInstance] loadCategories];
     [self.categoriesTableView reloadData];
 }
 
@@ -79,18 +81,6 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
         [self.storyboard instantiateViewControllerWithIdentifier:kStatisticsViewController];
     statisticsViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:statisticsViewController animated:YES completion:nil];
-}
-
-#pragma mark - Core Data methods
-
-- (void)loadData
-{
-    NSError *error;
-    TKPAppDelegate *appDelegate = (TKPAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TKPCategory" inManagedObjectContext:appDelegate.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    self.categoryList = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
 }
 
 #pragma mark - Table View methods
@@ -163,7 +153,7 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
         NSLog(@"Can't delete category: %@", error);
     }
     
-    [self loadData];
+    self.categoryList = [[TKPCategoryManager sharedInstance] loadCategories];
     [self.categoriesTableView reloadData];
 }
 

@@ -46,4 +46,22 @@
     return [UIColor colorWithRed:0xf8/255. green:0xf0/255. blue:0xed/255. alpha:1];
 }
 
++ (UIColor *)productiveColor
+{
+    //#84cd5c
+    return [UIColor colorWithRed:0x84/255. green:0xcd/255.0 blue:0x5c/255.0 alpha:1];
+}
+
++ (UIColor *)neutralColor
+{
+    //#5c9ecd
+    return [UIColor colorWithRed:0x5c/255. green:0x9e/255. blue:0xcd/255.0 alpha:1];
+}
+
++ (UIColor *)unproductiveColor
+{
+    //#e96f5f
+    return [UIColor colorWithRed:0xe9/255. green:0x6f/255. blue:0x5f/255. alpha:1];
+}
+
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YPE-uX-CMR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YPE-uX-CMR">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -18,12 +18,10 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5oP-g8-81n">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="493"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.7450980544090271" green="0.91372555494308472" blue="0.31764706969261169" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yd5-mE-VjY" customClass="TKPTimeView">
                                 <rect key="frame" x="0.0" y="493" width="320" height="75"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.55793433612760501" green="1" blue="0.60151306300701313" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="R66-eh-aJS"/>
@@ -64,7 +62,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BfD-JD-v4f" customClass="TKPHeaderView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="0.95923580766669481" blue="0.60246691631652693" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="Y9U-M5-jWA"/>
@@ -72,7 +69,6 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="mn7-T2-TyO">
                                 <rect key="frame" x="0.0" y="66" width="320" height="427"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="PN1-le-jeJ"/>
@@ -116,14 +112,34 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="280-TK-KnP" customClass="TKPHeaderView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="0.91421634246797356" blue="0.456222672156403" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jfp-qg-zSK" customClass="XYPieChart">
+                                <rect key="frame" x="60" y="74" width="200" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KUH-8b-FYX">
+                                        <rect key="frame" x="40" y="40" width="120" height="120"/>
+                                        <color key="backgroundColor" red="1" green="0.99899703577324828" blue="0.55746993394835975" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="es7-WI-fXN">
+                                <rect key="frame" x="0.0" y="289" width="320" height="279"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="AJq-t0-0Ub" id="JwY-o5-pNH"/>
+                                    <outlet property="delegate" destination="AJq-t0-0Ub" id="87D-Ba-wIf"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="headerView" destination="280-TK-KnP" id="adC-bP-isa"/>
+                        <outlet property="percentageBackground" destination="KUH-8b-FYX" id="sgQ-wn-1id"/>
+                        <outlet property="pieChart" destination="Jfp-qg-zSK" id="UnS-es-FUL"/>
+                        <outlet property="tableView" destination="es7-WI-fXN" id="bLz-xb-5hA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xx-DA-8Vw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -144,16 +160,13 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EditScreen" translatesAutoresizingMaskIntoConstraints="NO" id="L1B-4J-2Ee">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Fw-rE-iqE" customClass="TKPHeaderView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.98823535442352295" green="0.86274516582489014" blue="0.019607843831181526" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgz-Ha-dF9">
                                 <rect key="frame" x="20" y="274" width="280" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91764712333679199" green="0.28627452254295349" blue="0.25490197539329529" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Delete category">
@@ -166,7 +179,6 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="63" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="fsp-Bh-ih6">
                                 <rect key="frame" x="0.0" y="66" width="320" height="135"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="WQ8-ya-EVI" id="aF7-uZ-U29"/>
@@ -175,7 +187,6 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-Pu-nYG" customClass="TKPTimeTypeView">
                                 <rect key="frame" x="10" y="199" width="300" height="170"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.12941177189350128" green="0.94117653369903564" blue="0.21568629145622253" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="bMa-kR-sTL"/>
