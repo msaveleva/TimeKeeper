@@ -128,7 +128,6 @@ static CGFloat const kAnimationSpeed = 0.3f;
         [UIView animateWithDuration:kAnimationSpeed animations:^{
             self.pauseButton.hidden = YES;
             self.pauseButton.alpha = 0;
-            [self layoutIfNeeded];
         } completion:^(BOOL isFinished){
             //some completion
         }];
@@ -141,7 +140,6 @@ static CGFloat const kAnimationSpeed = 0.3f;
         [UIView animateWithDuration:kAnimationSpeed animations:^{
             self.pauseButton.hidden = NO;
             self.pauseButton.alpha = 1;
-            [self layoutIfNeeded];
         } completion:^(BOOL isFinished){
             //some completion
         }];

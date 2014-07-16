@@ -125,6 +125,7 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
     if (!isCategoryRecording) {
         TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
         cell.isCategoryTimeRecording = YES;
+        cell.categoryTimePassLabel.text = @"";
         [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
         self.indexPathForRecordedCell = indexPath;
     }
