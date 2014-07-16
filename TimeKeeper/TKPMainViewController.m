@@ -34,6 +34,8 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
 {
     [super viewDidLoad];
     
+    self.categoriesTableView.backgroundColor = [UIColor categoryCellBackgroundColor];
+    
     //set header view mode
     self.categoriesTableView.backgroundColor = [UIColor categoryCellBackgroundColor];
     [self.headerView enableStandartMode];
