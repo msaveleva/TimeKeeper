@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  TimeKeeper
+
+  Created by Maria Saveleva on 16/07/14.
+  Copyright (c) 2014 Maria Saveleva. All rights reserved.
+*/
+
+"productive.time" = "Продуктивное время";
+"neutral.time" = "Нейтральное время";
+"unproductive.time" = "Непродуктивное время";
+
+"productive" = "Продуктивное";
+"neutral" = "Нейтральное";
+"unprodutive" = "Непродуктивное";
+
+//timer
+"signal.after" = "Будильник:";
+"timer.was.set" = "Будильник установлен";

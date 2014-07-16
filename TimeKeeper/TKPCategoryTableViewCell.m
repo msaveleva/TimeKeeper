@@ -160,15 +160,15 @@ static CGFloat const kAnimationSpeed = 0.3f;
 {
     switch (type) {
         case TKPCategoryTypeProductiveTime:
-            self.categoryTypeLabel.text = @"Productive time"; //TODO: make localization
+            self.categoryTypeLabel.text = NSLocalizedString(@"productive.time", nil);
             self.categoryIndicatorImageView.image = [UIImage imageNamed:@"SmallGreenCircle"];
             break;
         case TKPCategoryTypeNeutralTime:
-            self.categoryTypeLabel.text = @"Neutral time";
+            self.categoryTypeLabel.text = NSLocalizedString(@"neutral.time", nil);
             self.categoryIndicatorImageView.image = [UIImage imageNamed:@"SmallBlueCircle"];
             break;
         case TKPCategoryTypeUnproductiveTime:
-            self.categoryTypeLabel.text = @"Unproductive time";
+            self.categoryTypeLabel.text = NSLocalizedString(@"unproductive.time", nil);
             self.categoryIndicatorImageView.image = [UIImage imageNamed:@"SmallRedCircle"];
             break;
             

@@ -17,6 +17,7 @@ static CGSize const kTimeButtonSize = { 68.0f, 53.0f };
 
 @property (nonatomic, strong) UIView *scrollViewContentView;
 @property (nonatomic, strong) NSArray *timeIntervals;
+@property (weak, nonatomic) IBOutlet UILabel *signalLabel;
 
 @end
 
@@ -43,6 +44,8 @@ static CGSize const kTimeButtonSize = { 68.0f, 53.0f };
         //set timeIntervals
         self.timeIntervals = @[@"05", @"10", @"15", @"30", @"45", @"60"];
         [self setupContentView];
+        
+        self.signalLabel.text = NSLocalizedString(@"signal.after", nil);
     }
     return self;
 }
