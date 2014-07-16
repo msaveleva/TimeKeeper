@@ -57,7 +57,7 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
     self.view.backgroundColor = [UIColor categoryCellBackgroundColor];
     
     //configure pieChart
-    self.chartSlices = [NSMutableArray arrayWithArray:@[@20, @20, @50]];
+    self.chartSlices = [NSMutableArray new];
     self.chartSliceColors = @[[UIColor productiveColor],
                               [UIColor neutralColor],
                               [UIColor unproductiveColor]];
@@ -147,6 +147,8 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
     if (section == 0) {
         self.percentLabel.text = headerInfo.persents;
     }
+    
+    [self.chartSlices addObject:@(percents)];
     
     headerView.delegate = self;
     [headerView configureHeaderViewWithInfo:headerInfo section:section];
