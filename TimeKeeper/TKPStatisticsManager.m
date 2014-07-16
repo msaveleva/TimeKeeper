@@ -91,18 +91,36 @@
     double sum = productiveTime + neutralTime + unproductiveTime;
     double onePercent = sum / 100;
     
+    int productivePercents = 0;
+    int neutralPercents = 0;
+    int unproductivePercents = 0;
+    
+    if (productiveTime > 0) {
+        productivePercents = productiveTime/onePercent;
+    }
+    if (neutralTime > 0) {
+        neutralPercents = neutralTime/onePercent;
+    }
+    if (unproductiveTime > 0) {
+        unproductivePercents = unproductiveTime/onePercent;
+    }
+    
+    if (productiveTime > 0 || neutralTime > 0 || unproductiveTime > 0) {
+        int delta = 100 - productivePercents - neutralPercents - unproductivePercents;
+        productivePercents += delta;
+    }
+
     switch (type) {
         case TKPCategoryTypeProductiveTime:
-            result = productiveTime;
+            result = productivePercents;
             break;
         case TKPCategoryTypeNeutralTime:
-            result = neutralTime;
+            result = neutralPercents;
             break;
         case TKPCategoryTypeUnproductiveTime:
-            result = unproductiveTime;
+            result = unproductivePercents;
             break;
     }
-    result /= onePercent;
     
     return result;
 }
