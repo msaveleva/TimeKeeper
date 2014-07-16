@@ -27,6 +27,7 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
 @property (strong, nonatomic) NSArray *chartSliceColors;
 @property (weak, nonatomic) IBOutlet UIView *percentageBackground;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *percentLabel;
 
 @property (strong, nonatomic) NSArray *categoryList;
 
@@ -83,12 +84,6 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
     
     //loading categories
     self.categoryList = [[TKPCategoryManager sharedInstance] loadCategories];
-    
-//    NSArray *array = [[TKPStatisticsManager sharedInstance] loadCategoriesForType:TKPCategoryTypeProductiveTime];
-//    double time = [[TKPStatisticsManager sharedInstance] loadTimeForType:TKPCategoryTypeProductiveTime];
-//    NSInteger result = [[TKPStatisticsManager sharedInstance] loadPercentsForType:TKPCategoryTypeProductiveTime];
-//    double categorytime = [[TKPStatisticsManager sharedInstance] loadTimeForCategoryNamed:@"Manga"];
-    //Привет, мусечка!
     
     UINib *cellNib = [UINib nibWithNibName:NSStringFromClass([TKPStatisticsTableViewCell class]) bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:kStatisticsCellIdentifier];
@@ -147,7 +142,11 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
     TKPHeaderInfo *headerInfo = [TKPHeaderInfo new];
     headerInfo.type = section;
     headerInfo.spentTime = timeStringRepresentation;
-    headerInfo.persents = [NSString stringWithFormat:@"%d %%", percents];
+    headerInfo.persents = [NSString stringWithFormat:@"%d%%", percents];
+    
+    if (section == 0) {
+        self.percentLabel.text = headerInfo.persents;
+    }
     
     headerView.delegate = self;
     [headerView configureHeaderViewWithInfo:headerInfo section:section];

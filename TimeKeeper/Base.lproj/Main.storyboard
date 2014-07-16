@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YPE-uX-CMR">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
     <scenes>
@@ -121,14 +120,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfp-qg-zSK" customClass="XYPieChart">
                                 <rect key="frame" x="60" y="74" width="200" height="200"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KUH-8b-FYX">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUH-8b-FYX">
                                         <rect key="frame" x="40" y="40" width="120" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="78%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzX-gk-8Go">
+                                                <rect key="frame" x="11" y="32" width="98" height="57"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" red="1" green="0.99899703577324828" blue="0.55746993394835975" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="centerX" secondItem="qzX-gk-8Go" secondAttribute="centerX" id="AJ0-p4-ap3"/>
+                                            <constraint firstAttribute="width" constant="120" id="Dyw-r7-Xzg"/>
+                                            <constraint firstAttribute="height" constant="120" id="Py1-sX-48R"/>
+                                            <constraint firstAttribute="centerY" secondItem="qzX-gk-8Go" secondAttribute="centerY" id="gQq-mV-nCL"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="KUH-8b-FYX" secondAttribute="centerX" id="6iq-ST-h7Y"/>
                                     <constraint firstAttribute="height" constant="200" id="gcj-le-o1C"/>
+                                    <constraint firstAttribute="centerY" secondItem="KUH-8b-FYX" secondAttribute="centerY" id="qGr-x5-qUP"/>
                                     <constraint firstAttribute="width" constant="200" id="xs2-UM-tTs"/>
                                 </constraints>
                             </view>
@@ -157,6 +172,7 @@
                     </view>
                     <connections>
                         <outlet property="headerView" destination="280-TK-KnP" id="adC-bP-isa"/>
+                        <outlet property="percentLabel" destination="qzX-gk-8Go" id="sxt-BC-U1L"/>
                         <outlet property="percentageBackground" destination="KUH-8b-FYX" id="sgQ-wn-1id"/>
                         <outlet property="pieChart" destination="Jfp-qg-zSK" id="UnS-es-FUL"/>
                         <outlet property="tableView" destination="es7-WI-fXN" id="bLz-xb-5hA"/>
