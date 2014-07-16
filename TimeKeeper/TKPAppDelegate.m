@@ -53,7 +53,7 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey, time has already passed"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"timer.message", nil)
                                                     message:@""
                                                    delegate:self
                                           cancelButtonTitle:@"OK"

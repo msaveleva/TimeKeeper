@@ -15,6 +15,7 @@
 		1C1F3F381935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F3F361935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.m */; };
 		1C1F3F391935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C1F3F371935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib */; };
 		1C415E41192CBB190099FB1E /* UIFont+CustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C415E40192CBB190099FB1E /* UIFont+CustomFonts.m */; };
+		1C4A8C0E19769F630044353F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C4A8C1019769F630044353F /* Localizable.strings */; };
 		1C56D4ED192B85B500102E7B /* TKPCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */; };
 		1C6D0DAC192CAF3200F4EFD2 /* TKPTimeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D0DAB192CAF3200F4EFD2 /* TKPTimeScrollView.m */; };
 		1C6D0DAE192CAF4200F4EFD2 /* TKPTimeScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6D0DAD192CAF4200F4EFD2 /* TKPTimeScrollView.xib */; };
@@ -80,6 +81,12 @@
 		1C1F3F371935CFDF00BD6220 /* TKPCategoryTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPCategoryTypeTableViewCell.xib; sourceTree = "<group>"; };
 		1C415E3F192CBB190099FB1E /* UIFont+CustomFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+CustomFonts.h"; sourceTree = "<group>"; };
 		1C415E40192CBB190099FB1E /* UIFont+CustomFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+CustomFonts.m"; sourceTree = "<group>"; };
+		1C4A8C0B19769F560044353F /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		1C4A8C0C19769F560044353F /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Main.strings"; sourceTree = "<group>"; };
+		1C4A8C0D19769F560044353F /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		1C4A8C0F19769F630044353F /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		1C4A8C111976A0140044353F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1C4A8C121976A0170044353F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1C56D4EC192B85B500102E7B /* TKPCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKPCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		1C6D0DAA192CAF3200F4EFD2 /* TKPTimeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPTimeScrollView.h; sourceTree = "<group>"; };
 		1C6D0DAB192CAF3200F4EFD2 /* TKPTimeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPTimeScrollView.m; sourceTree = "<group>"; };
@@ -236,6 +243,7 @@
 				3F85E89D19279AF200275E9A /* TKPAppDelegate.h */,
 				3F85E89E19279AF200275E9A /* TKPAppDelegate.m */,
 				3F85E8A619279AF200275E9A /* Images.xcassets */,
+				1C4A8C1019769F630044353F /* Localizable.strings */,
 				3F85E89519279AF200275E9A /* Supporting Files */,
 			);
 			path = TimeKeeper;
@@ -410,6 +418,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"ru-RU",
 			);
 			mainGroup = 3F85E88219279AF200275E9A;
 			productRefGroup = 3F85E88C19279AF200275E9A /* Products */;
@@ -436,6 +445,7 @@
 				1C6D0DAE192CAF4200F4EFD2 /* TKPTimeScrollView.xib in Resources */,
 				3F85E89919279AF200275E9A /* InfoPlist.strings in Resources */,
 				1CF69243196EA90B002CFDD7 /* TKPStatisticsTableHeaderView.xib in Resources */,
+				1C4A8C0E19769F630044353F /* Localizable.strings in Resources */,
 				1C107F11193C9891003328FB /* TKPTimeTypeView.xib in Resources */,
 				1C1F3F341935CF3E00BD6220 /* TKPEditNameTableViewCell.xib in Resources */,
 				3F85E8A219279AF200275E9A /* Main.storyboard in Resources */,
@@ -536,10 +546,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1C4A8C1019769F630044353F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C4A8C0F19769F630044353F /* ru-RU */,
+				1C4A8C111976A0140044353F /* en */,
+				1C4A8C121976A0170044353F /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		3F85E89719279AF200275E9A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3F85E89819279AF200275E9A /* en */,
+				1C4A8C0B19769F560044353F /* ru-RU */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -548,6 +569,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3F85E8A119279AF200275E9A /* Base */,
+				1C4A8C0C19769F560044353F /* ru-RU */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -556,6 +578,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3F85E8B719279AF200275E9A /* en */,
+				1C4A8C0D19769F560044353F /* ru-RU */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

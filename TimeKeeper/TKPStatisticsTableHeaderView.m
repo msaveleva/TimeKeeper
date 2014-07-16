@@ -69,15 +69,15 @@
     NSString *indicatorImageName;
     switch (info.type) {
         case TKPCategoryTypeProductiveTime:
-            nameLabel = @"Productive";
+            nameLabel = NSLocalizedString(@"productive", nil);
             indicatorImageName = @"BigGreenCircle";
             break;
         case TKPCategoryTypeNeutralTime:
-            nameLabel = @"Neutral";
+            nameLabel = NSLocalizedString(@"neutral", nil);
             indicatorImageName = @"BigBlueCircle";
             break;
         case TKPCategoryTypeUnproductiveTime:
-            nameLabel = @"Unproductive";
+            nameLabel = NSLocalizedString(@"unprodutive", nil);
             indicatorImageName = @"BigRedCircle";
             break;
     }

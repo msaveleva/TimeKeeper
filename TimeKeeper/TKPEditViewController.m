@@ -85,6 +85,7 @@ typedef NS_ENUM(NSUInteger, TKPCellType) {
     [self timeTypeSelectionMenuSetup];
     [self setupButtons];
     
+    [self.deleteButton setTitle:NSLocalizedString(@"delete.category", nil) forState:UIControlStateNormal];
     if (!self.editedCategory) {
         self.deleteButton.hidden = YES;
     } else {

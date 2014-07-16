@@ -52,13 +52,13 @@ static NSString * const kUnproductiveIndicator = @"BigRedCircle";
 {
     switch (type) {
         case TKPCategoryTypeProductiveTime:
-            return @"Productive time";
+            return NSLocalizedString(@"productive.time", nil);
             break;
         case TKPCategoryTypeNeutralTime:
-            return @"Neutral time";
+            return NSLocalizedString(@"neutral.time", nil);
             break;
         case TKPCategoryTypeUnproductiveTime:
-            return @"Unproductive time";
+            return NSLocalizedString(@"unproductive.time", nil);
             break;
         default:
             break;

@@ -31,7 +31,7 @@
     NSDate *fireDate = [[NSDate date] dateByAddingTimeInterval:timeInSeconds];
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     [localNotification setFireDate:fireDate];
-    [localNotification setAlertBody:@"Hey, time has already passed"];
+    [localNotification setAlertBody:NSLocalizedString(@"timer.message", nil)];
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
