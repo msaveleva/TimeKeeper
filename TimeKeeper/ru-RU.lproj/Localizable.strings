@@ -13,7 +13,9 @@
 "productive" = "Продуктивное";
 "neutral" = "Нейтральное";
 "unprodutive" = "Непродуктивное";
+"delete.category" = "Удалить категорию";
 
 //timer
 "signal.after" = "Будильник:";
 "timer.was.set" = "Будильник установлен";
+"timer.message" = "Привет, это будильник О_о";

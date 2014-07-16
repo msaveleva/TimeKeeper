@@ -81,7 +81,7 @@ static CGSize const kTimeButtonSize = { 68.0f, 53.0f };
     NSUInteger time = [button.titleLabel.text integerValue];
     [[TKPTimerManager sharedManager] startTimerWithTime:time];
     
-    UIAlertView *timerAlert = [[UIAlertView alloc] initWithTitle:@"Timer was set"
+    UIAlertView *timerAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"timer.was.set", nil)
                                                          message:@""
                                                         delegate:self
                                                cancelButtonTitle:@"OK"
