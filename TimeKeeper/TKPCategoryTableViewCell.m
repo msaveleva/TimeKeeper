@@ -65,13 +65,8 @@ static CGFloat const kAnimationSpeed = 0.3f;
     [self.rightSwipeGesture setDirection:UISwipeGestureRecognizerDirectionRight];
 
     self.isCategoryTimeRecording = NO;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    self.pauseButtonWidthConstraint.constant = kMaxMargin;
+    self.pauseButton.alpha = 0;
 }
 
 - (void)configureCellWithCategory:(TKPCategory *)category
@@ -132,7 +127,7 @@ static CGFloat const kAnimationSpeed = 0.3f;
     if (!self.pauseButton.isHidden) {
         [UIView animateWithDuration:kAnimationSpeed animations:^{
             self.pauseButton.hidden = YES;
-            self.pauseButtonWidthConstraint.constant = 0.0f;
+            self.pauseButton.alpha = 0;
             [self layoutIfNeeded];
         } completion:^(BOOL isFinished){
             //some completion
@@ -145,7 +140,7 @@ static CGFloat const kAnimationSpeed = 0.3f;
     if (self.pauseButton.isHidden) {
         [UIView animateWithDuration:kAnimationSpeed animations:^{
             self.pauseButton.hidden = NO;
-            self.pauseButtonWidthConstraint.constant = kMaxMargin;
+            self.pauseButton.alpha = 1;
             [self layoutIfNeeded];
         } completion:^(BOOL isFinished){
             //some completion
@@ -169,7 +164,7 @@ static CGFloat const kAnimationSpeed = 0.3f;
 {
     switch (type) {
         case TKPCategoryTypeProductiveTime:
-            self.categoryTypeLabel.text = @"Productive time"; //TODO: sel localization
+            self.categoryTypeLabel.text = @"Productive time"; //TODO: make localization
             self.categoryIndicatorImageView.image = [UIImage imageNamed:@"SmallGreenCircle"];
             break;
         case TKPCategoryTypeNeutralTime:
