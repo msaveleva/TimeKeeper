@@ -41,7 +41,6 @@ static CGFloat const kAnimationSpeed = 0.3f;
     self.isEditing = NO;
     self.isRemoving = NO;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.pauseButton.hidden = YES;
     self.pauseButtonWidthConstraint.constant = 0.0f;
     
     //set colors
@@ -66,7 +65,6 @@ static CGFloat const kAnimationSpeed = 0.3f;
 
     self.isCategoryTimeRecording = NO;
     self.pauseButtonWidthConstraint.constant = kMaxMargin;
-    self.pauseButton.alpha = 0;
 }
 
 - (void)configureCellWithCategory:(TKPCategory *)category
@@ -128,7 +126,6 @@ static CGFloat const kAnimationSpeed = 0.3f;
         [UIView animateWithDuration:kAnimationSpeed animations:^{
             self.pauseButton.hidden = YES;
             self.pauseButton.alpha = 0;
-            [self layoutIfNeeded];
         } completion:^(BOOL isFinished){
             //some completion
         }];
@@ -141,7 +138,6 @@ static CGFloat const kAnimationSpeed = 0.3f;
         [UIView animateWithDuration:kAnimationSpeed animations:^{
             self.pauseButton.hidden = NO;
             self.pauseButton.alpha = 1;
-            [self layoutIfNeeded];
         } completion:^(BOOL isFinished){
             //some completion
         }];
