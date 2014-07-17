@@ -111,7 +111,7 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
         cell.isCategoryTimeRecording = YES;
         cell.categoryTimePassLabel.text = self.timerTextForCell;
         [cell.pauseButton addTarget:self
-                             action:@selector(stopCategoryFromCell:)
+                             action:@selector(pauseCategoryFromCell:)
                    forControlEvents:UIControlEventTouchUpInside];
     } else {
         cell.isCategoryTimeRecording = NO;
@@ -132,9 +132,9 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
     }
 }
 
-- (void)stopCategoryFromCell:(id)sender
+- (void)pauseCategoryFromCell:(id)sender
 {
-    [[TKPCategoryManager sharedInstance] stopCategory];
+    [[TKPCategoryManager sharedInstance] pauseCategory];
 }
 
 #pragma mark - TKPEditDeleteProtocol methods

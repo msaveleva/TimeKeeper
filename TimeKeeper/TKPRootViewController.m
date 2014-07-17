@@ -62,7 +62,7 @@ static NSString * const kMainViewControllerIdentifier = @"mainViewController";
 
 - (void)pauseCurrentCategory:(UIButton *)sender
 {
-    [[TKPCategoryManager sharedInstance] stopCategory];
+    [[TKPCategoryManager sharedInstance] pauseCategory];
 }
 
 @end

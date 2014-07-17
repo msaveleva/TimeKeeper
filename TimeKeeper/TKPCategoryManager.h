@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, TKPCategoryStatus) {
 
 - (void)startCategory:(TKPCategory *)category;
 
-- (void)pauseStopwatch;
+- (void)pauseCategory;
 /**
  This method will also called when pause category
  */
