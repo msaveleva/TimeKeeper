@@ -105,12 +105,13 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
     [cell configureCellWithCategory:category];
     cell.delegate = self;
     NSString *currentCategoryName = [[TKPCategoryManager sharedInstance] currentCategoryName];
-    BOOL isCategoryRecording = [[TKPCategoryManager sharedInstance] isCategoryRecording];
-    if ([category.name isEqualToString:currentCategoryName] && isCategoryRecording) {
+    TKPCategoryStatus status = [[TKPCategoryManager sharedInstance] status];
+    if ([category.name isEqualToString:currentCategoryName] &&
+        (status == TKPCategoryStatusRecording || status == TKPCategoryStatusPaused)) {
         cell.isCategoryTimeRecording = YES;
         cell.categoryTimePassLabel.text = self.timerTextForCell;
         [cell.pauseButton addTarget:self
-                             action:@selector(stopCategoryFromCell:)
+                             action:@selector(pauseCategoryFromCell:)
                    forControlEvents:UIControlEventTouchUpInside];
     } else {
         cell.isCategoryTimeRecording = NO;
@@ -121,19 +122,21 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BOOL isCategoryRecording = [[TKPCategoryManager sharedInstance] isCategoryRecording];
-    if (!isCategoryRecording) {
-        TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-        cell.isCategoryTimeRecording = YES;
-        cell.categoryTimePassLabel.text = @"";
-        [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
-        self.indexPathForRecordedCell = indexPath;
+    TKPCategoryStatus status = [[TKPCategoryManager sharedInstance] status];
+    if (status == TKPCategoryStatusPaused || status == TKPCategoryStatusRecording) {
+        [[TKPCategoryManager sharedInstance] stopCategory];
     }
+    
+    TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.isCategoryTimeRecording = YES;
+    cell.categoryTimePassLabel.text = @"";
+    [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
+    self.indexPathForRecordedCell = indexPath;
 }
 
-- (void)stopCategoryFromCell:(id)sender
+- (void)pauseCategoryFromCell:(id)sender
 {
-    [[TKPCategoryManager sharedInstance] stopCategory];
+    [[TKPCategoryManager sharedInstance] pauseCategory];
 }
 
 #pragma mark - TKPEditDeleteProtocol methods

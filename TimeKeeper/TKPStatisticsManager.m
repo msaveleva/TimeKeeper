@@ -27,23 +27,9 @@
     return statisticsManager;
 }
 
-- (NSArray *)loadCategoriesWithourCurrent
-{
-    NSMutableArray *categories = [NSMutableArray arrayWithArray:[[TKPCategoryManager sharedInstance] loadCategories]];
-    NSString *currentCategoryName = [[TKPCategoryManager sharedInstance] currentCategoryName];
-    for (TKPCategory *category in categories) {
-        if ([category.name isEqualToString:currentCategoryName]) {
-            [categories removeObject:category];
-            break;
-        }
-    }
-    
-    return (NSArray *)categories;
-}
-
 - (NSArray *)loadCategoriesForType:(TKPCategoryType)type
 {
-    NSArray *categories = [self loadCategoriesWithourCurrent];
+    NSArray *categories = [[TKPCategoryManager sharedInstance] loadCategories];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type = %@", @(type)];
     NSArray *toReturn =  [categories filteredArrayUsingPredicate:predicate];
@@ -57,8 +43,10 @@
     NSArray *categoriesWithType = [self loadCategoriesForType:type];
     for (TKPCategory *category in categoriesWithType) {
         for (TKPTimeAndDate *timeAndDate in category.timesAndDates) {
-            NSTimeInterval interval = [timeAndDate.endDate timeIntervalSinceDate:timeAndDate.startDate];
-            timeRange += interval;
+            if (timeAndDate.endDate && timeAndDate.startDate) {
+                NSTimeInterval interval = [timeAndDate.endDate timeIntervalSinceDate:timeAndDate.startDate];
+                timeRange += interval;
+            }
         }
     }
     
@@ -68,7 +56,7 @@
 - (double)loadTimeForCategoryNamed:(NSString *)categoryName
 {
     double result = 0;
-    NSArray *categories = [self loadCategoriesWithourCurrent];
+    NSArray *categories = [[TKPCategoryManager sharedInstance] loadCategories];
     for (TKPCategory *category in categories) {
         if ([category.name isEqualToString:categoryName]) {
             for (TKPTimeAndDate *timeAndDate in category.timesAndDates) {

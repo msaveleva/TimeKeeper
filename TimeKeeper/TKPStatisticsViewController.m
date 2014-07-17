@@ -142,7 +142,7 @@ static NSString *const kStatisticsCellIdentifier = @"statisticsCell";
     TKPHeaderInfo *headerInfo = [TKPHeaderInfo new];
     headerInfo.type = section;
     headerInfo.spentTime = timeStringRepresentation;
-    headerInfo.persents = [NSString stringWithFormat:@"%d%%", percents];
+    headerInfo.persents = [NSString stringWithFormat:@"%ld%%", (long)percents];
     
     if (section == 0) {
         self.percentLabel.text = headerInfo.persents;
