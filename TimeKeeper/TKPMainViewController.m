@@ -106,7 +106,8 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
     cell.delegate = self;
     NSString *currentCategoryName = [[TKPCategoryManager sharedInstance] currentCategoryName];
     TKPCategoryStatus status = [[TKPCategoryManager sharedInstance] status];
-    if ([category.name isEqualToString:currentCategoryName] && status == TKPCategoryStatusRecording) {
+    if ([category.name isEqualToString:currentCategoryName] &&
+        (status == TKPCategoryStatusRecording || status == TKPCategoryStatusPaused)) {
         cell.isCategoryTimeRecording = YES;
         cell.categoryTimePassLabel.text = self.timerTextForCell;
         [cell.pauseButton addTarget:self

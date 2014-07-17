@@ -19,9 +19,7 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 @property (nonatomic, strong) NSDate *startDate;
 
 @property (strong, nonatomic) NSTimer *stopwatchTimer;
-@property (strong, nonatomic) NSDate *stopwatchStartDate;
-@property (strong, nonatomic) NSDateFormatter *dateFormatter;
-@property (strong, nonatomic) NSDate *zeroDate;
+@property (nonatomic) NSInteger passedTime;
 
 @end
 
@@ -42,20 +40,6 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 {
     self.category = category;
     self.startDate = [NSDate date];
-    if (!self.dateFormatter) {
-        self.dateFormatter = [[NSDateFormatter alloc] init];
-        [self.dateFormatter setDateFormat:@"HH:mm:ss"];
-    }
-    
-    if (!self.zeroDate) {
-        NSDateComponents *components = [NSDateComponents new];
-        [components setHour:0];
-        [components setMinute:0];
-        [components setSecond:0];
-        
-        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        self.zeroDate = [calendar dateFromComponents:components];
-    }
     
     [self startStopwatch];
     self.timeView.pauseButton.enabled = YES;
@@ -85,11 +69,16 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     self.currentCategoryName = nil;
 }
 
+- (void)pauseCategory
+{
+    //TODO: implement
+    self.status = TKPCategoryStatusPaused;
+}
+
 #pragma mark - Stopwatch for category
 
 - (void)startStopwatch
 {
-    self.stopwatchStartDate = [NSDate date];
     self.stopwatchTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
                                                            target:self
                                                          selector:@selector(updateStopwatchTime:)
@@ -99,26 +88,41 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
 
 - (void)stopStopwatch
 {
-    self.stopwatchStartDate = nil;
+    self.passedTime = 0;
     [self.stopwatchTimer invalidate];
     [self.delegate updateStopwatch:@"00:00:00"];
 }
 
+- (void)pauseStopwatch
+{
+    [self.stopwatchTimer invalidate];
+}
+
 - (void)updateStopwatchTime:(id)sender
 {
-    NSDate *currentDate = [NSDate date];
-    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:self.stopwatchStartDate];
-    NSDate *timerDate = [NSDate dateWithTimeInterval:timeInterval sinceDate:self.zeroDate];
-    NSString *stopwatchValue = [self.dateFormatter stringFromDate:timerDate];
-    
+    NSString *stopwatchValue = [self makeTimeStringFromInterval:self.passedTime];
     if (self.timeView) {
         self.timeView.categoryStopwatchLabel.text = stopwatchValue;
         if (self.category) {
             self.timeView.categoryNameLabel.text = self.category.name;
         }
     }
+
+    self.passedTime++;
     
     [self.delegate updateStopwatch:stopwatchValue];
+}
+
+- (NSString *)makeTimeStringFromInterval:(double)interval
+{
+    int timeInterval = (int)interval;
+    int seconds = timeInterval % 60;
+    int minutes = (timeInterval / 60) % 60;
+    int hours = timeInterval / 3600;
+    
+    NSString *result = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
+    
+    return  result;
 }
 
 - (NSArray *)loadCategories

@@ -34,6 +34,8 @@ typedef NS_ENUM(NSInteger, TKPCategoryStatus) {
 + (instancetype)sharedInstance;
 
 - (void)startCategory:(TKPCategory *)category;
+
+- (void)pauseStopwatch;
 /**
  This method will also called when pause category
  */
