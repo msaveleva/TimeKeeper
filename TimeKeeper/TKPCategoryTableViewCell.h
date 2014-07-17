@@ -39,6 +39,6 @@
 
 - (void)hidePauseButton;
 - (void)showPauseButton;
-- (void)configureCellWithCategory:(TKPCategory *)category;
+- (void)configureCellWithCategory:(TKPCategory *)category delegate:(id)controller;
 
 @end

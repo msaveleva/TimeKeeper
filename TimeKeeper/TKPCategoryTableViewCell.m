@@ -67,11 +67,12 @@ static CGFloat const kAnimationSpeed = 0.3f;
     self.pauseButtonWidthConstraint.constant = kMaxMargin;
 }
 
-- (void)configureCellWithCategory:(TKPCategory *)category
+- (void)configureCellWithCategory:(TKPCategory *)category delegate:(id)controller
 {
     self.currentCategory = category;
     self.categoryNameLabel.text = self.currentCategory.name;
     [self setCategoryTimeTypeWithType:self.currentCategory.type.integerValue];
+    self.delegate = controller;
     
     self.leftContentViewConstraint.constant = kMinMargin;
     self.rightContentViewConstraint.constant = kMinMargin;

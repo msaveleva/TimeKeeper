@@ -102,8 +102,7 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
     TKPCategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier
                                                                      forIndexPath:indexPath];
     TKPCategory *category = [self.categoryList objectAtIndex:indexPath.row];
-    [cell configureCellWithCategory:category];
-    cell.delegate = self;
+    [cell configureCellWithCategory:category delegate:self];
     NSString *currentCategoryName = [[TKPCategoryManager sharedInstance] currentCategoryName];
     TKPCategoryStatus status = [[TKPCategoryManager sharedInstance] status];
     if ([category.name isEqualToString:currentCategoryName] &&
