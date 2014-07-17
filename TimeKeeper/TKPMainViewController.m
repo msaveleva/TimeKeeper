@@ -123,13 +123,15 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TKPCategoryStatus status = [[TKPCategoryManager sharedInstance] status];
-    if (status != TKPCategoryStatusRecording) {
-        TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-        cell.isCategoryTimeRecording = YES;
-        cell.categoryTimePassLabel.text = @"";
-        [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
-        self.indexPathForRecordedCell = indexPath;
+    if (status == TKPCategoryStatusPaused || status == TKPCategoryStatusRecording) {
+        [[TKPCategoryManager sharedInstance] stopCategory];
     }
+    
+    TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.isCategoryTimeRecording = YES;
+    cell.categoryTimePassLabel.text = @"";
+    [[TKPCategoryManager sharedInstance] startCategory:[self.categoryList objectAtIndex:indexPath.row]];
+    self.indexPathForRecordedCell = indexPath;
 }
 
 - (void)pauseCategoryFromCell:(id)sender
