@@ -59,7 +59,7 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     
     [self startStopwatch];
     self.timeView.pauseButton.enabled = YES;
-    self.isCategoryRecording = YES;
+    self.status = TKPCategoryStatusRecording;
     self.currentCategoryName = self.category.name;
 }
 
@@ -81,7 +81,7 @@ static NSString * const kTimeAndDateManagedObject = @"TKPTimeAndDate";
     [self.timeView clearTimeView];
     [self.delegate stopCategoryTraking];
     [self stopStopwatch];
-    self.isCategoryRecording = NO;
+    self.status = TKPCategoryStatusStopped;
     self.currentCategoryName = nil;
 }
 

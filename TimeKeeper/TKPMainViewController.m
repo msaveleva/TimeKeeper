@@ -105,8 +105,8 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
     [cell configureCellWithCategory:category];
     cell.delegate = self;
     NSString *currentCategoryName = [[TKPCategoryManager sharedInstance] currentCategoryName];
-    BOOL isCategoryRecording = [[TKPCategoryManager sharedInstance] isCategoryRecording];
-    if ([category.name isEqualToString:currentCategoryName] && isCategoryRecording) {
+    TKPCategoryStatus status = [[TKPCategoryManager sharedInstance] status];
+    if ([category.name isEqualToString:currentCategoryName] && status == TKPCategoryStatusRecording) {
         cell.isCategoryTimeRecording = YES;
         cell.categoryTimePassLabel.text = self.timerTextForCell;
         [cell.pauseButton addTarget:self
@@ -121,8 +121,8 @@ static NSString *const kStatisticsViewController = @"statisticsViewController";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BOOL isCategoryRecording = [[TKPCategoryManager sharedInstance] isCategoryRecording];
-    if (!isCategoryRecording) {
+    TKPCategoryStatus status = [[TKPCategoryManager sharedInstance] status];
+    if (status != TKPCategoryStatusRecording) {
         TKPCategoryTableViewCell *cell = (TKPCategoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
         cell.isCategoryTimeRecording = YES;
         cell.categoryTimePassLabel.text = @"";

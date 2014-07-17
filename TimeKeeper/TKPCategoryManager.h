@@ -11,6 +11,12 @@
 
 @class TKPCategory;
 
+typedef NS_ENUM(NSInteger, TKPCategoryStatus) {
+    TKPCategoryStatusStopped,
+    TKPCategoryStatusRecording,
+    TKPCategoryStatusPaused,
+};
+
 @protocol TKPStopWatchUpdateDelegate <NSObject>
 
 - (void)updateStopwatch:(NSString *)stopwatchValue;
@@ -20,10 +26,10 @@
 
 @interface TKPCategoryManager : NSObject
 
-@property (nonatomic) BOOL isCategoryRecording;
 @property (weak, nonatomic) id<TKPStopWatchUpdateDelegate> delegate;
 @property (weak, nonatomic) TKPTimeView *timeView;
 @property (strong, nonatomic) NSString *currentCategoryName;
+@property (nonatomic) TKPCategoryStatus status;
 
 + (instancetype)sharedInstance;
 
