@@ -16,6 +16,7 @@ static CGFloat const kTimerAndButtonView = 256.0f;
 @interface TKPTimeView ()
 
 @property (nonatomic) BOOL isSettingAlarm;
+@property (nonatomic) BOOL isAlarmAnimating;
 
 @end
 
@@ -44,13 +45,15 @@ static CGFloat const kTimerAndButtonView = 256.0f;
         
         //hide scrollView
         self.isSettingAlarm = NO;
+        self.isAlarmAnimating = NO;
         [self clearTimeView];
     }
     return self;
 }
 
 - (IBAction)setAlarm:(id)sender {
-    if (!self.isSettingAlarm) {
+    if (!self.isSettingAlarm && !self.isAlarmAnimating) {
+        self.isAlarmAnimating = YES;
         [UIView animateWithDuration:kAnimationSpeed animations:^{
             self.timerAndButtonView.frame =
                 UIEdgeInsetsInsetRect(self.timerAndButtonView.frame, UIEdgeInsetsMake(0.0f,
@@ -60,8 +63,10 @@ static CGFloat const kTimerAndButtonView = 256.0f;
             [self layoutIfNeeded];
         } completion:^(BOOL isFinished){
             self.isSettingAlarm = YES;
+            self.isAlarmAnimating = NO;
         }];
-    } else {
+    } else if (self.isSettingAlarm && !self.isAlarmAnimating) {
+        self.isAlarmAnimating = YES;
         [UIView animateWithDuration:kAnimationSpeed animations:^{
             self.timerAndButtonView.frame =
             UIEdgeInsetsInsetRect(self.timerAndButtonView.frame, UIEdgeInsetsMake(0.0f,
@@ -70,6 +75,7 @@ static CGFloat const kTimerAndButtonView = 256.0f;
                                                                                   0.0f));
             [self layoutIfNeeded];
         } completion:^(BOOL isFinished){
+            self.isAlarmAnimating = NO;
             self.isSettingAlarm = NO;
         }];
     }
