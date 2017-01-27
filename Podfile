@@ -1,4 +1,6 @@
 platform :ios, '7.0'
 
-pod 'FXBlurView'
-pod 'XYPieChart'
+target "TimeKeeper" do
+	pod 'FXBlurView'
+	pod 'XYPieChart'
+end
