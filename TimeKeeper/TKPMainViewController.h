@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TKPCategoryTableViewCell.h"
+#import "TKPCategoryManager.h"
 
-@interface TKPViewController : UIViewController
+@interface TKPMainViewController : UIViewController
+<
+TKPEditDeleteProtocol,
+TKPStopWatchUpdateDelegate
+>
 
 @end

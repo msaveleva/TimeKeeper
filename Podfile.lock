@@ -1,0 +1,15 @@
+PODS:
+  - FXBlurView (1.6.1)
+  - XYPieChart (0.2)
+
+DEPENDENCIES:
+  - FXBlurView
+  - XYPieChart
+
+SPEC CHECKSUMS:
+  FXBlurView: 5121730176fd52bcf7bffd0bd8c1485e8aabc3cb
+  XYPieChart: 0efd8069d26c25d20ab74c01b5ad455f1fc48153
+
+PODFILE CHECKSUM: 695ce8d0746da9b8128ee64d93c8696c6e82f14e
+
+COCOAPODS: 1.2.0.beta.3
